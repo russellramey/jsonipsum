@@ -1,0 +1,12 @@
+{
+	"name": "jsonipsum",
+	"version": "1.0.0",
+	"description": "RESTful API to generate placeholder lorem ipsum text.",
+	"main": "app.js",
+	"dependencies": {
+		"express": "^4.16.3",
+		"lorem-ipsum": "^1.0.6",
+		"faker": "^4.1.0"
+	},
+	"license": "mit"
+}
