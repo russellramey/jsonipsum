@@ -81,11 +81,11 @@ module.exports = {
             }
             // JOB
             if (field === 'job'){
-                data[field] = faker.phone.jobTitle();
+                data[field] = faker.name.jobTitle();
             }
             // COMPANY
             if (field === 'company'){
-                data[field] = faker.phone.company.companyName();
+                data[field] = faker.company.companyName();
             }
 
             // TITLE, SUBTITLE

@@ -9,14 +9,14 @@ var app = express();
 app.get("/api/v1/text/:format/", (request, response, next) => {
 
     // Get format
-    var formats = ["sentence", "group", "paragraph"]
+    var formats = ["sentence", "group", "paragraph"];
     var format = request.params.format;
 
     // If format is valid
     if (formats.indexOf(format) >= 0) {
 
         // Get passed parameters
-        var params = request.query
+        var params = request.query;
 
         // Call lorem funciton to get text, append to data
         data = getFormat.get_format(format, params);

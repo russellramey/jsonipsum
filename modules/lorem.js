@@ -5,11 +5,10 @@ var loremIpsum = require('lorem-ipsum');
 module.exports = {
 
     // Generate Lorem Ipsum
-    generate_lorem_ipusm : function generate_lorem_ipusm(style, length, count) {
+    generate_lorem_ipusm : function generate_lorem_ipusm(style, length, count, html) {
         // Vars
         var text_length;
         var text = '';
-        var html = 'plain';
 
         // Parse arguments
         if (length === 'short'){
@@ -27,6 +26,12 @@ module.exports = {
                 s: [12,20],
                 p: [5,8]
             };
+        }
+        // Check for html format
+        if (html === 'true'){
+            html = 'html';
+        } else {
+            html = 'plain';
         }
 
         // Build base arguments
