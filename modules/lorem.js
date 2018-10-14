@@ -27,7 +27,6 @@ module.exports = {
                 p: [5,8]
             };
         }
-        // Check for html format
         if (html === 'true'){
             html = 'html';
         } else {
