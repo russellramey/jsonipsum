@@ -1,15 +1,12 @@
 // Modules
 var express = require("express");
-var lorem = require('./modules/lorem');
+var getFormat = require('./modules/formats');
 
 // Start
 var app = express();
 
 // Main get request
 app.get("/api/v1/text/:format/", (request, response, next) => {
-
-    // Set data array
-    data = [];
 
     // Get format
     var formats = ["sentence", "group", "paragraph"]
@@ -20,14 +17,15 @@ app.get("/api/v1/text/:format/", (request, response, next) => {
 
         // Get passed parameters
         var params = request.query
+
         // Call lorem funciton to get text, append to data
-        data.push(lorem.text_format(params));
+        data = getFormat.get_format(format, params);
 
     // Return error
     } else {
 
         // Return error if not valid FORMAT
-        data.push({
+        data = {
             "error" : format + " is not a valid endpoint",
             "status" : 404,
             "endpoints" : {
@@ -35,8 +33,7 @@ app.get("/api/v1/text/:format/", (request, response, next) => {
                 "paragraph" : "https://jsonipsum.com/api/v1/text/paragraph/",
                 "group" : "https://jsonipsum.com/api/v1/text/group/"
             }
-        });
-
+        };
     }
 
     // Return parsed data as json
