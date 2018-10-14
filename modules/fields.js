@@ -15,17 +15,20 @@ module.exports = {
         if (params.region){
             region = params.region;
         } else {
-            region = 'en';
+            region = 'en_US';
         }
 
         // Set FAKER region
-        faker.local = region;
+        faker.locale = region;
 
-        // Persona
-        firstname = faker.name.firstName();
-        lastname = faker.name.lastName();
-        username = firstname.toLowerCase() + this.get_random_int(1970, 2000);
-
+        // Create persona (user)
+        // We do this outside the main loop so the names data is consistant,
+        // however we don't create the data unless it is needed
+        if(fields.includes('name') || fields.includes('username') || fields.includes('email')){
+            firstname = faker.name.firstName();
+            lastname = faker.name.lastName();
+            username = firstname.toLowerCase() + lorem.generate_random_int(1980, 2010);
+        }
 
         // Loop thru all fields
         for (var f in fields) {
@@ -49,12 +52,7 @@ module.exports = {
             }
 
 
-
-
-
-
-
-
+            // Process individual 'FIELDS'
             // NAME
             if (field === 'name'){
                 data[field] = firstname + ' ' + lastname;
@@ -67,6 +65,28 @@ module.exports = {
             if (field === 'username'){
                 data[field] = username;
             }
+            // ADDRESS
+            if (field === 'address'){
+                data[field] = {
+                    'street' : faker.address.streetAddress(),
+                    'city' : faker.address.city(),
+                    'postal' : faker.address.zipCode(),
+                    'province' : faker.address.state(),
+                    'country' : faker.address.countryCode()
+                };
+            }
+            // PHONE
+            if (field === 'phone'){
+                data[field] = faker.phone.phoneNumber();
+            }
+            // JOB
+            if (field === 'job'){
+                data[field] = faker.phone.jobTitle();
+            }
+            // COMPANY
+            if (field === 'company'){
+                data[field] = faker.phone.company.companyName();
+            }
 
             // TITLE, SUBTITLE
             if (['title', 'subtitle'].includes(field)){
@@ -76,18 +96,40 @@ module.exports = {
             if (['text', 'excerpt'].includes(field)){
                 data[field] = lorem.generate_lorem_ipusm('paragraph', options, 1);
             }
+            // WEBSITE
+            if (field === 'website'){
+                data[field] = 'https://www.jsonipsum.com';
+            }
+            // URL
+            if (field === 'url'){
+                data[field] = 'https://www.jsonipsum.com/api/v1/text/paragraph/';
+            }
+            // FILE
+            if (field === 'file'){
+                data[field] = 'https://jsonipsum.com/static/files/file_placeholder.pdf';
+            }
+            // IAMGE
+            if (field === 'image'){
+                data[field] = lorem.generate_image_urls(options);
+            }
 
+            // DATE
+            if (['date', 'birthday'].includes(field)){
+                data[field] = lorem.generate_date(options, faker);
+            }
+            // PERCENT, PROGRESS
+            if (['percent', 'progress'].includes(field)){
+                data[field] = lorem.generate_random_int(1, 100);
+            }
+            // RATING
+            if (field === 'rating'){
+                data[field] = lorem.generate_random_int(1, 5);
+            }
 
         }
 
+        // Return final data
         return data;
-    },
-
-    // Randon Int Generator
-    get_random_int : function get_random_int(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
     },
 
 };
