@@ -6,7 +6,7 @@ var faker = require('faker');
 module.exports = {
 
     // Render Text Fields funciton
-    render_text_field : function render_text_field(fields, params) {
+    render_text_field : function render_text_field(fields, params, request) {
 
         // Data object
         var data = {};
@@ -75,6 +75,13 @@ module.exports = {
                     'country' : faker.address.countryCode()
                 };
             }
+            // CORDS
+            if (['latlong', 'coordinates'].includes(field)){
+                data[field] = {
+                    'latitude': faker.address.latitude(),
+                    'longitude': faker.address.longitude()
+                }
+            }
             // PHONE
             if (field === 'phone'){
                 data[field] = faker.phone.phoneNumber();
@@ -86,6 +93,45 @@ module.exports = {
             // COMPANY
             if (field === 'company'){
                 data[field] = faker.company.companyName();
+            }
+            // PRICE
+            if (field === 'price'){
+                data[field] = faker.commerce.price();
+            }
+            // COLOR
+            if (field === 'color'){
+                data[field] = faker.commerce.color();
+            }
+            // IP
+            if (field === 'ip'){
+                data[field] = faker.internet.ip();
+            }
+            // USER AGENT
+            if (field === 'useragent'){
+                data[field] = faker.internet.userAgent();
+            }
+            // UID
+            if (field === 'uuid'){
+                data[field] = faker.random.uuid();
+            }
+            // MAC ADDRESS
+            if (field === 'mac'){
+                data[field] = faker.internet.mac();
+            }
+            // PASSWORD
+            if (field === 'password'){
+                data[field] = faker.internet.password(14);
+            }
+            // HEADERS
+            if (field === 'headers'){
+                data[field] = {
+                    'Host': 'https://www.jsonipsum.com',
+                    'Request URL': request.url,
+                    'Request Method': 'GET',
+                    'Status Code': 200,
+                    'Remote Address': faker.internet.ip(),
+                    'User-Agent': faker.internet.userAgent()
+                }
             }
 
             // TITLE, SUBTITLE

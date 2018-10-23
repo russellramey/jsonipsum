@@ -19,7 +19,7 @@ app.get("/api/v1/text/:format/", (request, response, next) => {
         var params = request.query;
 
         // Call lorem funciton to get text, append to data
-        data = getFormat.get_format(format, params);
+        data = getFormat.get_format(format, params, request);
 
     // Return error
     } else {

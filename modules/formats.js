@@ -6,7 +6,7 @@ var getFields = require('./fields');
 module.exports = {
 
     // Get Format Funciton
-    get_format : function get_format(format, params) {
+    get_format : function get_format(format, params, request) {
 
         var data = [];
 
@@ -74,7 +74,7 @@ module.exports = {
                     fields = params.fields.split(',');
 
                     //Add all data to master Dict
-                    Object.assign(dataitem, getFields.render_text_field(fields, params));
+                    Object.assign(dataitem, getFields.render_text_field(fields, params, request));
 
                 } else {
                     // Return default Text Group
