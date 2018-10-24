@@ -90,6 +90,7 @@ REST Api, json format, that provides structured placeholder data for website / a
     - province
     - country
 - file
+-
 
 
 
@@ -155,8 +156,5 @@ REST Api, json format, that provides structured placeholder data for website / a
 
 
 # RESOURCES
-Faker - https://github.com/joke2k/faker
-Lorem - https://pypi.org/project/lorem
-Insomnia - API endpoint tester
-Flask - Python micro-framework
-Flask-RESTful - Rest API module for flask
+Faker - https://github.com/marak/Faker.js/
+Lorem - https://www.npmjs.com/package/lorem-ipsum

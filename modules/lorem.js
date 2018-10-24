@@ -61,7 +61,9 @@ module.exports = {
         // Check if options are passed
         if (options === 'rand'){
             date = faker.date.between('1980-01-01', '2010-12-31');
-        } else {
+        } else if (options === 'future'){
+            date = faker.date.future(4);
+        }else {
             date = new Date();
         }
 
