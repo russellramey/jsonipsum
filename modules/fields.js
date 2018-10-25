@@ -68,15 +68,33 @@ module.exports = {
                 if (field === 'username'){
                     data[field] = username;
                 }
+                // PASSWORD
+                if (field === 'password'){
+                    data[field] = faker.internet.password(14);
+                }
+
                 // ADDRESS
                 if (field === 'address'){
-                    data[field] = {
-                        'street' : faker.address.streetAddress(),
-                        'city' : faker.address.city(),
-                        'postal' : faker.address.zipCode(),
-                        'province' : faker.address.state(),
-                        'country' : faker.address.countryCode()
+
+                    address = {
+                        'street': faker.address.streetAddress(),
+                        'city': faker.address.city(),
+                        'postal': faker.address.zipCode(),
+                        'province': faker.address.state(),
+                        'country': faker.address.country(),
+                        'country-code': faker.address.countryCode()
                     };
+
+                    // Get Keys
+                    $keys = Object.keys(address);
+
+                    // Parse options, if option is a key
+                    if ($keys.includes(options)){
+                        data[options] = address[options];
+                    } else {
+                        data[field] = address;
+                    }
+
                 }
                 // CORDS
                 if (['latlong', 'coordinates'].includes(field)){
@@ -85,6 +103,7 @@ module.exports = {
                         'longitude': faker.address.longitude()
                     }
                 }
+
                 // PHONE
                 if (field === 'phone'){
                     data[field] = faker.phone.phoneNumber();
@@ -97,6 +116,7 @@ module.exports = {
                 if (field === 'company'){
                     data[field] = faker.company.companyName();
                 }
+
                 // PRICE
                 if (field === 'price'){
                     data[field] = faker.finance.amount();
@@ -105,14 +125,7 @@ module.exports = {
                 if (field === 'color'){
                     data[field] = faker.commerce.color();
                 }
-                // IP
-                if (field === 'ip'){
-                    data[field] = faker.internet.ip();
-                }
-                // USER AGENT
-                if (field === 'useragent'){
-                    data[field] = faker.internet.userAgent();
-                }
+
                 // UID
                 if (field === 'uuid'){
                     data[field] = faker.random.uuid();
@@ -121,40 +134,70 @@ module.exports = {
                 if (field === 'mac'){
                     data[field] = faker.internet.mac();
                 }
-                // PASSWORD
-                if (field === 'password'){
-                    data[field] = faker.internet.password(14);
-                }
+
                 // HEADERS
                 if (field === 'headers'){
-                    data[field] = {
-                        'Host': 'https://www.jsonipsum.com',
-                        'Request URL': request.url,
-                        'Request Method': 'GET',
-                        'Status Code': 200,
-                        'Remote Address': faker.internet.ip(),
-                        'User-Agent': faker.internet.userAgent()
+                    headers = {
+                        'host': 'https://www.jsonipsum.com',
+                        'request': request.url,
+                        'method': 'GET',
+                        'status': 200,
+                        'ip': faker.internet.ip(),
+                        'useragent': faker.internet.userAgent()
                     }
-                }
-                // TRANSACTION
-                if (field === 'transaction'){
-                    data[field] = {
-                        'number': faker.finance.account(16),
-                        'type': faker.finance.accountName(),
-                        'amount': faker.finance.amount(200, 6000),
-                        'transaction': faker.finance.transactionType(),
-                        'confirmation': faker.internet.password(8)
+
+                    // Get Keys
+                    $keys = Object.keys(headers);
+
+                    // Parse options, if option is a key
+                    if ($keys.includes(options)){
+                        data[options] = headers[options];
+                    } else {
+                        data[field] = headers;
                     }
-                }
-                // BANK CARD
-                if(field === 'bankcard'){
-                    data[field] = {
-                        'number': faker.finance.account(16),
-                        'expire': lorem.generate_date('future', faker),
-                        'CCV': lorem.generate_random_int(200, 999)
-                    }
+
                 }
 
+                // TRANSACTION
+                if (field === 'transaction'){
+                    transaction = {
+                        'account': faker.finance.account(16),
+                        'type': faker.finance.accountName(),
+                        'amount': faker.finance.amount(200, 6000),
+                        'type': faker.finance.transactionType(),
+                        'confirmation': faker.internet.password(8)
+                    }
+
+                    // Get Keys
+                    $keys = Object.keys(transaction);
+
+                    // Parse options, if option is a key
+                    if ($keys.includes(options)){
+                        data[options] = transaction[options];
+                    } else {
+                        data[field] = transaction;
+                    }
+
+                }
+
+                // BANK CARD
+                if(field === 'bankcard'){
+                    bankcard = {
+                        'number': faker.finance.account(16),
+                        'expire': lorem.generate_date('future', faker),
+                        'ccv': lorem.generate_random_int(200, 999)
+                    }
+
+                    // Get Keys
+                    $keys = Object.keys(bankcard);
+
+                    // Parse options, if option is a key
+                    if ($keys.includes(options)){
+                        data[options] = bankcard[options];
+                    } else {
+                        data[field] = bankcard;
+                    }
+                }
 
                 // TITLE, SUBTITLE
                 if (['title', 'subtitle'].includes(field)){
