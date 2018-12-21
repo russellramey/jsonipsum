@@ -7,8 +7,8 @@ module.exports = {
     // Generate Lorem Ipsum
     generate_lorem_ipusm : function generate_lorem_ipusm(style, length, count, html) {
         // Vars
-        var text_length;
         var text = '';
+        var options = '';
 
         // Parse arguments
         if (length === 'short'){
@@ -56,15 +56,22 @@ module.exports = {
 
     // Generate date
     generate_date : function generate_date(options, faker) {
+        // Get todays datetime
+        var today = new Date();
         var date = '';
 
         // Check if options are passed
-        if (options === 'rand'){
-            date = faker.date.between('1980-01-01', '2010-12-31');
-        } else if (options === 'future'){
+        // Random - date between 1980 - Present
+        if (options === 'past'){
+            date = faker.date.between('1980-01-01', today);
+        }
+        // Future - return date in the future, based off current date
+        else if (options === 'future'){
             date = faker.date.future(4);
-        }else {
-            date = new Date();
+        }
+        // Default - Return todays date
+        else {
+            date = today;
         }
 
         // Vars

@@ -26,7 +26,7 @@ app.get("/api/v1/text/:format/", (request, response, next) => {
 
         // Return error if not valid FORMAT
         data = {
-            "error" : format + " is not a valid endpoint",
+            "error" : "/" + format + " is not a valid endpoint",
             "status" : 404,
             "endpoints" : {
                 "sentence" : "https://jsonipsum.com/api/v1/text/sentence/",
@@ -39,7 +39,7 @@ app.get("/api/v1/text/:format/", (request, response, next) => {
     // Return parsed data as json
     response.json(data);
 
-    // Debug, log headers to console
+    // Debug, log Request URL to console
     console.log(request.url);
 });
 

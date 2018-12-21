@@ -28,36 +28,23 @@ REST Api, json format, that provides structured placeholder data for website / a
 - Type of content to include (text, image, pdf, zip, doc, csv, xls, video)
 
 
-# data
-- word - done
-- phrase - done
-- paragraph - done
-
-
 # Fields
-- title
-    [length]
-        - short
-        - long
-- subtitle
-    [length]
-        - short
-        - long
-- excerpt
-    [length]
-        - short
-        - long
-- text
+- title / subtitle
     [length]
         - short
         - medium
         - long
-- content
-- date
+- text / excerpt / body / summary
+    [length]
+        - short
+        - medium
+        - long
+- date / birthday
     [format]
-        - timestamp
-        - string
-- image
+        - past
+        - future
+        - default (today)
+- image / avatar / thumbnail
     [size]
         - small
             - landscape
@@ -77,21 +64,22 @@ REST Api, json format, that provides structured placeholder data for website / a
 - username
 - website
 - age
-- birthday
-- percent
 - rating
 - url
 - phone
 - email
-- address
+- latlang / coordinates
+- address / location
     - street
     - city
     - postal
     - province
     - country
-- file
--
-
+- file / download
+- percent / progress
+- taxonomy
+    - category
+    - tags
 
 
 

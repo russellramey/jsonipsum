@@ -18,7 +18,7 @@ module.exports = {
             region = 'en_US';
         }
 
-        // Set FAKER region
+        // Set FAKER region, EN_US default
         faker.locale = region;
 
         // Create persona (user)
@@ -53,7 +53,7 @@ module.exports = {
             }
 
             // Process individual 'FIELDS'
-            // If data[key] doesn't already exist
+            // If data[key] doesn't already exist, set it
             if (!data[field]){
 
                 // NAME
@@ -85,7 +85,7 @@ module.exports = {
                         'country-code': faker.address.countryCode()
                     };
 
-                    // Get Keys
+                    // Get Keys of Address Obj
                     $keys = Object.keys(address);
 
                     // Parse options, if option is a key
@@ -146,7 +146,7 @@ module.exports = {
                         'useragent': faker.internet.userAgent()
                     }
 
-                    // Get Keys
+                    // Get Keys of Headers Obj
                     $keys = Object.keys(headers);
 
                     // Parse options, if option is a key
@@ -168,7 +168,7 @@ module.exports = {
                         'confirmation': faker.internet.password(8)
                     }
 
-                    // Get Keys
+                    // Get Keys of Transaction Obj
                     $keys = Object.keys(transaction);
 
                     // Parse options, if option is a key
@@ -188,7 +188,7 @@ module.exports = {
                         'ccv': lorem.generate_random_int(200, 999)
                     }
 
-                    // Get Keys
+                    // Get Keys of BankCard Obj
                     $keys = Object.keys(bankcard);
 
                     // Parse options, if option is a key
@@ -204,7 +204,7 @@ module.exports = {
                     data[field] = lorem.generate_lorem_ipusm('sentence', options, 1);
                 }
                 // TEXT, EXCERPT
-                if (['text', 'excerpt'].includes(field)){
+                if (['text', 'excerpt', 'body', 'summary'].includes(field)){
                     data[field] = lorem.generate_lorem_ipusm('paragraph', options, 1);
                 }
                 // WEBSITE
@@ -220,7 +220,7 @@ module.exports = {
                     data[field] = 'https://jsonipsum.com/static/files/file_placeholder.pdf';
                 }
                 // IMAGE
-                if (field === 'image'){
+                if (['image', 'avatar', 'thumbnail'].includes(field)){
                     data[field] = lorem.generate_image_urls(options);
                 }
 
@@ -239,6 +239,30 @@ module.exports = {
                 // AGE
                 if (field === 'age'){
                     data[field] = lorem.generate_random_int(18, 50);
+                }
+
+                // TAXONOMY
+                if (field === 'taxonomy'){
+
+                    // Generate sentence, remove period, and seperate each word with comma
+                    var tags = lorem.generate_lorem_ipusm('sentence', 'short', 1).replace(".", "");
+                        tags = tags.replace(/[ ]+/g, ",");
+
+                    // Build taxonomy obj
+                    taxonomy = {
+                        'category': lorem.generate_lorem_ipusm('word', 'long', 1),
+                        'tags': tags
+                    }
+
+                    // Get Keys of Taxonomy Obj
+                    $keys = Object.keys(taxonomy);
+
+                    // Parse options, if option is a key
+                    if ($keys.includes(options)){
+                        data[options] = taxonomy[options];
+                    } else {
+                        data[field] = taxonomy;
+                    }
                 }
 
             } // End if
