@@ -97,16 +97,16 @@ module.exports = {
 
                 }
                 // CORDS
-                if (['latlong', 'coordinates'].includes(field)){
+                if (['latlong', 'coordinates', 'map'].includes(field)){
                     data[field] = {
                         'latitude': faker.address.latitude(),
                         'longitude': faker.address.longitude()
-                    }
+                    };
                 }
 
                 // PHONE
                 if (field === 'phone'){
-                    data[field] = faker.phone.phoneNumber();
+                    data[field] = faker.phone.phoneNumberFormat(0);
                 }
                 // JOB
                 if (field === 'job'){
@@ -144,7 +144,7 @@ module.exports = {
                         'status': 200,
                         'ip': faker.internet.ip(),
                         'useragent': faker.internet.userAgent()
-                    }
+                    };
 
                     // Get Keys of Headers Obj
                     $keys = Object.keys(headers);
@@ -162,11 +162,11 @@ module.exports = {
                 if (field === 'transaction'){
                     transaction = {
                         'account': faker.finance.account(16),
-                        'type': faker.finance.accountName(),
+                        'name': faker.finance.accountName(),
                         'amount': faker.finance.amount(200, 6000),
                         'type': faker.finance.transactionType(),
                         'confirmation': faker.internet.password(8)
-                    }
+                    };
 
                     // Get Keys of Transaction Obj
                     $keys = Object.keys(transaction);
@@ -186,7 +186,7 @@ module.exports = {
                         'number': faker.finance.account(16),
                         'expire': lorem.generate_date('future', faker),
                         'ccv': lorem.generate_random_int(200, 999)
-                    }
+                    };
 
                     // Get Keys of BankCard Obj
                     $keys = Object.keys(bankcard);
@@ -252,7 +252,7 @@ module.exports = {
                     taxonomy = {
                         'category': lorem.generate_lorem_ipusm('word', 'long', 1),
                         'tags': tags
-                    }
+                    };
 
                     // Get Keys of Taxonomy Obj
                     $keys = Object.keys(taxonomy);
