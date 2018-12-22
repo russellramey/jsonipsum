@@ -234,7 +234,7 @@ module.exports = {
                 }
                 // RATING
                 if (field === 'rating'){
-                    data[field] = lorem.generate_random_int(1, 5);
+                    data[field] = lorem.generate_random_int(1, 6);
                 }
                 // AGE
                 if (field === 'age'){
