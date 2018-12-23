@@ -56,214 +56,218 @@ module.exports = {
             // If data[key] doesn't already exist, set it
             if (!data[field]){
 
-                // NAME
-                if (field === 'name'){
-                    data[field] = firstname + ' ' + lastname;
-                }
-                // EMAIL
-                if (field === 'email'){
-                    data[field] = username + '@jsonipsum.com';
-                }
-                // USERNAME
-                if (field === 'username'){
-                    data[field] = username;
-                }
-                // PASSWORD
-                if (field === 'password'){
-                    data[field] = faker.internet.password(14);
-                }
+                // Switch case by field passed
+                switch(field){
+                    // Personal
+                    case 'name':
+                        data[field] = firstname + ' ' + lastname;
+                        break;
 
-                // ADDRESS
-                if (field === 'address'){
+                    case 'email':
+                        data[field] = username + '@jsonipsum.com';
+                        break;
 
-                    address = {
-                        'street': faker.address.streetAddress(),
-                        'city': faker.address.city(),
-                        'postal': faker.address.zipCode(),
-                        'province': faker.address.state(),
-                        'country': faker.address.country(),
-                        'country-code': faker.address.countryCode()
-                    };
+                    case 'username':
+                        data[field] = username;
+                        break;
 
-                    // Get Keys of Address Obj
-                    $keys = Object.keys(address);
+                    case 'password':
+                        data[field] = faker.internet.password(14);
+                        break;
 
-                    // Parse options, if option is a key
-                    if ($keys.includes(options)){
-                        data[options] = address[options];
-                    } else {
-                        data[field] = address;
-                    }
+                    case 'phone':
+                        data[field] = faker.phone.phoneNumberFormat(0);
+                        break;
 
-                }
-                // CORDS
-                if (['latlong', 'coordinates', 'map'].includes(field)){
-                    data[field] = {
-                        'latitude': faker.address.latitude(),
-                        'longitude': faker.address.longitude()
-                    };
-                }
+                    case 'job':
+                        data[field] = faker.name.jobTitle();
+                        break;
 
-                // PHONE
-                if (field === 'phone'){
-                    data[field] = faker.phone.phoneNumberFormat(0);
-                }
-                // JOB
-                if (field === 'job'){
-                    data[field] = faker.name.jobTitle();
-                }
-                // COMPANY
-                if (field === 'company'){
-                    data[field] = faker.company.companyName();
-                }
+                    case 'company':
+                        data[field] = faker.company.companyName();
+                        break;
 
-                // PRICE
-                if (field === 'price'){
-                    data[field] = faker.finance.amount();
-                }
-                // COLOR
-                if (field === 'color'){
-                    data[field] = faker.commerce.color();
-                }
+                    // Location / Geography
+                    case 'address':
+                        address = {
+                            'street': faker.address.streetAddress(),
+                            'city': faker.address.city(),
+                            'postal': faker.address.zipCode(),
+                            'province': faker.address.state(),
+                            'country': faker.address.country(),
+                            'country-code': faker.address.countryCode()
+                        };
 
-                // UID
-                if (field === 'uuid'){
-                    data[field] = faker.random.uuid();
-                }
-                // MAC ADDRESS
-                if (field === 'mac'){
-                    data[field] = faker.internet.mac();
-                }
+                        // Get Keys of Address Obj
+                        $keys = Object.keys(address);
 
-                // HEADERS
-                if (field === 'headers'){
-                    headers = {
-                        'host': 'https://www.jsonipsum.com',
-                        'request': request.url,
-                        'method': 'GET',
-                        'status': 200,
-                        'ip': faker.internet.ip(),
-                        'useragent': faker.internet.userAgent()
-                    };
+                        // Parse options, if option is a key
+                        if ($keys.includes(options)){
+                            data[options] = address[options];
+                        } else {
+                            data[field] = address;
+                        }
+                        break;
 
-                    // Get Keys of Headers Obj
-                    $keys = Object.keys(headers);
+                    case 'latlong':
+                    case 'coordinates':
+                    case 'map':
+                        data[field] = {
+                            'latitude': faker.address.latitude(),
+                            'longitude': faker.address.longitude()
+                        };
+                        break;
 
-                    // Parse options, if option is a key
-                    if ($keys.includes(options)){
-                        data[options] = headers[options];
-                    } else {
-                        data[field] = headers;
-                    }
+                    // Internet
+                    case 'website':
+                        data[field] = 'https://www.jsonipsum.com';
+                        break;
 
-                }
+                    case 'url':
+                        data[field] = 'https://www.jsonipsum.com/api/v1/text/paragraph/';
+                        break;
 
-                // TRANSACTION
-                if (field === 'transaction'){
-                    transaction = {
-                        'account': faker.finance.account(16),
-                        'name': faker.finance.accountName(),
-                        'amount': faker.finance.amount(200, 6000),
-                        'type': faker.finance.transactionType(),
-                        'confirmation': faker.internet.password(8)
-                    };
+                    case 'uuid':
+                        data[field] = faker.random.uuid();
+                        break;
 
-                    // Get Keys of Transaction Obj
-                    $keys = Object.keys(transaction);
+                    case 'mac':
+                        data[field] = faker.internet.mac();
+                        break;
 
-                    // Parse options, if option is a key
-                    if ($keys.includes(options)){
-                        data[options] = transaction[options];
-                    } else {
-                        data[field] = transaction;
-                    }
+                    case 'headers':
+                        headers = {
+                            'host': 'https://www.jsonipsum.com',
+                            'request': request.url,
+                            'method': 'GET',
+                            'status': 200,
+                            'ip': faker.internet.ip(),
+                            'useragent': faker.internet.userAgent()
+                        };
 
-                }
+                        // Get Keys of Headers Obj
+                        $keys = Object.keys(headers);
 
-                // BANK CARD
-                if(field === 'bankcard'){
-                    bankcard = {
-                        'number': faker.finance.account(16),
-                        'expire': lorem.generate_date('future', faker),
-                        'ccv': lorem.generate_random_int(200, 999)
-                    };
+                        // Parse options, if option is a key
+                        if ($keys.includes(options)){
+                            data[options] = headers[options];
+                        } else {
+                            data[field] = headers;
+                        }
+                        break;
 
-                    // Get Keys of BankCard Obj
-                    $keys = Object.keys(bankcard);
+                    // Banking / Finance
+                    case 'transaction':
+                        transaction = {
+                            'account': faker.finance.account(16),
+                            'name': faker.finance.accountName(),
+                            'amount': faker.finance.amount(200, 6000),
+                            'type': faker.finance.transactionType(),
+                            'confirmation': faker.internet.password(8)
+                        };
 
-                    // Parse options, if option is a key
-                    if ($keys.includes(options)){
-                        data[options] = bankcard[options];
-                    } else {
-                        data[field] = bankcard;
-                    }
-                }
+                        // Get Keys of Transaction Obj
+                        $keys = Object.keys(transaction);
 
-                // TITLE, SUBTITLE
-                if (['title', 'subtitle'].includes(field)){
-                    data[field] = lorem.generate_lorem_ipusm('sentence', options, 1);
-                }
-                // TEXT, EXCERPT
-                if (['text', 'excerpt', 'body', 'summary'].includes(field)){
-                    data[field] = lorem.generate_lorem_ipusm('paragraph', options, 1);
-                }
-                // WEBSITE
-                if (field === 'website'){
-                    data[field] = 'https://www.jsonipsum.com';
-                }
-                // URL
-                if (field === 'url'){
-                    data[field] = 'https://www.jsonipsum.com/api/v1/text/paragraph/';
-                }
-                // FILE
-                if (field === 'file'){
-                    data[field] = 'https://jsonipsum.com/static/files/file_placeholder.pdf';
-                }
-                // IMAGE
-                if (['image', 'avatar', 'thumbnail'].includes(field)){
-                    data[field] = lorem.generate_image_urls(options);
-                }
+                        // Parse options, if option is a key
+                        if ($keys.includes(options)){
+                            data[options] = transaction[options];
+                        } else {
+                            data[field] = transaction;
+                        }
+                        break;
 
-                // DATE
-                if (['date', 'birthday'].includes(field)){
-                    data[field] = lorem.generate_date(options, faker);
-                }
-                // PERCENT, PROGRESS
-                if (['percent', 'progress'].includes(field)){
-                    data[field] = lorem.generate_random_int(1, 100);
-                }
-                // RATING
-                if (field === 'rating'){
-                    data[field] = lorem.generate_random_int(1, 6);
-                }
-                // AGE
-                if (field === 'age'){
-                    data[field] = lorem.generate_random_int(18, 50);
-                }
+                    case 'bankcard':
+                        bankcard = {
+                            'number': faker.finance.account(16),
+                            'expire': lorem.generate_date('future', faker),
+                            'ccv': lorem.generate_random_int(200, 999)
+                        };
 
-                // TAXONOMY
-                if (field === 'taxonomy'){
+                        // Get Keys of BankCard Obj
+                        $keys = Object.keys(bankcard);
 
-                    // Generate sentence, remove period, and seperate each word with comma
-                    var tags = lorem.generate_lorem_ipusm('sentence', 'short', 1).replace(".", "");
-                        tags = tags.replace(/[ ]+/g, ",");
+                        // Parse options, if option is a key
+                        if ($keys.includes(options)){
+                            data[options] = bankcard[options];
+                        } else {
+                            data[field] = bankcard;
+                        }
+                        break;
 
-                    // Build taxonomy obj
-                    taxonomy = {
-                        'category': lorem.generate_lorem_ipusm('word', 'long', 1),
-                        'tags': tags
-                    };
+                    case 'price':
+                        data[field] = faker.finance.amount();
+                        break;
 
-                    // Get Keys of Taxonomy Obj
-                    $keys = Object.keys(taxonomy);
+                    // Text / Copy
+                    case 'title':
+                    case 'subtitle':
+                        data[field] = lorem.generate_lorem_ipusm('sentence', options, 1);
+                        break;
 
-                    // Parse options, if option is a key
-                    if ($keys.includes(options)){
-                        data[options] = taxonomy[options];
-                    } else {
-                        data[field] = taxonomy;
-                    }
-                }
+                    case 'text':
+                    case 'excerpt':
+                    case 'body':
+                    case 'summary':
+                        data[field] = lorem.generate_lorem_ipusm('paragraph', options, 1);
+                        break;
+
+                    // Assets
+                    case 'file':
+                        data[field] = 'https://jsonipsum.com/static/files/file_placeholder.pdf';
+                        break;
+
+                    case 'image':
+                    case 'avatar':
+                    case 'thumbnail':
+                        data[field] = lorem.generate_image_urls(options);
+                        break;
+
+                    // Dates
+                    case 'date':
+                    case 'birthday':
+                        data[field] = lorem.generate_date(options, faker);
+                        break;
+
+                    // Integers
+                    case 'percent':
+                    case 'progress':
+                        data[field] = lorem.generate_random_int(1, 101);
+                        break;
+
+                    case 'rating':
+                        data[field] = lorem.generate_random_int(1, 6);
+                        break;
+
+                    case 'age':
+                        data[field] = lorem.generate_random_int(18, 50);
+                        break;
+
+                    // Meta
+                    case 'taxonomy':
+                        // Generate sentence, remove period, and seperate each word with comma
+                        var tags = lorem.generate_lorem_ipusm('sentence', 'short', 1).replace(".", "");
+                            tags = tags.replace(/[ ]+/g, ",");
+
+                        // Build taxonomy obj
+                        taxonomy = {
+                            'category': lorem.generate_lorem_ipusm('word', 'long', 1),
+                            'tags': tags
+                        };
+
+                        // Get Keys of Taxonomy Obj
+                        $keys = Object.keys(taxonomy);
+
+                        // Parse options, if option is a key
+                        if ($keys.includes(options)){
+                            data[options] = taxonomy[options];
+                        } else {
+                            data[field] = taxonomy;
+                        }
+                        break;
+
+
+                } // End Switch
 
             } // End if
 
