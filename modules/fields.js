@@ -161,7 +161,7 @@ module.exports = {
                         transaction = {
                             'account': faker.finance.account(16),
                             'name': faker.finance.accountName(),
-                            'amount': faker.finance.amount(200, 6000),
+                            'amount': faker.finance.amount(99, 9999, 2, ""),
                             'type': faker.finance.transactionType(),
                             'confirmation': faker.internet.password(8)
                         };
@@ -197,6 +197,18 @@ module.exports = {
 
                     case 'price':
                         data[field] = faker.finance.amount();
+                        break;
+
+                    // Commerce
+                    case 'product':
+                        data[field] = {
+                            'name': faker.commerce.productName(),
+                            'type': faker.commerce.product(),
+                            'department': faker.commerce.department(),
+                            'material': faker.commerce.productMaterial(),
+                            'color': faker.commerce.color(),
+                            'price': faker.finance.amount(10,500,2,"")
+                        };
                         break;
 
                     // Text / Copy
