@@ -2,72 +2,30 @@
 title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
+  - Examples
   - ruby
   - python
   - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes:
-  - errors
+  - options
 
 search: true
 ---
 
-# Overview
+# Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
-
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Welcome to JSON:IPSUM, a REST API that returns randomly generated text (lorem ipsum) in JSON format, as well as fake application or website data like names, emails, usernames and passwords to be used for design, development, wireframing or placeholder purposes.
 
 # Authentication
 
-> To authorize, use this code:
+There is <b>no authentication required</b> to use this API, simple make GET requests in your language of choice to the endpoints listed in this documentation.
 
-```ruby
-require 'kittn'
+# Endpoints
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
+## Sentence
 
 ```ruby
 require 'kittn'
@@ -84,8 +42,7 @@ api.kittens.get()
 ```
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+GET "https://api.jsonipsum.com/text/sentence/"
 ```
 
 ```javascript
@@ -95,45 +52,35 @@ let api = kittn.authorize('meowmeowmeow');
 let kittens = api.kittens.get();
 ```
 
-> The above command returns JSON structured like this:
+> The above request returns JSON structured like this:
 
 ```json
 [
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
+    {
+        "id": 0,
+        "text": "Aliqua elit cillum ullamco dolor culpa quis qui sint Lorem eu dolor dolore magna quis aliquip in est consequat officia."
+    }
 ]
 ```
 
-This endpoint retrieves all kittens.
+This endpoint will generate a random sentence.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`GET https://api.jsonipsum.com/text/sentence/`
 
 ### Query Parameters
 
-Parameter | Default | Description
+Parameter | Options | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+length | small<br>medium<br>large | Determine the length of the sentence returned, each option will pass different min/max values. <br><em>Default: medium</em>
+count | 1-100 | Set the number of sentences to be returned. <br><em>Default: 1</em>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<aside class="notice">
+Pass parameters as simple query strings on the GET request url
 </aside>
 
-## Get a Specific Kitten
+## Paragraph
 
 ```ruby
 require 'kittn'
@@ -150,8 +97,7 @@ api.kittens.get(2)
 ```
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+GET "https://api.jsonipsum.com/text/paragraph/"
 ```
 
 ```javascript
@@ -161,33 +107,36 @@ let api = kittn.authorize('meowmeowmeow');
 let max = api.kittens.get(2);
 ```
 
-> The above command returns JSON structured like this:
+> The above request returns JSON structured like this:
 
 ```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
+[
+    {
+        "id": 0,
+        "text": "Cillum sunt exercitation reprehenderit aliqua laborum sit cupidatat amet minim ipsum quis amet Lorem. Adipisicing qui cillum incididunt reprehenderit in aute id culpa ipsum esse minim. Enim sit nostrud eiusmod ipsum amet labore commodo nisi sint aliqua aliquip dolor esse mollit. Velit et proident pariatur labore consectetur non exercitation magna deserunt excepteur dolor. Lorem consectetur quis id consectetur in reprehenderit incididunt culpa incididunt pariatur duis in et ullamco nulla id deserunt anim sunt. Et adipisicing ad ad quis dolore anim est culpa est fugiat voluptate deserunt cillum occaecat Lorem nostrud."
+    }
+]
 ```
 
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+This endpoint returns a random paragraph. Multiple sentences will be returned instead of just a single sentence.
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET https://api.jsonipsum.com/text/paragraph/`
 
-### URL Parameters
+### Query Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+Parameter | Options | Description
+--------- | ------- | -----------
+length | small<br>medium<br>large | Determine the length of the sentence returned, each option will pass different min/max values.<br><em>Default: medium</em>
+count | 1-100 | Set the number of paragraphs to be returned. <br><em>Default: 1</em>
+html | true<br>false | If true, returned text will be wrapped in p tags. <br><em>Default: false</em>
 
-## Delete a Specific Kitten
+<aside class="notice">
+Pass parameters as simple query strings on the GET request url
+</aside>
+
+## Group
 
 ```ruby
 require 'kittn'
@@ -204,9 +153,7 @@ api.kittens.delete(2)
 ```
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
+GET "https://api.jsonipsum.com/text/group/"
 ```
 
 ```javascript
@@ -216,23 +163,32 @@ let api = kittn.authorize('meowmeowmeow');
 let max = api.kittens.delete(2);
 ```
 
-> The above command returns JSON structured like this:
+> The above request returns JSON structured like this:
 
 ```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
+[
+    {
+        "id": 0,
+        "text": "Ad occaecat amet nisi esse quis eiusmod eu do ut minim ex tempor non. Cillum sit Lorem qui nostrud amet exercitation esse est excepteur aliqua est esse reprehenderit occaecat elit amet magna eu. Eiusmod nulla dolor cupidatat ex proident adipisicing labore deserunt occaecat ullamco Lorem excepteur dolor elit non ea anim occaecat ut. Quis cillum pariatur eu ex id et quis nisi eiusmod occaecat ex adipisicing veniam duis consequat sunt. Do laborum nulla duis commodo sunt laborum adipisicing occaecat est ipsum deserunt ut Lorem culpa labore et exercitation esse laborum.",
+        "title": "Commodo irure consectetur minim veniam aliquip veniam adipisicing mollit et et minim aliquip est aliqua."
+    }
+]
 ```
 
-This endpoint deletes a specific kitten.
+This endpoint returns a group of text and/or data. Can create a JSON object of repeatable text groups where various types of data/text can be requested.
 
 ### HTTP Request
 
-`DELETE http://example.com/kittens/<ID>`
+`GET https://api.jsonipsum.com/text/group/`
 
-### URL Parameters
+### Query Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
+Parameter | Options | Description
+--------- | ------- | -----------
+count | 1-100 | Set the number of items to be returned.<br> <em>Default: 1</em>
+region | <a href="#fields">see all</a> | Set the region to localize the returned results.<br><em>Default: en</em>
+fields | <a href="#fields">see all</a> | If true, returned text will be wrapped in p tags.<br><em>Default: false</em>
+
+<aside class="notice">
+Pass parameters as simple query strings on the GET request url
+</aside>

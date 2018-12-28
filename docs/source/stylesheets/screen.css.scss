@@ -64,6 +64,24 @@ html, body {
 
   background:#f3f3f3;
 
+  // Logo/Brand
+  .brand{
+      text-align: center;
+      font-size: 1.5rem;
+      margin: 20px;
+
+      p{
+          margin: 0;
+      }
+
+      span{
+          display: block;
+          font-size: 12px;
+          font-weight: normal;
+      }
+  }
+
+
   // language selector for mobile devices
   .lang-selector {
     display: none;
@@ -425,7 +443,7 @@ html, body {
     }
 
     tr:last-child {
-      border-bottom: 1px solid #ccc;
+      border-bottom: 0px solid #ccc;
     }
 
     tr:nth-child(odd)>td {
