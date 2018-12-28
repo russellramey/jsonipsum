@@ -79,6 +79,7 @@ module.exports = {
                 } else {
                     // Return default Text Group
                     dataitem = {
+                        'id': 0,
                         'text' : lorem.generate_lorem_ipusm("paragraph", length, 1),
                         'title' : lorem.generate_lorem_ipusm("sentence", 'medium', 1),
                     };

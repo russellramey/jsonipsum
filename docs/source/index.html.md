@@ -2,15 +2,13 @@
 title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - Examples
-  - ruby
-  - python
-  - javascript
+  - Responses
 
 toc_footers:
 
 includes:
   - options
+  - examples
 
 search: true
 ---
@@ -27,29 +25,8 @@ There is <b>no authentication required</b> to use this API, simple make GET requ
 
 ## Sentence
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
 ```shell
 GET "https://api.jsonipsum.com/text/sentence/"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
 ```
 
 > The above request returns JSON structured like this:
@@ -80,31 +57,11 @@ count | 1-100 | Set the number of sentences to be returned. <br><em>Default: 1</
 Pass parameters as simple query strings on the GET request url
 </aside>
 
+
 ## Paragraph
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
 
 ```shell
 GET "https://api.jsonipsum.com/text/paragraph/"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
 ```
 
 > The above request returns JSON structured like this:
@@ -138,29 +95,8 @@ Pass parameters as simple query strings on the GET request url
 
 ## Group
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
 ```shell
 GET "https://api.jsonipsum.com/text/group/"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
 ```
 
 > The above request returns JSON structured like this:
