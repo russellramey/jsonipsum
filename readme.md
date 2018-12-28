@@ -90,6 +90,9 @@ No authentication needed, simple Http GET Request is all that is required
 - taxonomy
     - category
     - tags
+- video
+- number
+- icon
 
 
 # Params

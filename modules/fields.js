@@ -24,7 +24,7 @@ module.exports = {
         // Create persona (user)
         // We do this outside the main loop so the names data is consistant,
         // however we don't create the data unless it is needed
-        if(fields.includes('name') || fields.includes('username') || fields.includes('email')){
+        if(fields.includes('name') || fields.includes('username') || fields.includes('email') || fields.includes('author')){
             firstname = faker.name.firstName();
             lastname = faker.name.lastName();
             username = firstname.toLowerCase() + lorem.generate_random_int(1980, 2010);
@@ -60,6 +60,7 @@ module.exports = {
                 switch(field){
                     // Personal
                     case 'name':
+                    case 'author':
                         data[field] = firstname + ' ' + lastname;
                         break;
 
@@ -235,6 +236,18 @@ module.exports = {
                         data[field] = lorem.generate_image_urls(options);
                         break;
 
+                    case 'icon':
+                        data[field] = 'https://jsonipsum.com/static/image/icon.svg';
+                        break;
+
+                    case 'video':
+                        data[field] = {
+                            'id': 'xxxxxxxxxx',
+                            'url': 'https://vimeo.com/video/xxxxxxxxxx',
+                            'embed': 'https://play.vimeo.com/embed/xxxxxxxxxx'
+                        };
+                        break;
+
                     // Dates
                     case 'date':
                     case 'birthday':
@@ -253,6 +266,10 @@ module.exports = {
 
                     case 'age':
                         data[field] = lorem.generate_random_int(18, 50);
+                        break;
+
+                    case 'number':
+                        data[field] = lorem.generate_random_int(10, 9999);
                         break;
 
                     // Meta
