@@ -1,60 +1,112 @@
 # Options
 
-List of available options for specific Parameters.
+List of all available parameter options the API supports.
 
 ## Fields
 
 ```shell
-GET "https://api.jsonipsum.com/text/group/?fields=fieldname"
+GET "https://api.jsonipsum.com/text/group/?fields=thumbnail,title,excerpt"
 ```
 
-> Address
+> The above request returns JSON structured like this:
 
 ```json
-"address": {
-    "street": "537 Dexter Lights",
-    "city": "McDermottburgh",
-    "postal": "45410-6384",
-    "province": "Florida",
-    "country": "Norway",
-    "country-code": "TT"
-}
+[
+    {
+        "id": 0,
+        "thumbnail": {
+            "landscape": "https://jsonipsum.com/static/images/image_960x640.jpg",
+            "portrait": "https://jsonipsum.com/static/images/image_640x960.jpg",
+            "square": "https://jsonipsum.com/static/images/image_960x960.jpg"
+        },
+        "title": "Exercitation mollit dolor sint anim reprehenderit sint veniam laborum eu aliquip nostrud tempor est.",
+        "excerpt": "Ex amet cupidatat irure elit anim cillum commodo esse nulla mollit velit ea proident ut duis eiusmod veniam commodo. Ipsum aliquip esse eu laboris non minim eiusmod ut officia deserunt et. Cillum cillum eiusmod pariatur ad sunt mollit nulla qui in magna excepteur duis commodo ad adipisicing est esse id magna. Fugiat deserunt anim velit laborum mollit labore sunt deserunt occaecat sit aute tempor. Commodo irure cillum eiusmod eiusmod dolore cupidatat ullamco nostrud cillum elit magna minim."
+    }
+]
 ```
 
-> Age
+> Return multiple items in the JSON object by passing the Count parameter:
+
+```shell
+GET "https://api.jsonipsum.com/text/group/?fields=thumbnail,title,excerpt&count=3"
+```
+
+> JSON Response
 
 ```json
-"age": 47
+[
+    {
+        "id": 0,
+        "thumbnail": {
+            "landscape": "https://jsonipsum.com/static/images/image_960x640.jpg",
+            "portrait": "https://jsonipsum.com/static/images/image_640x960.jpg",
+            "square": "https://jsonipsum.com/static/images/image_960x960.jpg"
+        },
+        "title": "Esse minim fugiat pariatur sit deserunt non culpa ullamco nulla est qui.",
+        "excerpt": "Velit sunt pariatur enim commodo laboris non dolor cupidatat proident aliquip laborum Lorem do ad laboris minim sunt sint nostrud. Elit aliquip ut et id incididunt sint reprehenderit ea magna laboris in anim adipisicing nisi minim consequat deserunt. Pariatur non anim minim fugiat elit eu proident nulla sint enim dolore qui mollit labore. Qui minim fugiat nisi irure adipisicing laboris qui anim voluptate tempor ullamco. Officia do anim pariatur sunt mollit eu duis aliqua nostrud quis non reprehenderit incididunt aliqua in."
+    },
+    {
+        "id": 1,
+        "thumbnail": {
+            "landscape": "https://jsonipsum.com/static/images/image_960x640.jpg",
+            "portrait": "https://jsonipsum.com/static/images/image_640x960.jpg",
+            "square": "https://jsonipsum.com/static/images/image_960x960.jpg"
+        },
+        "title": "Exercitation in officia occaecat consectetur mollit nostrud dolore tempor aute velit in labore quis do.",
+        "excerpt": "Sint qui amet fugiat ad consequat est labore velit tempor proident deserunt duis eu occaecat cillum commodo sunt nisi. Quis sunt occaecat quis reprehenderit reprehenderit eu minim consectetur cillum id ullamco. Cupidatat elit ipsum magna labore non nostrud laborum ad ea occaecat nisi do enim. Cupidatat Lorem et excepteur proident anim amet fugiat magna eu ad officia consequat duis laboris cillum sit labore excepteur. Non esse ut esse do est incididunt ad enim aliqua sint irure aute non quis incididunt."
+    },
+    {
+        "id": 2,
+        "thumbnail": {
+            "landscape": "https://jsonipsum.com/static/images/image_960x640.jpg",
+            "portrait": "https://jsonipsum.com/static/images/image_640x960.jpg",
+            "square": "https://jsonipsum.com/static/images/image_960x960.jpg"
+        },
+        "title": "Consectetur consectetur magna nisi pariatur amet duis sunt aliquip culpa consequat minim ullamco ipsum est irure commodo voluptate cupidatat.",
+        "excerpt": "Deserunt voluptate ex minim ipsum consequat enim quis occaecat occaecat quis mollit quis dolore ipsum. Incididunt nulla exercitation id cupidatat elit fugiat amet esse exercitation tempor quis cillum consequat quis. Elit velit proident aliquip magna deserunt fugiat amet eiusmod quis cillum adipisicing laborum labore esse eiusmod amet. Cupidatat nisi velit deserunt aliquip do ex irure nostrud cupidatat cillum cillum officia in id. Et dolore anim mollit exercitation commodo do sit consectetur aute ullamco nulla nulla dolore enim veniam sint. Amet eu consequat quis reprehenderit ipsum non sunt sit officia esse voluptate officia ad mollit velit aliqua proident magna elit."
+    }
+]
 ```
 
-> Author
+> Pass options to Field values that support them:
+
+```shell
+GET "https://api.jsonipsum.com/text/group/?fields=name,date[future],title[short]"
+```
+
+> JSON Response
 
 ```json
-"author": "Autumn Runolfsson"
+[
+    {
+        "id": 0,
+        "name": "Rachelle Braun",
+        "date": {
+            "string": "2022-10-30",
+            "timestamp": 1667088000000
+        },
+        "title": "Non culpa ex pariatur veniam ex."
+    }
+]
 ```
 
-> Avatar
-
-```json
-"avatar": {
-    "landscape": "https://jsonipsum.com/static/images/image_960x640.jpg",
-    "portrait": "https://jsonipsum.com/static/images/image_640x960.jpg",
-    "square": "https://jsonipsum.com/static/images/image_960x960.jpg"
-}
-```
 
 List of available Field parameters you can pass to the Group endpoint. This allows you to return custom text/data groups. Some fields accept options themselves by passing the option in brackets right after the Field parameter. Example below.
 
+### Supported Endpoints
+
+<a href="#group">group</a> | `https://api.jsonipsum.com/text/group/`
+
 ### HTTP Request
 
-`GET https://api.jsonipsum.com/text/group/?fields=fieldname[option]`
+`GET https://api.jsonipsum.com/text/group/?fields=value[option]`
 
 <aside class="notice">
 You can combine multiple Fields by separating them with a comma.
 </aside>
 
 
-Field | Options | Description
+Value | Options | Description
 --------- | ------- | -----------
 address | none | Returns a complete randomly generated address.
 age | none | Returns random age as an integer<br><em>Range between 18 - 50</em>
@@ -85,7 +137,7 @@ product | none | Returns common product information like Name, Price, Type, Mate
 progress | none | Returns random integer between 1-100.
 rating | none | Returns random integer between 1-5.
 subtitle | short<br>medium<br>long | Returns a lorem ipsum sentence block.
-excerpt | short<br>medium<br>long | Returns lorem ipsum paragraph block.
+summery | short<br>medium<br>long | Returns lorem ipsum paragraph block.
 taxonomy | none | Returns lorem ipsum words as fake category and tags.
 text | short<br>medium<br>long | Returns lorem ipsum paragraph block.
 thumbnail | small<br>medium<br>large | Returns three different versions of a static image.<br><em>Default: medium</em>
@@ -117,6 +169,10 @@ GET "https://api.jsonipsum.com/text/group/"
 ```
 
 List of available Field parameters you can pass to the Group endpoint. This allows you to return custom text/data groups. Some fields accept options themselves by passing the option in brackets right after the Field parameter. Example below.
+
+### Supported Endpoints
+
+<a href="#group">group</a> | `https://api.jsonipsum.com/text/group/`
 
 ### HTTP Request
 
