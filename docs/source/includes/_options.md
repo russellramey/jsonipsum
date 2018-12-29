@@ -8,10 +8,39 @@ List of available options for specific Parameters.
 GET "https://api.jsonipsum.com/text/group/?fields=fieldname"
 ```
 
-> The above request returns JSON structured like the following:
+> Address
 
 ```json
+"address": {
+    "street": "537 Dexter Lights",
+    "city": "McDermottburgh",
+    "postal": "45410-6384",
+    "province": "Florida",
+    "country": "Norway",
+    "country-code": "TT"
+}
+```
 
+> Age
+
+```json
+"age": 47
+```
+
+> Author
+
+```json
+"author": "Autumn Runolfsson"
+```
+
+> Avatar
+
+```json
+"avatar": {
+    "landscape": "https://jsonipsum.com/static/images/image_960x640.jpg",
+    "portrait": "https://jsonipsum.com/static/images/image_640x960.jpg",
+    "square": "https://jsonipsum.com/static/images/image_960x960.jpg"
+}
 ```
 
 List of available Field parameters you can pass to the Group endpoint. This allows you to return custom text/data groups. Some fields accept options themselves by passing the option in brackets right after the Field parameter. Example below.
@@ -32,11 +61,11 @@ age | none | Returns random age as an integer<br><em>Range between 18 - 50</em>
 author | none | Returns random First and Last name.
 avatar | small<br>medium<br>large | Returns three different versions of a static image.<br><em>Default: medium</em>
 bankcard | none | Returns randomly generated (fake) debit/credit card information.
-birthday | past<br>today<br>future | Returns random date in string and timestamp format.
+birthday | past<br>today<br>future | Returns random date in string and timestamp format.<br><em>Default: today</em>
 body | short<br>medium<br>long | Returns lorem ipsum paragraph block.
 company | none | Returns fake company name.
 coordinates | none | Returns random latitude and longitude map coordinates.
-date | past<br>today<br>future | Returns random date in string and timestamp format.
+date | past<br>today<br>future | Returns random date in string and timestamp format.<br><em>Default: today</em>
 email | none | Returns random fake email address.
 excerpt | short<br>medium<br>long | Returns lorem ipsum paragraph block.
 file | none | Returns valid url to placeholder downloadable pdf file.
