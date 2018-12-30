@@ -96,7 +96,7 @@ module.exports = {
                             'postal': faker.address.zipCode(),
                             'province': faker.address.state(),
                             'country': faker.address.country(),
-                            'country-code': faker.address.countryCode()
+                            'countrycode': faker.address.countryCode()
                         };
 
                         // Get Keys of Address Obj
