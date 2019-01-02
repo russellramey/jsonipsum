@@ -1,6 +1,87 @@
-# Options
+# Parameters
 
 List of all available parameter options the API supports.
+
+
+
+
+
+
+## Length
+
+```shell
+GET "https://api.jsonipsum.com/text/sentence/?length=short"
+```
+
+> JSON Response
+
+```json
+[
+    {
+        "id": 0,
+        "text": "Velit duis ad dolor ullamco velit."
+    }
+]
+```
+
+Set the length of the text returned for the specific endpoint.
+
+### Supported Endpoints
+
+<a href="#sentence">sentence</a> | <a href="#paragraph">paragraph</a>
+
+### HTTP Request
+
+`GET https://api.jsonipsum.com/text/sentence/?length=value`
+
+Value | Description
+--------- | -----------
+short | Returns shorter text.
+medium | Returns medium text. This is the Default value.
+long | Returns longest text.
+
+
+
+
+
+## Count
+
+```shell
+GET "https://api.jsonipsum.com/text/paragraph/?count=3"
+```
+
+> JSON Response
+
+```json
+[
+    {
+        "id": 0,
+        "text": "Minim incididunt enim amet ad aute reprehenderit aliquip exercitation est ex nulla consequat dolore adipisicing exercitation ex exercitation tempor esse. Consequat elit magna aliqua est adipisicing incididunt ut fugiat qui et eiusmod. Magna mollit reprehenderit eu et adipisicing aliquip sint nostrud enim fugiat irure dolor irure reprehenderit exercitation reprehenderit eu cillum sunt. Deserunt minim velit proident aute excepteur sit minim ea aliquip eu tempor. Cupidatat quis mollit anim sit exercitation consectetur quis tempor mollit aliquip adipisicing. Dolor occaecat incididunt ex cillum minim excepteur Lorem tempor dolore labore duis incididunt ut laboris ipsum nulla mollit dolor.Ullamco exercitation sint velit velit reprehenderit duis Lorem fugiat amet magna veniam enim aute proident. Officia incididunt sint labore qui consequat ullamco consectetur amet ad dolore Lorem aliqua qui ut eu in ea exercitation. Enim est sit veniam mollit tempor cupidatat pariatur esse esse ipsum incididunt aute sunt dolor proident mollit et aliquip amet. Voluptate ad officia veniam sit consequat ut velit ullamco esse sit irure enim nulla reprehenderit magna culpa. Irure Lorem amet incididunt cupidatat ullamco nisi incididunt adipisicing dolor duis nisi nostrud eiusmod quis. Id irure id quis minim enim officia dolore ex culpa laborum eu non. Laboris deserunt deserunt voluptate quis eiusmod exercitation cupidatat excepteur et Lorem Lorem occaecat officia veniam mollit. Nostrud ea voluptate Lorem sint qui occaecat reprehenderit voluptate eiusmod eiusmod pariatur.Velit voluptate consequat sint adipisicing occaecat non qui occaecat labore sit labore. Laboris amet duis aliqua enim aute et commodo minim ut cillum magna minim irure. Voluptate culpa id ad adipisicing exercitation nisi velit reprehenderit laboris aute tempor ullamco tempor. Incididunt amet do ex magna laborum proident occaecat pariatur irure enim nulla amet fugiat aliquip consequat occaecat do. Nostrud eiusmod non nisi consectetur dolore in do in aliqua incididunt duis reprehenderit eu. Id est velit veniam irure consequat pariatur fugiat reprehenderit consectetur exercitation enim elit commodo eu elit adipisicing sit irure minim."
+    }
+]
+```
+
+Tell the API how many items to return. For <em>Sentences</em> and <em>Paragraphs</em> the <em>Count</em> parameter will return the items to the same object index, effectively just returning longer text blocks. For the <em>Group</em> endpoint, the <em>Count</em> parameter will return additional indexes to the final object.
+
+### Supported Endpoints
+
+<a href="#sentence">sentence</a> | <a href="#paragraph">paragraph</a> | <a href="#group">group</a>
+
+### HTTP Request
+
+`GET https://api.jsonipsum.com/text/paragraph/?count=3`
+
+Value | Description
+--------- | -----------
+1-100 | Returns the requested number of items.
+
+
+
+
+
+
+
+
 
 ## Fields
 
@@ -95,7 +176,7 @@ List of available Field parameters you can pass to the Group endpoint. This allo
 
 ### Supported Endpoints
 
-<a href="#group">group</a> | `https://api.jsonipsum.com/text/group/`
+<a href="#group">group</a>
 
 ### HTTP Request
 
@@ -172,13 +253,13 @@ List of available Field parameters you can pass to the Group endpoint. This allo
 
 ### Supported Endpoints
 
-<a href="#group">group</a> | `https://api.jsonipsum.com/text/group/`
+<a href="#group">group</a>
 
 ### HTTP Request
 
-`GET https://api.jsonipsum.com/text/group/?region=regioncode`
+`GET https://api.jsonipsum.com/text/group/?region=value`
 
 
-Region | Description
+Value | Description
 --------- | ------- | -----------
 en | Default, sets region to USA - English.
