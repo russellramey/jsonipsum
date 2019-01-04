@@ -8,7 +8,6 @@ toc_footers:
 
 includes:
   - options
-  - examples
 
 search: true
 ---

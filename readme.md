@@ -36,7 +36,10 @@ No authentication needed, simple Http GET Request is all that is required
         - ?fields
             - [options]
         - ?count
-        - ?template
+
+    - /html
+        - ?length
+        - ?tags
 
 # Fields
 - title / subtitle
@@ -44,7 +47,7 @@ No authentication needed, simple Http GET Request is all that is required
         - short
         - medium
         - long
-- text / excerpt / body / summary
+- text / excerpt / summary / body
     [length]
         - short
         - medium
@@ -106,12 +109,77 @@ No authentication needed, simple Http GET Request is all that is required
     - {fields list}
 - ?html
     - true
-- ?template
-    - {template type}
 
 
-# Templates
-blog, article, portfolio, press release, staff/team/bio, product, project, user, stats, download, report, whitepaper, case-study, etc...
+# Templates/Examples
+
+> Sentence
+
+- Short Sentence
+- Long Sentence
+
+> Paragraph
+
+- Single Paragraph
+- Multiple Paragraph
+- Html Paragraph
+
+> Groups
+
+- Text Block
+    - title
+    - subtitle
+    - excerpt
+
+- Text Block with Image
+    - thumbnail
+    - title
+    - text
+
+- Text Block with Icon
+    - icon
+    - text[short]
+
+- Price / Plan
+    - icon
+    - price
+    - title[short]
+    - list[short]
+
+- Blog/Article snippet
+    - thumbnail
+    - title
+    - excerpt
+    - author
+    - date[past]
+    - taxonomy
+
+- Press Release/News
+    - date[past]
+    - title
+    - excerpt
+    - author
+
+- Profile/Team
+    - image
+    - name
+    - job
+    - email
+
+- User
+    - name
+    - email
+    - username
+    - password
+
+- Subscriber
+    - name
+    - email
+    - username
+    - password
+    - address
+    - bankcard
+
 
 
 

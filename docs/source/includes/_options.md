@@ -78,9 +78,32 @@ Value | Description
 
 
 
+## Html
 
+```shell
+GET "https://api.jsonipsum.com/text/paragraph/?html=true"
+```
 
+> JSON Response
 
+```json
+[
+    {
+        "id": 0,
+        "text": "<p>Veniam ea Lorem aliquip duis excepteur officia sint consectetur ad elit Lorem nostrud fugiat. Cupidatat ut voluptate ipsum sunt ad proident sint est eu elit sint cillum qui. Eu aliquip adipisicing mollit elit in aliqua ut eiusmod commodo nisi aliquip enim culpa ipsum ipsum consequat elit reprehenderit. Quis cupidatat dolor sint pariatur anim et mollit qui Lorem proident incididunt quis nostrud non est exercitation non minim. Reprehenderit magna eiusmod ex cupidatat deserunt ex velit exercitation cillum consequat culpa ea mollit voluptate esse.</p>"
+    }
+]
+```
+
+The <em>html</em> parameter wraps the returned text string in `<p>` tags. If more than one paragraph is requested, each separate paragraph is wrapped in `<p>` tags, and returned in the same item in object. This allows you to request large blocks or walls of text already wrapped in `<p>` tags!
+
+### Supported Endpoints
+
+<a href="#paragraph">paragraph</a>
+
+### HTTP Request
+
+`GET https://api.jsonipsum.com/text/paragraph/?html=true`
 
 
 ## Fields
@@ -249,7 +272,7 @@ GET "https://api.jsonipsum.com/text/group/"
 ]
 ```
 
-List of available Field parameters you can pass to the Group endpoint. This allows you to return custom text/data groups. Some fields accept options themselves by passing the option in brackets right after the Field parameter. Example below.
+List of available Field parameters you can pass to the Group endpoint. This allows you to return custom text/data groups. Some fields accept options themselves by passing the option in brackets right after the Field parameter.
 
 ### Supported Endpoints
 
@@ -261,5 +284,5 @@ List of available Field parameters you can pass to the Group endpoint. This allo
 
 
 Value | Description
---------- | ------- | -----------
-en | Default, sets region to USA - English.
+--------- | -----------
+en | Sets region to English.<br><em>Default</em>

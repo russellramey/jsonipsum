@@ -90,6 +90,7 @@ module.exports = {
 
                     // Location / Geography
                     case 'address':
+                    case 'location':
                         address = {
                             'street': faker.address.streetAddress(),
                             'city': faker.address.city(),
@@ -196,11 +197,11 @@ module.exports = {
                         }
                         break;
 
+                    // Commerce
                     case 'price':
                         data[field] = faker.finance.amount();
                         break;
 
-                    // Commerce
                     case 'product':
                         data[field] = {
                             'name': faker.commerce.productName(),
@@ -223,6 +224,16 @@ module.exports = {
                     case 'body':
                     case 'summary':
                         data[field] = lorem.generate_lorem_ipusm('paragraph', options, 1);
+                        break;
+
+                    case 'bullets':
+                    case 'list':
+                        data[field] = [
+                            lorem.generate_lorem_ipusm('sentence', options, 1),
+                            lorem.generate_lorem_ipusm('sentence', options, 1),
+                            lorem.generate_lorem_ipusm('sentence', options, 1),
+                            lorem.generate_lorem_ipusm('sentence', options, 1)
+                        ]
                         break;
 
                     // Assets
@@ -269,7 +280,20 @@ module.exports = {
                         break;
 
                     case 'number':
-                        data[field] = lorem.generate_random_int(10, 9999);
+                    case 'integer':
+                        // Check for options (size)
+                        if (options === 'small') {
+                            range = [1, 99];
+                        } else if (options === 'medium') {
+                            range = [99, 499];
+                        } else if (options === 'large'){
+                            range = [499, 999];
+                        } else {
+                            range = [1, 999];
+                        }
+
+                        // Generat number
+                        data[field] = lorem.generate_random_int(range[0], range[1]);
                         break;
 
                     // Meta
@@ -294,7 +318,6 @@ module.exports = {
                             data[field] = taxonomy;
                         }
                         break;
-
 
                 } // End Switch
 
