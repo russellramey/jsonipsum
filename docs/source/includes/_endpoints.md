@@ -66,10 +66,10 @@ html | true<br>false | If true, returned text will be wrapped in p tags. <br><em
 Pass parameters as simple query strings on the GET request url
 </aside>
 
-## Group
+## Block
 
 ```shell
-GET "https://api.jsonipsum.com/text/group/"
+GET "https://api.jsonipsum.com/text/block/"
 ```
 
 > The above request returns JSON structured like this:
@@ -84,11 +84,11 @@ GET "https://api.jsonipsum.com/text/group/"
 ]
 ```
 
-This endpoint returns a group of text and/or data. Can create a JSON object of repeatable text groups where various types of data/text can be requested.
+This endpoint returns a block of text and/or data. Can create a JSON object of repeatable text blocks where various types of data/text can be requested.
 
 ### HTTP Request
 
-`GET https://api.jsonipsum.com/text/group/`
+`GET https://api.jsonipsum.com/text/block/`
 
 Parameter | Value | Description
 --------- | ------- | -----------

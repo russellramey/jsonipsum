@@ -57,7 +57,7 @@ module.exports = {
 
         }
         // Get FORMAT of 'group'
-        else if (format === 'group'){
+        else if (format === 'block'){
 
             // Get count, loop until max reached
             for (id = 0; id < count; id++){

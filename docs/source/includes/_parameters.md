@@ -61,11 +61,11 @@ GET "https://api.jsonipsum.com/text/paragraph/?count=3"
 ]
 ```
 
-Tell the API how many items to return. For <em>Sentences</em> and <em>Paragraphs</em> the <em>Count</em> parameter will return the items to the same object index, effectively just returning longer text blocks. For the <em>Group</em> endpoint, the <em>Count</em> parameter will return additional indexes to the final object.
+Tell the API how many items to return. For <em>Sentences</em> and <em>Paragraphs</em> the <em>Count</em> parameter will return the items to the same object index, effectively just returning longer text blocks. For the <em>Block</em> endpoint, the <em>Count</em> parameter will return additional indexes to the final object.
 
 ### Supported Endpoints
 
-<a href="#sentence">sentence</a> | <a href="#paragraph">paragraph</a> | <a href="#group">group</a>
+<a href="#sentence">sentence</a> | <a href="#paragraph">paragraph</a> | <a href="#block">block</a>
 
 ### HTTP Request
 
@@ -109,7 +109,7 @@ The <em>html</em> parameter wraps the returned text string in `<p>` tags. If mor
 ## Fields
 
 ```shell
-GET "https://api.jsonipsum.com/text/group/?fields=thumbnail,title,excerpt"
+GET "https://api.jsonipsum.com/text/block/?fields=thumbnail,title,excerpt"
 ```
 
 > The above request returns JSON structured like this:
@@ -132,7 +132,7 @@ GET "https://api.jsonipsum.com/text/group/?fields=thumbnail,title,excerpt"
 > Return multiple items in the JSON object by passing the Count parameter:
 
 ```shell
-GET "https://api.jsonipsum.com/text/group/?fields=thumbnail,title,excerpt&count=3"
+GET "https://api.jsonipsum.com/text/block/?fields=thumbnail,title,excerpt&count=3"
 ```
 
 > JSON Response
@@ -175,7 +175,7 @@ GET "https://api.jsonipsum.com/text/group/?fields=thumbnail,title,excerpt&count=
 > Pass options to Field values that support them:
 
 ```shell
-GET "https://api.jsonipsum.com/text/group/?fields=name,date[future],title[short]"
+GET "https://api.jsonipsum.com/text/block/?fields=name,date[future],title[short]"
 ```
 
 > JSON Response
@@ -195,15 +195,15 @@ GET "https://api.jsonipsum.com/text/group/?fields=name,date[future],title[short]
 ```
 
 
-List of available Field parameters you can pass to the Group endpoint. This allows you to return custom text/data groups. Some fields accept options themselves by passing the option in brackets right after the Field parameter. Example below.
+List of available Field parameters you can pass to the Block endpoint. This allows you to return custom text/data blocks. Some fields accept options themselves by passing the option in brackets right after the Field parameter. Example below.
 
 ### Supported Endpoints
 
-<a href="#group">group</a>
+<a href="#block">block</a>
 
 ### HTTP Request
 
-`GET https://api.jsonipsum.com/text/group/?fields=value[option]`
+`GET https://api.jsonipsum.com/text/block/?fields=value[option]`
 
 <aside class="notice">
 You can combine multiple Fields by separating them with a comma.
@@ -257,7 +257,7 @@ website | none | string | Returns static www.jsonipsum.com domain as a string.
 ## Regions
 
 ```shell
-GET "https://api.jsonipsum.com/text/group/"
+GET "https://api.jsonipsum.com/text/block/"
 ```
 
 > The above request returns JSON structured like this:
@@ -272,15 +272,15 @@ GET "https://api.jsonipsum.com/text/group/"
 ]
 ```
 
-List of available Field parameters you can pass to the Group endpoint. This allows you to return custom text/data groups. Some fields accept options themselves by passing the option in brackets right after the Field parameter.
+List of available Field parameters you can pass to the Block endpoint. This allows you to return custom text/data blocks. Some fields accept options themselves by passing the option in brackets right after the Field parameter.
 
 ### Supported Endpoints
 
-<a href="#group">group</a>
+<a href="#block">block</a>
 
 ### HTTP Request
 
-`GET https://api.jsonipsum.com/text/group/?region=value`
+`GET https://api.jsonipsum.com/text/block/?region=value`
 
 
 Value | Description
