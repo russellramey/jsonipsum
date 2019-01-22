@@ -58,7 +58,7 @@ module.exports = {
 
                 case 'p':
                     // Append string to html
-                    html += lorem.generate_lorem_ipusm('paragraph', 'medium', options, 'true');
+                    html += lorem.generate_lorem_ipusm('paragraph', length, options, 'true');
                     break;
 
                 case 'blockquote':

@@ -99,3 +99,37 @@ fields | <a href="#fields">see all</a> | If true, returned text will be wrapped 
 <aside class="notice">
 Pass parameters as simple query strings on the GET request url
 </aside>
+
+
+## Html
+
+```shell
+GET "https://api.jsonipsum.com/text/html/"
+```
+
+> The above request returns JSON structured like this:
+
+```json
+[
+    {
+        "id": 0,
+        "text": "<p>Nisi ea elit ullamco consectetur cupidatat deserunt ad id voluptate nulla cillum irure tempor minim in et nulla. Adipisicing mollit labore ea adipisicing culpa laboris proident reprehenderit sint aliqua voluptate nulla. Anim magna labore esse enim sit incididunt dolore mollit ex veniam proident commodo mollit laboris laborum velit. Occaecat eu consequat nisi velit labore laborum ad nulla ea id tempor. Ad aliquip occaecat elit consectetur sit exercitation nulla excepteur ullamco magna reprehenderit excepteur culpa ea aute.</p><p>Sit ea aute mollit aliquip ut Lorem nisi minim aliquip in eiusmod minim ea. Aute enim amet elit in cupidatat adipisicing et aute minim culpa aliquip quis enim ex. Occaecat consequat nulla non id labore do laboris id ut velit culpa adipisicing duis id non proident. Mollit esse est cupidatat dolor laborum laboris excepteur proident officia qui aliqua voluptate consectetur consectetur veniam adipisicing consequat. Culpa est tempor pariatur cillum reprehenderit eu non culpa ad laboris tempor esse mollit. Do veniam quis anim ex nisi culpa in magna nulla pariatur Lorem occaecat irure qui. Sunt incididunt amet aliquip nisi nulla ullamco id commodo nisi irure laborum. Culpa non cillum eu ut adipisicing nostrud tempor aliqua cupidatat nostrud fugiat esse in anim nostrud ut est pariatur.</p><p>Incididunt voluptate nisi do enim magna consectetur ad labore labore consequat deserunt. Occaecat sunt cupidatat enim ipsum exercitation et enim quis commodo aute aliquip elit et sint voluptate irure minim ex eiusmod. Esse eu do non mollit officia voluptate dolor id laboris exercitation aliqua excepteur. Et nulla est quis culpa sint Lorem Lorem aliqua ut cupidatat aliquip. Sint amet id sint eu sunt pariatur culpa voluptate ullamco fugiat nulla dolore reprehenderit. Lorem ex velit nulla ad amet amet officia sunt pariatur fugiat Lorem. Ea elit non adipisicing et aliquip adipisicing est in incididunt aliqua enim voluptate laboris consequat irure exercitation do ex. Tempor dolor aliquip sunt culpa velit labore cupidatat quis laboris cupidatat adipisicing nulla.</p>"
+    }
+]
+```
+
+This endpoint by default returns a block item with three paragraphs of lorem ipsum text, wrapped in `p` tags.
+
+### HTTP Request
+
+`GET https://api.jsonipsum.com/text/html/`
+
+Parameter | Value | Description
+--------- | ------- | -----------
+count | 1-100 | Set the number of items to be returned.<br> <em>Default: 1</em>
+elements | <a href="#elements">see all</a> | Requests different type of HTML tags from the endpoint.<br><em>Default: p</em>
+length | small<br>medium<br>large | Determine the length of the text returned.<br><em>Default: medium</em><br><em>Only utilized by `p` element</em>
+
+<aside class="notice">
+Pass parameters as simple query strings on the GET request url
+</aside>

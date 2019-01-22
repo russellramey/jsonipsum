@@ -24,13 +24,6 @@ module.exports = {
         } else {
             count = 1;
         }
-        // ?html
-        if (params.html){
-            html = params.html;
-        } else {
-            html = 'plain';
-        }
-
 
         // Get FORMAT of 'sentence'
         if (format === 'sentence'){
@@ -38,7 +31,7 @@ module.exports = {
             // Build dataitem
             dataitem = {
                 "id" : 0,
-                "text" : lorem.generate_lorem_ipusm("sentence", length, count, html),
+                "text" : lorem.generate_lorem_ipusm("sentence", length, count),
             };
 
             data.push(dataitem);
@@ -50,7 +43,7 @@ module.exports = {
             // Build dataitem
             dataitem = {
                 "id" : 0,
-                "text" : lorem.generate_lorem_ipusm("paragraph", length, count, html),
+                "text" : lorem.generate_lorem_ipusm("paragraph", length, count),
             };
 
             data.push(dataitem);
@@ -114,7 +107,7 @@ module.exports = {
                     // Return default HTML Text
                     dataitem = {
                         'id': id,
-                        'text' : lorem.generate_lorem_ipusm("paragraph", length, 5, "true"),
+                        'text' : lorem.generate_lorem_ipusm("paragraph", 'medium', 3, "true"),
                     };
                 }
 

@@ -480,10 +480,11 @@ html, body {
   code {
     background-color: #e4e4e4;
     border:1px solid #ccc;
-    padding: 10px 10px;
+    padding: 6px 10px;
     border-radius: 4px;
     @extend %break-words;
     @extend %code-font;
+    line-height: 1;
   }
 
   pre>code {
