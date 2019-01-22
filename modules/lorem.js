@@ -14,7 +14,7 @@ module.exports = {
         if (length === 'short'){
             options = {
                 s: [3,8],
-                p: [5,8]
+                p: [3,5]
             };
         } else if (length === 'long'){
             options = {
