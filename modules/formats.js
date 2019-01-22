@@ -1,6 +1,7 @@
 // Import modules
 var lorem = require('./lorem');
 var getFields = require('./fields');
+var getHtml = require('./html');
 
 // Custom modules
 module.exports = {
@@ -10,7 +11,7 @@ module.exports = {
 
         var data = [];
 
-        // Parse Params
+        // Parse Global Params
         // ?length
         if (params.length){
             length = params.length;
@@ -29,7 +30,6 @@ module.exports = {
         } else {
             html = 'plain';
         }
-
 
 
         // Get FORMAT of 'sentence'
@@ -56,7 +56,7 @@ module.exports = {
             data.push(dataitem);
 
         }
-        // Get FORMAT of 'group'
+        // Get FORMAT of 'block'
         else if (format === 'block'){
 
             // Get count, loop until max reached
@@ -79,7 +79,7 @@ module.exports = {
                 } else {
                     // Return default Text Group
                     dataitem = {
-                        'id': 0,
+                        'id': id,
                         'text' : lorem.generate_lorem_ipusm("paragraph", length, 1),
                         'title' : lorem.generate_lorem_ipusm("sentence", 'medium', 1),
                     };
@@ -89,6 +89,39 @@ module.exports = {
                 data.push(dataitem);
             }
 
+        }
+        // Get FORMAT of 'html'
+        else if (format === 'html'){
+
+            // Get count, loop until max reached
+            for (id = 0; id < count; id++){
+
+                // Build data item
+                dataitem = {
+                    "id": id,
+                };
+
+                // Check for 'ELEMENTS' params
+                if (params.elements){
+
+                    // Split 'ELEMENTS' param into individual strings
+                    elems = params.elements.split(',');
+
+                    //Add all data to master Dict
+                    Object.assign(dataitem, getHtml.render_html_element(elems, params, request));
+
+                } else {
+                    // Return default HTML Text
+                    dataitem = {
+                        'id': id,
+                        'text' : lorem.generate_lorem_ipusm("paragraph", length, 5, "true"),
+                    };
+                }
+
+                // Push item to data array
+                data.push(dataitem);
+
+            }
         }
         // If invalid format
         else {

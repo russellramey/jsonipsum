@@ -10,7 +10,7 @@ module.exports = {
         var text = '';
         var options = '';
 
-        // Parse arguments
+        // Check and process length arg
         if (length === 'short'){
             options = {
                 s: [3,8],
@@ -27,10 +27,17 @@ module.exports = {
                 p: [5,8]
             };
         }
+
+        // Check if html arg exists
         if (html === 'true'){
             html = 'html';
         } else {
             html = 'plain';
+        }
+
+        // Check if count arg exitst
+        if(!count){
+            count = 1;
         }
 
         // Build base arguments

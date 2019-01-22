@@ -38,8 +38,15 @@ No authentication needed, simple Http GET Request is all that is required
         - ?count
 
     - /html
-        - ?length
-        - ?tags
+        - ?elements
+            - h1 (1)
+            - h2 (1)
+            - h3 (1)
+            - h4 (1)
+            - p (rand)
+            - ul (rand)
+            - ol (rand)
+            - blockquote (1)
 
 # Fields
 - title / subtitle
