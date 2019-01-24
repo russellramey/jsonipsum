@@ -19,7 +19,7 @@ module.exports = {
             length = '';
         }
         // ?count
-        if (params.count){
+        if (params.count && params.count <= 100){
             count = params.count;
         } else {
             count = 1;
@@ -94,14 +94,14 @@ module.exports = {
                     "id": id,
                 };
 
-                // Check for 'ELEMENTS' params
-                if (params.elements){
+                // Check for 'TAGS' params
+                if (params.tags){
 
-                    // Split 'ELEMENTS' param into individual strings
-                    elems = params.elements.split(',');
+                    // Split 'TAGS' param into individual strings
+                    var tags = params.tags.split(',');
 
                     //Add all data to master Dict
-                    Object.assign(dataitem, getHtml.render_html_element(elems, params, request));
+                    Object.assign(dataitem, getHtml.render_html_element(tags, params, request));
 
                 } else {
                     // Return default HTML Text

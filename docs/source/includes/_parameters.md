@@ -227,11 +227,11 @@ website | none | string | Returns static www.jsonipsum.com domain as a string.
 
 
 
-## Elements
+## Tags
 
 ```shell
 
-GET "https://api.jsonipsum.com/text/html/?elements=h1,h2[short],p[5]"
+GET "https://api.jsonipsum.com/text/html/?tags=h1,h2[short],p[5]"
 
 ```
 
@@ -254,8 +254,11 @@ List of available Field parameters you can pass to the Block endpoint. This allo
 
 ### HTTP Request
 
-`GET https://api.jsonipsum.com/text/html/?elements=value[option]`
+`GET https://api.jsonipsum.com/text/html/?tags=value[option]`
 
+<aside class="notice">
+You can combine multiple Tags by separating them with a comma.
+</aside>
 
 Value | Options | Description
 --------- | ----------- | -----------
@@ -263,7 +266,7 @@ h1 | short<br>medium<br>long | Sentence in `h1` tag.<br><em>Default: medium</em>
 h2 | short<br>medium<br>long | Sentence in `h2` tag.<br><em>Default: medium</em>
 h3 | short<br>medium<br>long | Sentence in `h3` tag.<br><em>Default: medium</em>
 h4 | short<br>medium<br>long | Sentence in `h4` tag.<br><em>Default: medium</em>
-p | 1-100 | Text in `p` tag.<br><em>Default: 1</em><br><em>Length parameter controls length of text returned</em>
+p | 1-100 | Text in `p` tag.<br><em>Default: 1</em>
 blockquote | short<br>medium<br>long | Sentence in `blockquote` tag.<br><em>Default: medium</em>
 ul | short<br>medium<br>long | Random count (3-8) of `li` items in a `ul` tag.<br><em>Default: medium</em>
 ol | short<br>medium<br>long | Random count (3-8) of `li` items in a `ol` tag.<br><em>Default: medium</em>

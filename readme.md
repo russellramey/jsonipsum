@@ -31,22 +31,22 @@ No authentication needed, simple Http GET Request is all that is required
     - /paragraph
         - ?length
         - ?count
-        - ?html
-    - /group
+    - /block
         - ?fields
             - [options]
         - ?count
 
     - /html
-        - ?elements
-            - h1 (1)
-            - h2 (1)
-            - h3 (1)
-            - h4 (1)
-            - p (rand)
-            - ul (rand)
-            - ol (rand)
-            - blockquote (1)
+        - ?tags
+            - h1 (length)
+            - h2 (length)
+            - h3 (length)
+            - h4 (length)
+            - p (count)
+            - ul (length)
+            - ol (length)
+            - blockquote (length)
+        - ?length
 
 # Fields
 - title / subtitle

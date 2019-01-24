@@ -14,17 +14,17 @@ module.exports = {
         if (length === 'short'){
             options = {
                 s: [3,8],
-                p: [3,5]
+                p: [3,6]
             };
         } else if (length === 'long'){
             options = {
                 s: [18,30],
-                p: [8,12]
+                p: [9,12]
             };
         } else {
             options = {
                 s: [12,20],
-                p: [5,8]
+                p: [6,9]
             };
         }
 
@@ -36,7 +36,7 @@ module.exports = {
         }
 
         // Check if count arg exitst
-        if(!count){
+        if(!count || count > 100){
             count = 1;
         }
 

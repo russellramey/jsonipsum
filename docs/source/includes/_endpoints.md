@@ -60,7 +60,6 @@ Parameter | Value | Description
 --------- | ------- | -----------
 length | small<br>medium<br>large | Determine the length of the sentence returned, each option will pass different min/max values.<br><em>Default: medium</em>
 count | 1-100 | Set the number of paragraphs to be returned. <br><em>Default: 1</em>
-html | true<br>false | If true, returned text will be wrapped in p tags. <br><em>Default: false</em>
 
 <aside class="notice">
 Pass parameters as simple query strings on the GET request url
@@ -127,8 +126,8 @@ This endpoint by default returns a block item with three paragraphs of lorem ips
 Parameter | Value | Description
 --------- | ------- | -----------
 count | 1-100 | Set the number of items to be returned.<br> <em>Default: 1</em>
-elements | <a href="#elements">see all</a> | Requests different type of HTML tags from the endpoint.<br><em>Default: p</em>
-length | small<br>medium<br>large | Determine the length of the text returned.<br><em>Default: medium</em><br><em>Only utilized by `p` element</em>
+tags | <a href="#tags">see all</a> | Requests different type of HTML tags from the endpoint.<br><em>Default: p</em>
+length | small<br>medium<br>large | Determine the length of the text returned.<br><em>Default: medium</em><br><em>Only utilized by `p` tag</em>
 
 <aside class="notice">
 Pass parameters as simple query strings on the GET request url

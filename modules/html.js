@@ -5,7 +5,7 @@ var lorem = require('./lorem');
 module.exports = {
 
     // Render HTML Elements funciton
-    render_html_element : function render_html_element(elems, params, request) {
+    render_html_element : function render_html_element(tags, params, request) {
 
         // Data obj
         var data = {};
@@ -13,21 +13,21 @@ module.exports = {
         var html = '';
 
         // Loop thru all ELEMENTS
-        for (var e in elems) {
+        for (var t in tags) {
 
             // Save individual ELEMENT to var
-            var element = elems[e];
+            var tag = tags[t];
 
             // Check for 'FIELD'[options]
-            elem_options = element.match(/\[([^)]+)\]/);
+            tag_options = tag.match(/\[([^)]+)\]/);
 
             // If [options] are found, process
-            if (elem_options) {
+            if (tag_options) {
 
                 // Remove [options] from field string
-                element = element.replace(/\[([^)]+)\]/, "");
+                tag = tag.replace(/\[([^)]+)\]/, "");
                 // Get the [options]
-                options = elem_options[1];
+                options = tag_options[1];
 
             // Else, set [options] to null
             } else {
@@ -35,7 +35,7 @@ module.exports = {
             }
 
             // Process ELEMENT parameters
-            switch(element){
+            switch(tag){
                 case 'h1':
                     // Append string to html
                     html += '<h1>' + lorem.generate_lorem_ipusm('sentence', options, 1) + '</h1>';
@@ -67,10 +67,12 @@ module.exports = {
                     break;
 
                 case 'ul':
+                    // Append string to html
                     html += '<ul>' + this.generate_list_items(options) + '</ul>';
                     break;
 
                 case 'ol':
+                    // Append string to html
                     html += '<ol>' + this.generate_list_items(options) + '</ol>';
                     break;
             }
