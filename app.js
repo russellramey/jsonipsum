@@ -9,7 +9,7 @@ var app = express();
 app.get("/api/v1/text/:format/", (request, response, next) => {
 
     // Get format
-    var formats = ["sentence", "paragraph", "block"];
+    var formats = ["sentence", "paragraph", "block", "html"];
     var format = request.params.format;
 
     // If format is valid

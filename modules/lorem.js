@@ -10,27 +10,34 @@ module.exports = {
         var text = '';
         var options = '';
 
-        // Parse arguments
+        // Check and process length arg
         if (length === 'short'){
             options = {
                 s: [3,8],
-                p: [5,8]
+                p: [3,6]
             };
         } else if (length === 'long'){
             options = {
                 s: [18,30],
-                p: [8,12]
+                p: [9,12]
             };
         } else {
             options = {
                 s: [12,20],
-                p: [5,8]
+                p: [6,9]
             };
         }
+
+        // Check if html arg exists
         if (html === 'true'){
             html = 'html';
         } else {
             html = 'plain';
+        }
+
+        // Check if count arg exitst
+        if(!count || count > 100){
+            count = 1;
         }
 
         // Build base arguments

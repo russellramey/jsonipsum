@@ -78,34 +78,6 @@ Value | Description
 
 
 
-## Html
-
-```shell
-GET "https://api.jsonipsum.com/text/paragraph/?html=true"
-```
-
-> JSON Response
-
-```json
-[
-    {
-        "id": 0,
-        "text": "<p>Veniam ea Lorem aliquip duis excepteur officia sint consectetur ad elit Lorem nostrud fugiat. Cupidatat ut voluptate ipsum sunt ad proident sint est eu elit sint cillum qui. Eu aliquip adipisicing mollit elit in aliqua ut eiusmod commodo nisi aliquip enim culpa ipsum ipsum consequat elit reprehenderit. Quis cupidatat dolor sint pariatur anim et mollit qui Lorem proident incididunt quis nostrud non est exercitation non minim. Reprehenderit magna eiusmod ex cupidatat deserunt ex velit exercitation cillum consequat culpa ea mollit voluptate esse.</p>"
-    }
-]
-```
-
-The <em>html</em> parameter wraps the returned text string in `<p>` tags. If more than one paragraph is requested, each separate paragraph is wrapped in `<p>` tags, and returned in the same item in object. This allows you to request large blocks or walls of text already wrapped in `<p>` tags!
-
-### Supported Endpoints
-
-<a href="#paragraph">paragraph</a>
-
-### HTTP Request
-
-`GET https://api.jsonipsum.com/text/paragraph/?html=true`
-
-
 ## Fields
 
 ```shell
@@ -252,6 +224,55 @@ username | none | string | Returns random username based off a firstname and yea
 uuid | none | string | Randomly generate universally unique identifier (uuid).
 video | none | object | Sample playable and embedable video from jsonipsum.com hosted on Vimeo.
 website | none | string | Returns static www.jsonipsum.com domain as a string.
+
+
+
+## Tags
+
+```shell
+
+GET "https://api.jsonipsum.com/text/html/?tags=h1,h2[short],p[5]"
+
+```
+
+> The above request returns JSON structured like this:
+
+```json
+[
+    {
+        "id": 0,
+        "text": "<h1>Et esse cupidatat nisi elit cillum consequat ad eiusmod ullamco consectetur esse.</h1><h2>Aliqua esse ea consectetur.</h2><p>Esse reprehenderit duis amet irure ea laborum occaecat enim sint Lorem ad nulla aliquip elit aliquip veniam. Reprehenderit cillum ipsum tempor id tempor consequat voluptate anim eiusmod do ea aliquip tempor incididunt. Sunt minim velit exercitation in ea nostrud reprehenderit cupidatat in magna reprehenderit velit est sit laborum dolore tempor. Ad ea in consequat ipsum quis duis labore est irure laborum velit ea anim sint incididunt Lorem et velit. Nisi laboris sunt cupidatat ea esse nostrud nisi veniam exercitation anim laboris amet. Consectetur elit reprehenderit nisi voluptate officia Lorem qui culpa consectetur do fugiat sint elit qui veniam in.</p><p>Sint aute irure ipsum aliqua amet ea ut nisi ut qui aliquip ea nulla veniam enim ex cupidatat. Voluptate sunt nulla eu officia consequat sit irure ea labore nulla reprehenderit ex duis. Ullamco Lorem velit nostrud aute et mollit tempor commodo magna reprehenderit deserunt sit laborum. Dolore deserunt aliquip aute dolore nostrud adipisicing eiusmod ut amet cillum nostrud dolore ad minim nostrud exercitation Lorem ex. Velit culpa fugiat ipsum officia consequat aliquip non sit nisi cillum dolor et dolor culpa eiusmod. Do cillum laborum culpa minim exercitation deserunt aute eu consectetur cupidatat eiusmod consequat occaecat id. Nostrud labore est laboris voluptate ipsum aliquip ad esse ullamco mollit pariatur qui eu pariatur nisi do.</p><p>Enim incididunt cillum laboris et dolor veniam incididunt tempor cupidatat qui nulla sit eiusmod cupidatat veniam. Do excepteur officia fugiat duis esse excepteur officia consectetur nulla sunt aliqua consequat deserunt. Minim sit aute non in occaecat proident culpa non et labore dolor. Fugiat aute exercitation irure qui esse nulla officia deserunt in adipisicing deserunt. Elit dolor aliqua sit exercitation fugiat nostrud enim et pariatur ea mollit. Laboris excepteur quis eu officia ipsum non reprehenderit sit commodo est et aliquip sint commodo sint mollit dolore aliquip aliquip. Duis cillum pariatur eiusmod voluptate ullamco in dolor non consequat commodo duis laboris. Veniam nostrud eiusmod velit fugiat et sunt adipisicing reprehenderit duis aliquip proident Lorem deserunt dolore consectetur culpa laboris exercitation.</p><p>Labore enim elit ullamco incididunt laborum id Lorem consequat esse culpa incididunt velit deserunt minim id. Dolor aute laborum sit deserunt magna anim cillum culpa amet in ullamco non. Cupidatat do nisi aute magna labore ut magna nisi do dolore elit amet et labore aliqua. Do labore nisi fugiat consequat laborum magna ex est labore laboris mollit Lorem in cupidatat nisi nisi consequat. Consectetur Lorem id magna quis occaecat duis pariatur tempor incididunt incididunt exercitation laborum dolor sunt aute fugiat ea.</p><p>Esse Lorem eu aliqua mollit non dolor anim occaecat nisi sunt ad do nulla est enim nulla exercitation tempor. Eu veniam sint enim ad voluptate labore do ullamco ipsum laboris dolor exercitation. Ut ut cillum proident laboris officia Lorem eu sint adipisicing cillum esse veniam anim adipisicing mollit. Commodo incididunt anim in anim eiusmod elit in mollit sint sit id. Sunt deserunt irure ex eiusmod ad tempor sint aute laboris amet dolor. Commodo ad amet eiusmod tempor magna irure non adipisicing magna duis ad labore Lorem id est tempor commodo consectetur.</p>"
+    }
+]
+```
+
+List of available Field parameters you can pass to the Block endpoint. This allows you to return custom text/data blocks. Some fields accept options themselves by passing the option in brackets right after the Field parameter.
+
+### Supported Endpoints
+
+<a href="#html">html</a>
+
+### HTTP Request
+
+`GET https://api.jsonipsum.com/text/html/?tags=value[option]`
+
+<aside class="notice">
+You can combine multiple Tags by separating them with a comma.
+</aside>
+
+Value | Options | Description
+--------- | ----------- | -----------
+h1 | short<br>medium<br>long | Sentence in `h1` tag.<br><em>Default: medium</em>
+h2 | short<br>medium<br>long | Sentence in `h2` tag.<br><em>Default: medium</em>
+h3 | short<br>medium<br>long | Sentence in `h3` tag.<br><em>Default: medium</em>
+h4 | short<br>medium<br>long | Sentence in `h4` tag.<br><em>Default: medium</em>
+p | 1-100 | Text in `p` tag.<br><em>Default: 1</em>
+blockquote | short<br>medium<br>long | Sentence in `blockquote` tag.<br><em>Default: medium</em>
+ul | short<br>medium<br>long | Random count (3-8) of `li` items in a `ul` tag.<br><em>Default: medium</em>
+ol | short<br>medium<br>long | Random count (3-8) of `li` items in a `ol` tag.<br><em>Default: medium</em>
+
+
+
 
 
 ## Regions
