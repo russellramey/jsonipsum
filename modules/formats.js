@@ -34,6 +34,7 @@ module.exports = {
                 "text" : lorem.generate_lorem_ipusm("sentence", length, count),
             };
 
+            // Push item to data array
             data.push(dataitem);
 
         }
@@ -46,6 +47,7 @@ module.exports = {
                 "text" : lorem.generate_lorem_ipusm("paragraph", length, count),
             };
 
+            // Push item to data array
             data.push(dataitem);
 
         }
@@ -121,7 +123,7 @@ module.exports = {
             data = { "error" : "problem returning data for /" + format };
         }
 
-        // Return data
+        // Return all data
         return data;
     },
 
