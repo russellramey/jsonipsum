@@ -13,18 +13,18 @@ module.exports = {
         // Check and process length arg
         if (length === 'short'){
             options = {
-                s: [3,8],
+                s: [4,8],
                 p: [3,6]
             };
         } else if (length === 'long'){
             options = {
-                s: [18,30],
-                p: [9,12]
+                s: [16,24],
+                p: [7,12]
             };
         } else {
             options = {
-                s: [12,20],
-                p: [6,9]
+                s: [8,16],
+                p: [5,8]
             };
         }
 
@@ -53,7 +53,11 @@ module.exports = {
 
         // Construct data
         for (i = 1; i <= count; i++){
-            text += loremIpsum(args);
+            if (i != count){
+                text += loremIpsum(args) + ' ';
+            } else {
+                text += loremIpsum(args);
+            }
         }
 
         // Return text
@@ -101,21 +105,21 @@ module.exports = {
         // Small images
         if (size === 'small'){
             img_urls = {
-                "landscape" : "https://jsonipsum.com/static/images/image_480x320.jpg",
-                "portrait" : "https://jsonipsum.com/static/images/image_320x480.jpg",
-                "square" : "https://jsonipsum.com/static/images/image_480x480.jpg"
+                "landscape" : "https://jsonipsum.com/static/images/placeholder_480x320.jpg",
+                "portrait" : "https://jsonipsum.com/static/images/placeholder_320x480.jpg",
+                "square" : "https://jsonipsum.com/static/images/placeholder_480x480.jpg"
             };
         } else if (size === 'large'){
             img_urls = {
-                "landscape" : "https://jsonipsum.com/static/images/image_1280x720.jpg",
-                "portrait" : "https://jsonipsum.com/static/images/image_720x1280.jpg",
-                "square" : "https://jsonipsum.com/static/images/image_1280x1280.jpg"
+                "landscape" : "https://jsonipsum.com/static/images/placeholder_1280x720.jpg",
+                "portrait" : "https://jsonipsum.com/static/images/placeholder_720x1280.jpg",
+                "square" : "https://jsonipsum.com/static/images/placeholder_1280x1280.jpg"
             };
         } else {
             img_urls = {
-                "landscape" : "https://jsonipsum.com/static/images/image_960x640.jpg",
-                "portrait" : "https://jsonipsum.com/static/images/image_640x960.jpg",
-                "square" : "https://jsonipsum.com/static/images/image_960x960.jpg"
+                "landscape" : "https://jsonipsum.com/static/images/placeholder_960x640.jpg",
+                "portrait" : "https://jsonipsum.com/static/images/placeholder_640x960.jpg",
+                "square" : "https://jsonipsum.com/static/images/placeholder_960x960.jpg"
             };
         }
 

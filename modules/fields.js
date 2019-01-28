@@ -248,7 +248,7 @@ module.exports = {
                         break;
 
                     case 'icon':
-                        data[field] = 'https://jsonipsum.com/static/image/icon.svg';
+                        data[field] = 'https://jsonipsum.com/static/image/placeholder_icon.svg';
                         break;
 
                     case 'video':
