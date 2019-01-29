@@ -41,4 +41,4 @@ Welcome to JSON:IPSUM, a REST API that returns randomly generated text (lorem ip
 
 # Authentication
 
-There is <b>no authentication required</b> to use this API, simply make GET requests in your language of choice to the endpoints listed in this documentation then parse the JSON data.
+There is <b>no authentication required</b> to use this API, simply make GET requests in your language of choice to the endpoints listed in this documentation then parse the response data.

@@ -1,10 +1,6 @@
 # Parameters
 
-List of all available parameter options the API supports.
-
-
-
-
+List of all available parameter options and values the API supports.
 
 
 ## Length
@@ -36,9 +32,9 @@ Set the length of the text returned for the specific endpoint.
 
 Value | Description
 --------- | -----------
-short | Returns shorter text.
-medium | Returns medium text. This is the Default value.
-long | Returns longest text.
+short | Returns shorter length text <br><em>4-8 word sentences, 3-6 sentences in a paragraph</em>.
+medium | Returns medium length text. <br><em>8-16 word sentences, 5-8 sentences in a paragraph<br>Default</em>
+long | Returns longest length text. <br><em>16-24 word sentences, 7-12 sentences in a paragraph</em>
 
 
 
@@ -57,6 +53,32 @@ GET "https://api.jsonipsum.com/text/paragraph/?count=3"
     {
         "id": 0,
         "text": "Minim incididunt enim amet ad aute reprehenderit aliquip exercitation est ex nulla consequat dolore adipisicing exercitation ex exercitation tempor esse. Consequat elit magna aliqua est adipisicing incididunt ut fugiat qui et eiusmod. Magna mollit reprehenderit eu et adipisicing aliquip sint nostrud enim fugiat irure dolor irure reprehenderit exercitation reprehenderit eu cillum sunt. Deserunt minim velit proident aute excepteur sit minim ea aliquip eu tempor. Cupidatat quis mollit anim sit exercitation consectetur quis tempor mollit aliquip adipisicing. Dolor occaecat incididunt ex cillum minim excepteur Lorem tempor dolore labore duis incididunt ut laboris ipsum nulla mollit dolor.Ullamco exercitation sint velit velit reprehenderit duis Lorem fugiat amet magna veniam enim aute proident. Officia incididunt sint labore qui consequat ullamco consectetur amet ad dolore Lorem aliqua qui ut eu in ea exercitation. Enim est sit veniam mollit tempor cupidatat pariatur esse esse ipsum incididunt aute sunt dolor proident mollit et aliquip amet. Voluptate ad officia veniam sit consequat ut velit ullamco esse sit irure enim nulla reprehenderit magna culpa. Irure Lorem amet incididunt cupidatat ullamco nisi incididunt adipisicing dolor duis nisi nostrud eiusmod quis. Id irure id quis minim enim officia dolore ex culpa laborum eu non. Laboris deserunt deserunt voluptate quis eiusmod exercitation cupidatat excepteur et Lorem Lorem occaecat officia veniam mollit. Nostrud ea voluptate Lorem sint qui occaecat reprehenderit voluptate eiusmod eiusmod pariatur.Velit voluptate consequat sint adipisicing occaecat non qui occaecat labore sit labore. Laboris amet duis aliqua enim aute et commodo minim ut cillum magna minim irure. Voluptate culpa id ad adipisicing exercitation nisi velit reprehenderit laboris aute tempor ullamco tempor. Incididunt amet do ex magna laborum proident occaecat pariatur irure enim nulla amet fugiat aliquip consequat occaecat do. Nostrud eiusmod non nisi consectetur dolore in do in aliqua incididunt duis reprehenderit eu. Id est velit veniam irure consequat pariatur fugiat reprehenderit consectetur exercitation enim elit commodo eu elit adipisicing sit irure minim."
+    }
+]
+```
+
+```shell
+GET "https://api.jsonipsum.com/text/block/?count=3"
+```
+
+> JSON response
+
+```json
+[
+    {
+        "id": 0,
+        "text": "Enim amet adipisicing irure et aliquip labore occaecat laborum commodo consectetur adipisicing sint. Amet laboris aliqua commodo labore irure dolore mollit fugiat et. Eiusmod ut ullamco proident laboris eu veniam Lorem culpa ad reprehenderit laborum. Cillum id aute ipsum reprehenderit proident consequat culpa nisi tempor consectetur adipisicing elit minim. Sint ad amet velit tempor ullamco consectetur non veniam quis reprehenderit elit veniam voluptate ad sunt. Aliquip incididunt enim amet deserunt dolore irure velit in in do nulla sint culpa officia.",
+        "title": "Dolor non est dolore voluptate irure et eu deserunt magna aliqua."
+    },
+    {
+        "id": 1,
+        "text": "Laborum ex nostrud veniam exercitation laboris ipsum non dolore. Cupidatat tempor eiusmod sunt ut eiusmod et laboris commodo veniam pariatur qui irure ut nostrud duis. Magna irure laborum dolore non proident exercitation et ipsum commodo labore qui occaecat quis labore laborum. Pariatur enim est culpa qui velit sit id Lorem reprehenderit ullamco veniam ullamco laboris nisi. Sunt minim nulla incididunt commodo culpa aute id veniam occaecat tempor nisi nostrud mollit minim. Excepteur nulla anim amet esse reprehenderit est aute. Non aliqua adipisicing nulla nisi esse exercitation consequat do nostrud proident qui quis nisi consectetur cillum.",
+        "title": "Excepteur eiusmod sunt dolor laboris quis adipisicing eu."
+    },
+    {
+        "id": 2,
+        "text": "Labore culpa mollit minim cillum incididunt esse anim eiusmod cupidatat dolor dolore. Lorem elit sunt laborum deserunt id ullamco eiusmod culpa deserunt dolore officia ut est id qui. Et irure mollit sunt sint id consequat id. Nulla consequat proident aliqua consequat do amet fugiat id veniam exercitation aute pariatur. Ipsum sit enim eiusmod ex Lorem labore ea Lorem eu sit Lorem sint. Sint Lorem est culpa pariatur ipsum magna eiusmod aute.",
+        "title": "Pariatur deserunt officia do sint do enim ea ut et incididunt laborum culpa quis."
     }
 ]
 ```
@@ -84,7 +106,7 @@ Value | Description
 GET "https://api.jsonipsum.com/text/block/?fields=thumbnail,title,excerpt"
 ```
 
-> The above request returns JSON structured like this:
+> JSON response
 
 ```json
 [
@@ -101,67 +123,23 @@ GET "https://api.jsonipsum.com/text/block/?fields=thumbnail,title,excerpt"
 ]
 ```
 
-> Return multiple items in the JSON object by passing the Count parameter:
-
 ```shell
-GET "https://api.jsonipsum.com/text/block/?fields=thumbnail,title,excerpt&count=3"
+GET "https://api.jsonipsum.com/text/block/?fields=thumbnail[small],title[short],excerpt[long]"
 ```
 
-> JSON Response
+> JSON response
 
 ```json
 [
     {
         "id": 0,
         "thumbnail": {
-            "landscape": "https://jsonipsum.com/static/images/image_960x640.jpg",
-            "portrait": "https://jsonipsum.com/static/images/image_640x960.jpg",
-            "square": "https://jsonipsum.com/static/images/image_960x960.jpg"
+            "landscape": "https://jsonipsum.com/static/images/placeholder_480x320.jpg",
+            "portrait": "https://jsonipsum.com/static/images/placeholder_320x480.jpg",
+            "square": "https://jsonipsum.com/static/images/placeholder_480x480.jpg"
         },
-        "title": "Esse minim fugiat pariatur sit deserunt non culpa ullamco nulla est qui.",
-        "excerpt": "Velit sunt pariatur enim commodo laboris non dolor cupidatat proident aliquip laborum Lorem do ad laboris minim sunt sint nostrud. Elit aliquip ut et id incididunt sint reprehenderit ea magna laboris in anim adipisicing nisi minim consequat deserunt. Pariatur non anim minim fugiat elit eu proident nulla sint enim dolore qui mollit labore. Qui minim fugiat nisi irure adipisicing laboris qui anim voluptate tempor ullamco. Officia do anim pariatur sunt mollit eu duis aliqua nostrud quis non reprehenderit incididunt aliqua in."
-    },
-    {
-        "id": 1,
-        "thumbnail": {
-            "landscape": "https://jsonipsum.com/static/images/image_960x640.jpg",
-            "portrait": "https://jsonipsum.com/static/images/image_640x960.jpg",
-            "square": "https://jsonipsum.com/static/images/image_960x960.jpg"
-        },
-        "title": "Exercitation in officia occaecat consectetur mollit nostrud dolore tempor aute velit in labore quis do.",
-        "excerpt": "Sint qui amet fugiat ad consequat est labore velit tempor proident deserunt duis eu occaecat cillum commodo sunt nisi. Quis sunt occaecat quis reprehenderit reprehenderit eu minim consectetur cillum id ullamco. Cupidatat elit ipsum magna labore non nostrud laborum ad ea occaecat nisi do enim. Cupidatat Lorem et excepteur proident anim amet fugiat magna eu ad officia consequat duis laboris cillum sit labore excepteur. Non esse ut esse do est incididunt ad enim aliqua sint irure aute non quis incididunt."
-    },
-    {
-        "id": 2,
-        "thumbnail": {
-            "landscape": "https://jsonipsum.com/static/images/image_960x640.jpg",
-            "portrait": "https://jsonipsum.com/static/images/image_640x960.jpg",
-            "square": "https://jsonipsum.com/static/images/image_960x960.jpg"
-        },
-        "title": "Consectetur consectetur magna nisi pariatur amet duis sunt aliquip culpa consequat minim ullamco ipsum est irure commodo voluptate cupidatat.",
-        "excerpt": "Deserunt voluptate ex minim ipsum consequat enim quis occaecat occaecat quis mollit quis dolore ipsum. Incididunt nulla exercitation id cupidatat elit fugiat amet esse exercitation tempor quis cillum consequat quis. Elit velit proident aliquip magna deserunt fugiat amet eiusmod quis cillum adipisicing laborum labore esse eiusmod amet. Cupidatat nisi velit deserunt aliquip do ex irure nostrud cupidatat cillum cillum officia in id. Et dolore anim mollit exercitation commodo do sit consectetur aute ullamco nulla nulla dolore enim veniam sint. Amet eu consequat quis reprehenderit ipsum non sunt sit officia esse voluptate officia ad mollit velit aliqua proident magna elit."
-    }
-]
-```
-
-> Pass options to Field values that support them:
-
-```shell
-GET "https://api.jsonipsum.com/text/block/?fields=name,date[future],title[short]"
-```
-
-> JSON Response
-
-```json
-[
-    {
-        "id": 0,
-        "name": "Rachelle Braun",
-        "date": {
-            "string": "2022-10-30",
-            "timestamp": 1667088000000
-        },
-        "title": "Non culpa ex pariatur veniam ex."
+        "title": "Labore ad enim aliqua irure velit aliqua.",
+        "excerpt": "Fugiat elit et sunt cillum culpa nisi nostrud laboris eiusmod ex proident ullamco enim do nulla. Amet laborum aliqua est cillum ad incididunt do nulla consectetur Lorem veniam consectetur incididunt voluptate pariatur. Sint nulla esse ipsum anim quis adipisicing occaecat deserunt labore aliquip deserunt fugiat est do eiusmod labore reprehenderit reprehenderit aute occaecat aliquip anim ex. Et ut occaecat voluptate sint Lorem reprehenderit incididunt ad id ut duis et irure consequat in anim mollit voluptate sint voluptate. Do consectetur mollit quis enim nostrud commodo culpa commodo pariatur nostrud in nisi officia nostrud non minim aliqua cillum ea. Occaecat in occaecat fugiat irure est cupidatat sit do ut aliqua dolor reprehenderit sunt aliquip ullamco excepteur ad occaecat eiusmod tempor Lorem fugiat. Et tempor dolor ut non quis sint esse dolore ad officia officia elit ad dolore laborum velit labore consequat laborum eu non."
     }
 ]
 ```
@@ -235,7 +213,7 @@ GET "https://api.jsonipsum.com/text/html/?tags=h1,h2[short],p[5]"
 
 ```
 
-> The above request returns JSON structured like this:
+> JSON response
 
 ```json
 [
@@ -276,22 +254,6 @@ ol | short<br>medium<br>long | Random count (3-8) of `li` items in a `ol` tag.<b
 
 
 ## Regions
-
-```shell
-GET "https://api.jsonipsum.com/text/block/"
-```
-
-> The above request returns JSON structured like this:
-
-```json
-[
-    {
-        "id": 0,
-        "text": "Ad occaecat amet nisi esse quis eiusmod eu do ut minim ex tempor non. Cillum sit Lorem qui nostrud amet exercitation esse est excepteur aliqua est esse reprehenderit occaecat elit amet magna eu. Eiusmod nulla dolor cupidatat ex proident adipisicing labore deserunt occaecat ullamco Lorem excepteur dolor elit non ea anim occaecat ut. Quis cillum pariatur eu ex id et quis nisi eiusmod occaecat ex adipisicing veniam duis consequat sunt. Do laborum nulla duis commodo sunt laborum adipisicing occaecat est ipsum deserunt ut Lorem culpa labore et exercitation esse laborum.",
-        "title": "Commodo irure consectetur minim veniam aliquip veniam adipisicing mollit et et minim aliquip est aliqua."
-    }
-]
-```
 
 List of available Field parameters you can pass to the Block endpoint. This allows you to return custom text/data blocks. Some fields accept options themselves by passing the option in brackets right after the Field parameter.
 

@@ -6,7 +6,7 @@
 GET "https://api.jsonipsum.com/text/sentence/"
 ```
 
-> The above request returns JSON structured like this:
+> JSON response
 
 ```json
 [
@@ -39,7 +39,7 @@ Pass parameters as simple query strings on the GET request url
 GET "https://api.jsonipsum.com/text/paragraph/"
 ```
 
-> The above request returns JSON structured like this:
+> JSON response
 
 ```json
 [
@@ -71,7 +71,7 @@ Pass parameters as simple query strings on the GET request url
 GET "https://api.jsonipsum.com/text/block/"
 ```
 
-> The above request returns JSON structured like this:
+> JSON response
 
 ```json
 [
@@ -106,7 +106,7 @@ Pass parameters as simple query strings on the GET request url
 GET "https://api.jsonipsum.com/text/html/"
 ```
 
-> The above request returns JSON structured like this:
+> JSON response
 
 ```json
 [
@@ -116,6 +116,7 @@ GET "https://api.jsonipsum.com/text/html/"
     }
 ]
 ```
+
 
 This endpoint by default returns a block item with three paragraphs of lorem ipsum text, wrapped in `p` tags.
 
