@@ -16,28 +16,28 @@ search: true
 
 # Overview
 
-Welcome to JSON:IPSUM, a REST API that returns randomly generated text (lorem ipsum) in JSON format, as well as fake application or website data like names, emails, usernames and passwords to be used for design, development, wireframing or placeholder purposes.
+Welcome to <b>JSON:ISPUM</b>, a freely available RESTful API that returns randomly generated text (lorem ipsum) in JSON format. Also request fake application or website data like names, emails, usernames and passwords to be used for design, development, wireframing or placeholder purposes.
 
 ### Features
 
-- REST API with GET request only
-- Return JSON format
-- API request endpoint will dynamically generate lorem ipsum or fake data and return in JSON format
-- Create basic use case endpoint templates for quick reference, and widely used web elements
-- Create customized endpoint template with requestable fields parameter
-- Pass options to field parameter to vary data length and type
-- Allow to specify how many items to return (/api/?template=blog&count=10)
-- Type of content to include (text, image, pdf, zip, doc, csv, xls, video)
+- Language, library, and framework agnostic api.
+- Simple GET request, returns JSON response.
+- Supports multiple <a href="#endpoints">endpoints</a> and <a href="#parameters">parameters</a>.
+- Quick response times.
+- Easy to use, no authentication needed.
+- Create custom JSON object structures with random text/data.
+- Generates lorem ipsum and placeholder data with minimal effort.
 
 ### Use Cases
 
-Welcome to JSON:IPSUM, a REST API that returns randomly generated text (lorem ipsum) in JSON format, as well as fake application or website data like names, emails, usernames and passwords to be used for design, development, wireframing or placeholder purposes.
-
-- App Developers can use the REST Api to pull in dummy content into their application, instead of hard coding everything. This will allow for them to see randomly generated amounts of text and data to check layouts and functionality as if the end user was inputing their own content.
-- Web Developers can see what their elements look like with "real world" style content and not have to worry about copy/paste of varible length, or style of content.
-- Use for wireframes or mockups
-- Download the generated JSON as a template to replace with actual content for production, this would allow you to develop before final content, then just update the JSON file and not have to edit any markup...
-- Use as a dynamic data playground, maybe to expierement with api calls and json responses in new languages for learning or testing...
+- Quickly populate wireframes or working mockups with text or html.
+- Experiment with JSON data structures and REST API responses.
+- Simplify markup by using the response as repeatable elements.
+- Simulate "real word" content from users or a CMS.
+- Seed a database with placeholder data for development and testing.
+- Create simple proof of concept interactions or requests.
+- Easily populate grid, or list views/layouts.
+- Take a look at some more <a href="#examples">examples</a>.
 
 # Authentication
 

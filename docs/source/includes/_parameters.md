@@ -1,8 +1,5 @@
 # Parameters
 
-List of all available parameter options and values the API supports.
-
-
 ## Length
 
 ```shell
@@ -24,7 +21,7 @@ Set the length of the text returned for the specific endpoint.
 
 ### Supported Endpoints
 
-<a href="#sentence">sentence</a> | <a href="#paragraph">paragraph</a>
+<a href="#sentence">sentence</a> | <a href="#paragraph">paragraph</a> | <a href="#html">html</a>
 
 ### HTTP Request
 
@@ -33,8 +30,8 @@ Set the length of the text returned for the specific endpoint.
 Value | Description
 --------- | -----------
 short | Returns shorter length text <br><em>4-8 word sentences, 3-6 sentences in a paragraph</em>.
-medium | Returns medium length text. <br><em>8-16 word sentences, 5-8 sentences in a paragraph<br>Default</em>
-long | Returns longest length text. <br><em>16-24 word sentences, 7-12 sentences in a paragraph</em>
+medium | Returns medium length text. <br><em>8-16 word sentences, 5-8 sentences in a paragraph</em>
+long | Returns longer length text. <br><em>16-24 word sentences, 7-12 sentences in a paragraph</em>
 
 
 
@@ -83,11 +80,11 @@ GET "https://api.jsonipsum.com/text/block/?count=3"
 ]
 ```
 
-Tell the API how many items to return. For <em>Sentences</em> and <em>Paragraphs</em> the <em>Count</em> parameter will return the items to the same object index, effectively just returning longer text blocks. For the <em>Block</em> endpoint, the <em>Count</em> parameter will return additional indexes to the final object.
+Determine the number of items to return for a given endpoint.
 
 ### Supported Endpoints
 
-<a href="#sentence">sentence</a> | <a href="#paragraph">paragraph</a> | <a href="#block">block</a>
+<a href="#sentence">sentence</a> | <a href="#paragraph">paragraph</a> | <a href="#block">block</a> | <a href="#html">html</a>
 
 ### HTTP Request
 
@@ -96,6 +93,10 @@ Tell the API how many items to return. For <em>Sentences</em> and <em>Paragraphs
 Value | Description
 --------- | -----------
 1-100 | Returns the requested number of items.
+
+<aside class="notice">
+For <em>Sentence</em> and <em>Paragraph</em> endpoints the <em>Count</em> parameter will add to the same object index, effectively just returning longer and longer text strings. For the <em>Block</em> and <em>HTML</em> endpoints, it will return additional indexes to the final object.
+</aside>
 
 
 
@@ -145,7 +146,7 @@ GET "https://api.jsonipsum.com/text/block/?fields=thumbnail[small],title[short],
 ```
 
 
-List of available Field parameters you can pass to the Block endpoint. This allows you to return custom text/data blocks. Some fields accept options themselves by passing the option in brackets right after the Field parameter. Example below.
+Available values for the <em>Field</em> parameter. Create custom data structures by passing different <em>Field</em> values and value options.
 
 ### Supported Endpoints
 
@@ -155,15 +156,11 @@ List of available Field parameters you can pass to the Block endpoint. This allo
 
 `GET https://api.jsonipsum.com/text/block/?fields=value[option]`
 
-<aside class="notice">
-You can combine multiple Fields by separating them with a comma.
-</aside>
-
 
 Value | Options | Type | Description
 --------- | ------- | -------- | -----------
 address | street<br>city<br>postal<br>province<br>country<br>countrycode | object | Traditional style shipping/billing address. Change format of address by also passing the <em>Region</em> parameter.<br><em>Default: all</em>
-age | none | integer | Returns random age as an integer<br><em>Range between 18 - 50</em>
+age | none | integer | Returns random number as an integer<br><em>Range between 18 - 50</em>
 author | none | string |  Full fictional name, first and last.
 avatar | small<br>medium<br>large | object | Returns three different versions of a static image (landscape, portrait, square) in size option provide.<br><em>Default: medium</em>
 bankcard | number<br>expire<br>ccv | object | Returns randomly generated (fake) debit/credit card information.<br><em>Default: all</em>
@@ -203,6 +200,12 @@ uuid | none | string | Randomly generate universally unique identifier (uuid).
 video | none | object | Sample playable and embedable video from jsonipsum.com hosted on Vimeo.
 website | none | string | Returns static www.jsonipsum.com domain as a string.
 
+<aside class="notice">
+You can combine multiple <em>Field</em> values by separating them with a comma.
+</aside>
+<aside class="notice">
+Pass options by appending the available option, within square brackets, to the <em>Field</em> value.
+</aside>
 
 
 ## Tags
@@ -224,7 +227,7 @@ GET "https://api.jsonipsum.com/text/html/?tags=h1,h2[short],p[5]"
 ]
 ```
 
-List of available Field parameters you can pass to the Block endpoint. This allows you to return custom text/data blocks. Some fields accept options themselves by passing the option in brackets right after the Field parameter.
+Available values for the <em>Tags</em> parameter. Create random markup combinations by passing these values to the <em>Tags</em> parameter.
 
 ### Supported Endpoints
 
@@ -235,19 +238,20 @@ List of available Field parameters you can pass to the Block endpoint. This allo
 `GET https://api.jsonipsum.com/text/html/?tags=value[option]`
 
 <aside class="notice">
-You can combine multiple Tags by separating them with a comma.
+You can combine multiple <em>Tag</em> values by separating them with a comma.
 </aside>
 
 Value | Options | Description
 --------- | ----------- | -----------
+blockquote | short<br>medium<br>long | Sentence in `blockquote` tag.<br><em>Default: medium</em>
 h1 | short<br>medium<br>long | Sentence in `h1` tag.<br><em>Default: medium</em>
 h2 | short<br>medium<br>long | Sentence in `h2` tag.<br><em>Default: medium</em>
 h3 | short<br>medium<br>long | Sentence in `h3` tag.<br><em>Default: medium</em>
 h4 | short<br>medium<br>long | Sentence in `h4` tag.<br><em>Default: medium</em>
-p | 1-100 | Text in `p` tag.<br><em>Default: 1</em>
-blockquote | short<br>medium<br>long | Sentence in `blockquote` tag.<br><em>Default: medium</em>
-ul | short<br>medium<br>long | Random count (3-8) of `li` items in a `ul` tag.<br><em>Default: medium</em>
 ol | short<br>medium<br>long | Random count (3-8) of `li` items in a `ol` tag.<br><em>Default: medium</em>
+p | 1-100 | Text in `p` tag.<br><em>Default: 1</em>
+span | short<br>medium<br>long | Sentence in `span` tag.<br><em>Default: medium</em>
+ul | short<br>medium<br>long | Random count (3-8) of `li` items in a `ul` tag.<br><em>Default: medium</em>
 
 
 
@@ -255,7 +259,7 @@ ol | short<br>medium<br>long | Random count (3-8) of `li` items in a `ol` tag.<b
 
 ## Regions
 
-List of available Field parameters you can pass to the Block endpoint. This allows you to return custom text/data blocks. Some fields accept options themselves by passing the option in brackets right after the Field parameter.
+Available values for the <em>Region</em> parameter.
 
 ### Supported Endpoints
 
@@ -268,4 +272,4 @@ List of available Field parameters you can pass to the Block endpoint. This allo
 
 Value | Description
 --------- | -----------
-en | Sets region to English.<br><em>Default</em>
+en | Sets region to US English.<br><em>Default</em>
