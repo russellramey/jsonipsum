@@ -237,10 +237,6 @@ Available values for the <em>Tags</em> parameter. Create random markup combinati
 
 `GET https://api.jsonipsum.com/text/html/?tags=value[option]`
 
-<aside class="notice">
-You can combine multiple <em>Tag</em> values by separating them with a comma.
-</aside>
-
 Value | Options | Description
 --------- | ----------- | -----------
 blockquote | short<br>medium<br>long | Sentence in `blockquote` tag.<br><em>Default: medium</em>
@@ -253,13 +249,41 @@ p | 1-100 | Text in `p` tag.<br><em>Default: 1</em>
 span | short<br>medium<br>long | Sentence in `span` tag.<br><em>Default: medium</em>
 ul | short<br>medium<br>long | Random count (3-8) of `li` items in a `ul` tag.<br><em>Default: medium</em>
 
-
+<aside class="notice">
+You can combine multiple <em>Tag</em> values by separating them with a comma.
+</aside>
 
 
 
 ## Regions
 
-Available values for the <em>Region</em> parameter.
+```shell
+
+GET "https://api.jsonipsum.com/text/block/?fields=name,phone,address&region=de"
+
+```
+
+> JSON response
+
+```json
+[
+    {
+        "id": 0,
+        "name": "Imke Holzner",
+        "phone": "(0553) 326731785",
+        "address": {
+            "street": "027 Hingsen Causeway",
+            "city": "Neu Cindyburg",
+            "postal": "94774",
+            "province": "Baden-Württemberg",
+            "country": "Grönland",
+            "countrycode": "KN"
+        }
+    }
+]
+```
+
+Available values for the <em>Region</em> parameter. Passing a region will return localized data in the native language.
 
 ### Supported Endpoints
 
@@ -272,4 +296,20 @@ Available values for the <em>Region</em> parameter.
 
 Value | Description
 --------- | -----------
-en | Sets region to US English.<br><em>Default</em>
+de | Sets region to German.
+en | Sets region to English - US.<br><em>Default</em>
+en_AU | Sets region to English - Australia.
+en_CA | Sets region to English - Canada.
+en_GB | Sets region to English - Great Briton.
+es | Sets region to Spanish.
+es_MX | Sets region to Spanish - Mexico.
+fr | Sets region to French.
+fr_CA | Sets region to French - Canada.
+it | Sets region to Italian.
+ja | Sets region to Japanese.
+ko | Sets region to Korean.
+pl | Sets region to Polish.
+pt_BR | Sets region to Portuguese - Brazil.
+pt_PT | Sets region to Portuguese - Portugal.
+ru | Sets region to Russian.
+tr | Sets region to Turkish.
