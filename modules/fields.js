@@ -230,12 +230,12 @@ module.exports = {
                     case 'bullets':
                     case 'list':
                     case 'features':
-                        data[field] = [
-                            lorem.generate_lorem_ipusm('sentence', options, 1),
-                            lorem.generate_lorem_ipusm('sentence', options, 1),
-                            lorem.generate_lorem_ipusm('sentence', options, 1),
-                            lorem.generate_lorem_ipusm('sentence', options, 1)
-                        ]
+                        // Set empty array
+                        data[field] = []
+                        // Create 5 items in array
+                        for(var i = 0; i < 4; i++){
+                            data[field].push(lorem.generate_lorem_ipusm('sentence', options, 1));
+                        }
                         break;
 
                     // Assets
