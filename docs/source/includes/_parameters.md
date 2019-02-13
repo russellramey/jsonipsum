@@ -166,17 +166,22 @@ avatar | small<br>medium<br>large | object | Returns three different versions of
 bankcard | number<br>expire<br>ccv | object | Returns randomly generated (fake) debit/credit card information.<br><em>Default: all</em>
 birthday | past<br>today<br>future | object | Returns date in string and timestamp format. Random date if <em>Past</em>, or <em>Future</em> options are passed.<br><em>Default: today</em>
 body | short<br>medium<br>long | string | Returns lorem ipsum paragraph.<br><em>Default: medium</em>
+bullets | short<br>medium<br>long | array | Returns lorem ipsum sentences as an array.<br><em>Default: medium</em>
 company | none | string | Returns fake company name.
 coordinates | none | object | Random latitude and longitude map coordinates as key/value pairs.
 date | past<br>today<br>future | object | Returns date in string and timestamp format. Random date if <em>Past</em>, or <em>Future</em> options are passed.<br><em>Default: today</em>
+description | short<br>medium<br>long | string | Returns lorem ipsum paragraph.<br><em>Default: medium</em>
 email | none | string | Random email address with alphanumeric email handle.<br><em>Format: abc123@jsonipsum.com</em>
 excerpt | short<br>medium<br>long | string | Returns lorem ipsum paragraph.<br><em>Default: medium</em>
+features | short<br>medium<br>long | array | Returns lorem ipsum sentences as an array.<br><em>Default: medium</em>
 file | none | string | Returns valid url to a sample downloadable pdf file.
 headers | host<br>request<br>method<br>status<br>ip<br>useragent | object | Basic sample HTTP information typically found in request headers.<br><em>Default: all</em>
+headshot | small<br>medium<br>large | object | Returns three different versions of a static image (landscape, portrait, square) in size option provide.<br><em>Default: medium</em>
 icon | none | string | Returns valid url to sample placeholder svg/icon file.
 image | small<br>medium<br>large | object | Returns three different versions of a static image (landscape, portrait, square) in size option provide.<br><em>Default: medium</em>
 job | none | string | Returns random job title/position.
 latlong | none | object | Random latitude and longitude map coordinates as key/value pairs.
+list | short<br>medium<br>long | array | Returns lorem ipsum sentences as an array.<br><em>Default: medium</em>
 mac | none | string | Returns randomly generated device MAC address.
 map | none | object | Random latitude and longitude map coordinates as key/value pairs.
 name | none | string | Full fictional name, first and last.
