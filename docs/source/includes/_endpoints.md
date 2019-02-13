@@ -50,7 +50,7 @@ GET "https://api.jsonipsum.com/text/paragraph/"
 ]
 ```
 
-Generate a random paragraph. With this endpoint multiple sentences will be returned instead of just a single sentence like the <em>Sentence</em> endpoint.
+Generate a random paragraph. With this endpoint multiple sentences will be returned instead of just a single sentence like with the <a href="#sentence">Sentence</a> endpoint.
 
 ### HTTP Request
 
@@ -58,7 +58,7 @@ Generate a random paragraph. With this endpoint multiple sentences will be retur
 
 Parameter | Value | Description
 --------- | ------- | -----------
-<a href="#length">length</a> | small<br>medium<br>large | Determine the length of the sentence and number of sentences in the paragraph returned. <br><em>Default: medium</em>
+<a href="#length">length</a> | small<br>medium<br>large | Determine the length of the sentence as well as the number of sentences in the paragraph. <br><em>Default: medium</em>
 <a href="#count">count</a> | 1-100 | Set the number of paragraphs to be returned. <br><em>Default: 1</em>
 
 <aside class="notice">

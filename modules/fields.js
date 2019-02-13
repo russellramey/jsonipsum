@@ -223,11 +223,13 @@ module.exports = {
                     case 'excerpt':
                     case 'body':
                     case 'summary':
+                    case 'description':
                         data[field] = lorem.generate_lorem_ipusm('paragraph', options, 1);
                         break;
 
                     case 'bullets':
                     case 'list':
+                    case 'features':
                         data[field] = [
                             lorem.generate_lorem_ipusm('sentence', options, 1),
                             lorem.generate_lorem_ipusm('sentence', options, 1),
@@ -244,6 +246,7 @@ module.exports = {
                     case 'image':
                     case 'avatar':
                     case 'thumbnail':
+                    case 'headshot':
                         data[field] = lorem.generate_image_urls(options);
                         break;
 
