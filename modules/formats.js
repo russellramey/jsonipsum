@@ -25,106 +25,101 @@ module.exports = {
             count = 1;
         }
 
-        // Get FORMAT of 'sentence'
-        if (format === 'sentence'){
+        // Get FORMAT and check case
+        switch(format){
 
-            // Build dataitem
-            dataitem = {
-                "id" : 0,
-                "text" : lorem.generate_lorem_ipusm("sentence", length, count),
-            };
-
-            // Push item to data array
-            data.push(dataitem);
-
-        }
-        // Get FORMAT of 'paragraph'
-        else if (format === 'paragraph'){
-
-            // Build dataitem
-            dataitem = {
-                "id" : 0,
-                "text" : lorem.generate_lorem_ipusm("paragraph", length, count),
-            };
-
-            // Push item to data array
-            data.push(dataitem);
-
-        }
-        // Get FORMAT of 'block'
-        else if (format === 'block'){
-
-            // Get count, loop until max reached
-            for (id = 0; id < count; id++){
-
-                // Build data item
-                dataitem = {
-                    "id": id,
-                };
-
-                // Check for 'FIELD' params
-                if (params.fields){
-
-                    // Split 'FIELDS' param into individual strings
-                    fields = params.fields.split(',');
-
-                    //Add all data to master Dict
-                    Object.assign(dataitem, getFields.render_text_field(fields, params, request));
-
-                } else {
-                    // Return default Text Group
+            // Word or Sentence or Paragraph
+            case 'word':
+            case 'sentence':
+            case 'paragraph':
+                // Get count, loop until max reached
+                for (id = 0; id < count; id++){
+                    // Build dataitem
                     dataitem = {
-                        'id': id,
-                        'text' : lorem.generate_lorem_ipusm("paragraph", length, 1),
-                        'title' : lorem.generate_lorem_ipusm("sentence", 'medium', 1),
+                        "id" : id,
+                        "text" : lorem.generate_lorem_ipusm(format, length, 1),
                     };
+
+                    // Push item to data array
+                    data.push(dataitem);
                 }
+                break;
 
-                // Push item to data array
-                data.push(dataitem);
-            }
+            // Block
+            case 'block':
+                // Get count, loop until max reached
+                for (id = 0; id < count; id++){
 
-        }
-        // Get FORMAT of 'html'
-        else if (format === 'html'){
-
-            // Get count, loop until max reached
-            for (id = 0; id < count; id++){
-
-                // Build data item
-                dataitem = {
-                    "id": id,
-                };
-
-                // Check for 'TAGS' params
-                if (params.tags){
-
-                    // Split 'TAGS' param into individual strings
-                    var tags = params.tags.split(',');
-
-                    //Add all data to master Dict
-                    Object.assign(dataitem, getHtml.render_html_element(tags, params, request));
-
-                } else {
-                    // Return default HTML Text
+                    // Build data item
                     dataitem = {
-                        'id': id,
-                        'text' : lorem.generate_lorem_ipusm("paragraph", 'medium', 3, "true"),
+                        "id": id,
                     };
+
+                    // Check for 'FIELD' params
+                    if (params.fields){
+
+                        // Split 'FIELDS' param into individual strings
+                        fields = params.fields.split(',');
+
+                        //Add all data to master Dict
+                        Object.assign(dataitem, getFields.render_text_field(fields, params, request));
+
+                    } else {
+                        // Return default Text Group
+                        dataitem = {
+                            'id': id,
+                            'text' : lorem.generate_lorem_ipusm("paragraph", length, 1),
+                            'title' : lorem.generate_lorem_ipusm("sentence", 'medium', 1),
+                        };
+                    }
+
+                    // Push item to data array
+                    data.push(dataitem);
                 }
+                break;
 
-                // Push item to data array
-                data.push(dataitem);
+            // HTML
+            case 'html':
+                // Get count, loop until max reached
+                for (id = 0; id < count; id++){
 
-            }
-        }
-        // If invalid format
-        else {
-            data = { "error" : "problem returning data for /" + format };
-        }
+                    // Build data item
+                    dataitem = {
+                        "id": id,
+                    };
 
-        // Return all data
-        return data;
-    },
+                    // Check for 'TAGS' params
+                    if (params.tags){
 
+                        // Split 'TAGS' param into individual strings
+                        var tags = params.tags.split(',');
+
+                        //Add all data to master Dict
+                        Object.assign(dataitem, getHtml.render_html_element(tags, params, request));
+
+                    } else {
+                        // Return default HTML Text
+                        dataitem = {
+                            'id': id,
+                            'text' : lorem.generate_lorem_ipusm("paragraph", 'medium', 3, "true"),
+                        };
+                    }
+
+                    // Push item to data array
+                    data.push(dataitem);
+
+                }
+                break;
+
+            // Default case
+            case 'default':
+                data = { "error" : "problem returning data for /" + format };
+                break;
+
+    }
+
+    // Return all data
+    return data;
+
+    }
 };

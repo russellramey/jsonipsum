@@ -48,6 +48,21 @@ No authentication needed, simple Http GET Request is all that is required
             - blockquote (length)
         - ?length
 
+/TEMPLATES
+    - /post
+    - /blog
+    - /todo
+    - /checklist
+
+    - /comment
+    - /testimonial
+
+    - /team
+    - /user
+
+    - /photo
+
+
 # Fields
 - title / subtitle
     [length]
@@ -118,7 +133,7 @@ No authentication needed, simple Http GET Request is all that is required
     - true
 
 
-# Templates/Examples
+# Examples
 
 > Sentence
 

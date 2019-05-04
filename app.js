@@ -1,15 +1,15 @@
-// Modules
+// Import Modules
 var express = require("express");
 var getFormat = require('./modules/formats');
 
-// Start
+// Start app
 var app = express();
 
 // Main get request
 app.get("/api/v1/text/:format/", (request, response, next) => {
 
     // Get format
-    var formats = ["sentence", "paragraph", "block", "html"];
+    var formats = ["sentence", "paragraph", "block", "html", "post", "word", "phrase"];
     var format = request.params.format;
 
     // If format is valid
@@ -29,9 +29,11 @@ app.get("/api/v1/text/:format/", (request, response, next) => {
             "error" : "/" + format + " is not a valid endpoint",
             "status" : 404,
             "endpoints" : {
+                "word" : "https://jsonipsum.com/api/v1/text/word/",
                 "sentence" : "https://jsonipsum.com/api/v1/text/sentence/",
                 "paragraph" : "https://jsonipsum.com/api/v1/text/paragraph/",
-                "block" : "https://jsonipsum.com/api/v1/text/block/"
+                "block" : "https://jsonipsum.com/api/v1/text/block/",
+                "html" : "https://jsonipsum.com/api/v1/text/html/"
             }
         };
     }
