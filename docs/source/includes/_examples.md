@@ -63,12 +63,20 @@ GET "https://api.jsonipsum.com/text/sentence/?count=3"
 [
     {
         "id": 0,
-        "text": "Quis ullamco ex cupidatat aliqua nulla cupidatat est. Voluptate ex amet do commodo qui elit aliquip dolor incididunt amet nostrud consequat commodo do. Eiusmod velit cillum exercitation culpa sint aute reprehenderit ipsum Lorem in tempor aliquip occaecat."
+        "text": "Nisi ad excepteur consectetur anim nostrud Lorem ipsum cillum pariatur ea."
+    },
+    {
+        "id": 1,
+        "text": "Cillum dolor magna deserunt velit adipisicing nulla mollit labore aute quis proident."
+    },
+    {
+        "id": 2,
+        "text": "Reprehenderit nostrud dolor sit Lorem ad occaecat voluptate tempor."
     }
 ]
 ```
 
-You can request multiple sentences to create your own paragraphs or bodies of text. Use the <a href="#sentence">sentence</a> endpoint, and pass the <a href="#count">count</a> parameter with a value of <em><u>3</u></em>, or your desired number of sentences.
+You can request multiple sentences to create your own paragraphs or bodies of text. Use the <a href="#sentence">sentence</a> endpoint, and pass the <a href="#count">count</a> parameter with your desired number of sentences.
 
 ### HTTP Request
 `GET https://api.jsonipsum.com/text/sentence/?count=3`
@@ -87,7 +95,7 @@ GET "https://api.jsonipsum.com/text/paragraph/?length=short"
 [
     {
         "id": 0,
-        "text": "Eu ipsum ullamco excepteur. Mollit duis irure amet et ut exercitation magna. Esse commodo veniam amet."
+        "text": "Consectetur fugiat commodo sit ex aliquip pariatur. Irure sunt incididunt in mollit occaecat. Sit consequat eu dolore nisi velit non. Ullamco aliqua elit reprehenderit velit. Laboris officia laboris aliquip ad duis laborum. Elit qui quis velit aliquip do."
     }
 ]
 ```
@@ -136,12 +144,20 @@ GET "https://api.jsonipsum.com/text/paragraph/?count=3"
 [
     {
         "id": 0,
-        "text": "Veniam ex tempor dolor officia ea anim velit aliqua sint esse reprehenderit enim nostrud adipisicing dolor. Sunt dolore labore laborum do duis nostrud anim sit cupidatat amet reprehenderit tempor. Dolore minim quis consequat ad eiusmod quis non consequat ut sunt sint Lorem commodo anim. Velit fugiat enim sint voluptate ad dolor duis excepteur enim adipisicing ut non. In cupidatat non do veniam culpa incididunt voluptate reprehenderit incididunt excepteur commodo cupidatat elit consectetur eu. Consectetur proident enim duis qui nisi mollit officia cillum aliquip incididunt in. Nostrud do voluptate in ut exercitation nostrud culpa nisi culpa incididunt anim proident magna consectetur. Nisi amet commodo laborum do sunt ea exercitation non fugiat dolore mollit. Excepteur aliqua amet fugiat aute esse mollit occaecat esse ut. Eiusmod aliqua reprehenderit aliquip nisi ipsum deserunt amet ea ea. Voluptate amet fugiat sit do laborum incididunt laboris laborum aute ipsum duis in eiusmod ea. Est sint in dolor velit aute duis aute ut excepteur consequat qui esse magna. Dolor ea nostrud laboris excepteur incididunt commodo ea cillum ex non tempor anim irure mollit labore. Laborum cupidatat commodo irure minim dolor fugiat sint do pariatur. Consectetur elit consequat nisi irure anim officia nulla est duis deserunt ipsum laborum dolore fugiat nostrud. Proident eiusmod culpa aute duis reprehenderit ad qui eu magna proident fugiat excepteur. Enim mollit proident exercitation irure quis nulla pariatur eiusmod ea occaecat et. Ullamco ullamco exercitation mollit ad enim labore ex sint amet aliquip officia nostrud laboris exercitation nostrud. Laboris adipisicing veniam dolore irure labore magna exercitation Lorem exercitation excepteur. Occaecat Lorem anim officia enim eu non proident velit excepteur sit consectetur ad et in. Pariatur do cillum proident ea elit ipsum aliqua."
+        "text": "Adipisicing ad velit voluptate nulla pariatur ut velit fugiat esse aute non eu eiusmod quis. Enim officia reprehenderit incididunt deserunt incididunt qui aliqua nostrud cupidatat. Occaecat veniam laboris sint dolor voluptate voluptate laborum sint commodo sit. Culpa incididunt do nulla in Lorem anim reprehenderit fugiat proident. Nisi quis cillum labore id laborum mollit consectetur. Eu amet aute pariatur sunt irure anim officia sunt consequat."
+    },
+    {
+        "id": 1,
+        "text": "Velit do sunt irure fugiat non ad amet id elit proident ad sit. Id qui adipisicing anim irure esse anim consectetur id. Nulla dolor enim officia ex ullamco ut et occaecat excepteur dolor tempor laboris minim velit occaecat. Aliqua velit velit anim duis pariatur ex veniam anim non eu excepteur. Sunt ad duis et minim non mollit adipisicing anim proident excepteur proident occaecat adipisicing in ea. Anim aliquip Lorem dolor amet consequat sint do excepteur enim nisi irure ex eu. Cupidatat cupidatat mollit occaecat nulla aliquip voluptate culpa irure ullamco ut ut."
+    },
+    {
+        "id": 2,
+        "text": "Occaecat aliquip incididunt nulla Lorem do veniam fugiat deserunt ex. Aute amet nostrud nulla occaecat est consequat reprehenderit in ea. Pariatur dolore non labore cillum esse eiusmod laborum. Proident sint cupidatat sit excepteur minim culpa fugiat exercitation irure cupidatat ex ullamco laboris. Consequat sunt excepteur sunt nulla eiusmod aliquip incididunt ut commodo nisi sint exercitation consequat non consectetur."
     }
 ]
 ```
 
-You can request multiple paragraphs at a time to create longer bodies of text. Use the <a href="#paragraph">paragraph</a> endpoint, and pass the <a href="#count">count</a> parameter with a value of <em><u>5</u></em>, or your desired number of paragraphs.
+You can request multiple paragraphs at a time to create longer bodies of text. Use the <a href="#paragraph">paragraph</a> endpoint, and pass the <a href="#count">count</a> parameter with your desired number of paragraphs.
 
 ### HTTP Request
 `GET https://api.jsonipsum.com/text/paragraph/?count=3`
@@ -175,16 +191,24 @@ Single paragraph, wrapped in HTML `p` tags. Use the <a href="#html">html</a> end
 ## Multiple HTML Paragraphs
 
 ```shell
-GET "https://api.jsonipsum.com/text/html/?tags=p[3]"
+GET "https://api.jsonipsum.com/text/html/?tags=p&count=3"
 ```
 
 > JSON Response
 
 ```json
 [
-    {    
+    {
         "id": 0,
-        "text": "<p>Do laborum esse consequat culpa consectetur dolor occaecat magna ipsum duis nulla excepteur. Irure labore eu nisi ad cupidatat anim est consectetur ut aliqua. Consectetur cillum esse amet deserunt do dolore enim dolore minim ex enim minim laborum. Eiusmod id id elit veniam amet occaecat velit. Dolor reprehenderit laborum elit culpa laborum aute commodo proident officia velit.</p> <p>Sit et laborum cupidatat ullamco excepteur ex ex. Irure aliquip dolor tempor consectetur anim exercitation velit nisi nostrud magna fugiat deserunt. Tempor anim quis officia ea sit laboris anim pariatur eu anim enim esse adipisicing. Consectetur ex amet irure magna minim exercitation reprehenderit sint officia. Esse ipsum duis nostrud aliquip cillum reprehenderit amet occaecat deserunt nostrud tempor ipsum tempor. Incididunt consectetur amet ullamco qui duis anim esse. Aliquip aliquip pariatur sunt non ex esse ullamco irure. Elit amet aliqua eiusmod ullamco velit proident anim ex et veniam culpa.</p> <p>Amet duis ullamco esse pariatur commodo eu esse do anim in laboris adipisicing nostrud. Amet ea tempor aliqua laboris excepteur dolor adipisicing quis non pariatur duis labore. Excepteur eiusmod ullamco quis Lorem esse elit pariatur fugiat occaecat do. Laborum magna aliquip irure non id do consectetur reprehenderit. Anim qui adipisicing adipisicing nostrud nostrud nostrud veniam fugiat minim. Ad aliqua est in sint dolore pariatur nisi labore proident esse nulla. Eu amet incididunt cupidatat minim ut nostrud occaecat aute sit.</p>"
+        "text": "<p>Irure consequat quis tempor non proident cupidatat exercitation exercitation exercitation amet laborum amet. Qui mollit sint culpa dolor occaecat officia excepteur ex in culpa fugiat ea officia duis. Mollit quis magna aliquip dolor voluptate labore sit qui minim fugiat Lorem enim incididunt in. Anim nulla deserunt nostrud labore consectetur exercitation laborum deserunt non veniam. Lorem id ipsum commodo et Lorem ad ullamco id tempor ipsum minim qui elit cupidatat. Consectetur fugiat reprehenderit in adipisicing deserunt incididunt do minim id ad sit minim pariatur exercitation. Dolore sunt ad ut qui id ullamco commodo. Fugiat culpa labore velit do officia in voluptate.</p>"
+    },
+    {
+        "id": 1,
+        "text": "<p>Eiusmod esse in ut nostrud nulla minim ipsum sint elit sint mollit. Eiusmod in nulla commodo sunt eiusmod deserunt dolor elit quis amet excepteur voluptate sunt esse. Cupidatat nisi ipsum ut reprehenderit est minim esse cillum reprehenderit in incididunt mollit. Consectetur nulla qui tempor et pariatur sint sunt nisi duis reprehenderit nisi cillum eu exercitation. Sit dolore quis ullamco ullamco ut reprehenderit excepteur excepteur.</p>"
+    },
+    {
+        "id": 2,
+        "text": "<p>Ullamco culpa do velit fugiat ipsum magna nostrud est dolor sunt officia. In veniam commodo et aliqua adipisicing nostrud proident. Irure consectetur pariatur esse ullamco reprehenderit deserunt incididunt adipisicing id officia id adipisicing. Nostrud et commodo sunt qui velit excepteur labore nisi pariatur veniam exercitation. Ipsum aute enim ad duis amet laborum nostrud.</p>"
     }
 ]
 ```
@@ -192,23 +216,23 @@ GET "https://api.jsonipsum.com/text/html/?tags=p[3]"
 Request multiple paragraphs, each one wrapped in HTML `p` tags and returned as a single object. Use the <a href="#html">html</a> endpoint, and pass the <a href="#tags">tags</a> parameter with a value of <em><u>p</u></em> and value options of <em><u>3</u></em>, or the number of `p` tags desired.
 
 ### HTTP Request
-`GET https://api.jsonipsum.com/text/html/?tags=p[3]`
+`GET https://api.jsonipsum.com/text/html/?tags=p&count=3`
 
 
 
 ## HTML Markup
 
 ```shell
-GET "https://api.jsonipsum.com/text/html/?tags=h1,h2,p[2],ul,p[2],blockquote,p[2]"
+GET "https://api.jsonipsum.com/text/html/?tags=h1,h2,p,ul,p,blockquote,p"
 ```
 
 > JSON Response
 
 ```json
 [
-    {    
+    {
         "id": 0,
-        "text": "<h1>Amet elit commodo deserunt excepteur laborum velit eiusmod velit eu nostrud.</h1><h2>Deserunt consequat dolore cupidatat esse sint amet voluptate est tempor amet do aliqua elit occaecat.</h2><p>Amet ad aute pariatur exercitation adipisicing sint nostrud ex eiusmod deserunt mollit. Deserunt deserunt dolor do id commodo velit labore et proident sunt laboris. Laboris aute irure culpa esse qui duis tempor incididunt aute cillum minim et reprehenderit cupidatat nisi. Ea mollit pariatur mollit esse irure ad aute eiusmod dolore occaecat sunt elit aliquip. Elit anim cupidatat dolor anim in mollit anim laborum minim exercitation excepteur deserunt pariatur. Et et aliqua culpa labore sunt do voluptate anim ipsum excepteur mollit. Voluptate anim nostrud nisi qui ipsum reprehenderit laborum nisi id veniam enim consectetur laborum dolore. Esse esse consectetur velit cupidatat in reprehenderit amet est.</p> <p>Qui sit eiusmod veniam duis anim ex in deserunt. Minim voluptate ea cillum culpa et et culpa commodo. Adipisicing proident sit sunt labore laborum amet enim irure dolor amet pariatur ad tempor. Aliquip ullamco commodo Lorem dolor et cillum dolor cillum anim. Irure velit incididunt sunt fugiat ea labore anim irure proident. Exercitation ad ullamco magna labore ea anim magna est ea incididunt irure dolore dolor excepteur. Magna id nisi commodo commodo cillum excepteur cupidatat aliqua quis laboris tempor ullamco. Adipisicing voluptate ex consectetur occaecat Lorem consectetur nisi anim cupidatat cillum dolore aliqua.</p><ul><li>Amet incididunt ullamco amet laborum sint dolore ea consequat tempor esse nulla minim nulla adipisicing pariatur.</li><li>Sint qui enim dolor non voluptate deserunt aliquip consectetur nisi fugiat nisi.</li><li>Enim et cupidatat laboris labore proident mollit quis sunt commodo id elit.</li></ul><p>Mollit commodo et velit do ipsum minim qui sunt nisi do ullamco. Magna aliqua ex et et est exercitation ex consequat. Nostrud laboris dolor deserunt proident dolore enim ad culpa non. Eu consequat non ullamco amet tempor exercitation adipisicing dolore fugiat nulla veniam id. Adipisicing eiusmod do veniam culpa culpa cillum minim dolore nisi esse ullamco non. Nulla dolor dolor cupidatat sint officia et minim do occaecat sit dolore. Labore id id officia incididunt aute ea minim fugiat velit minim anim non. Anim reprehenderit nisi culpa Lorem Lorem adipisicing ipsum reprehenderit.</p> <p>Ad sit proident nisi eiusmod Lorem occaecat laborum nulla proident exercitation exercitation velit. Dolor deserunt velit adipisicing ullamco duis nulla et cupidatat deserunt. Aliqua quis et enim sunt amet eu nisi occaecat Lorem ad dolor ea officia sit. Aliqua eu sint eiusmod enim sint proident magna laborum. Nisi ipsum incididunt officia proident dolore duis labore exercitation irure. Id nisi ex ipsum sunt non do magna ut nisi excepteur ad. Irure eiusmod eiusmod et occaecat culpa voluptate ad Lorem fugiat enim aliqua anim nisi laboris ipsum. Consectetur non tempor ipsum consequat labore ad anim minim voluptate.</p><blockquote>In pariatur do cupidatat incididunt sint excepteur amet dolor est culpa cupidatat in.</blockquote><p>Incididunt consectetur ullamco sunt exercitation qui ut sit velit do cupidatat sint Lorem dolor. Do tempor ullamco nulla quis duis minim in dolore minim do fugiat deserunt cillum sunt aliquip. Tempor est magna in sint sint labore aliquip pariatur nulla tempor. Excepteur aliqua elit nulla Lorem enim elit sit proident commodo nulla do. Id excepteur eiusmod nisi in quis qui consequat duis excepteur commodo nisi aliqua duis pariatur et. Irure laborum amet deserunt pariatur voluptate ipsum labore tempor exercitation consectetur veniam culpa.</p> <p>Dolor enim qui ex sit laborum in nisi ut ea fugiat anim veniam sunt dolor aute. Cupidatat aliquip velit aliquip aute proident laboris nulla nulla commodo. Cupidatat sit elit quis est adipisicing exercitation tempor excepteur excepteur commodo consequat occaecat consectetur. Consequat labore eiusmod esse velit anim irure enim qui sit ut sit pariatur exercitation magna do. Eu aliquip id quis elit enim esse deserunt aliqua.</p>"
+        "text": "<h1>Dolor ea cillum sunt dolor nisi occaecat aliqua aliquip eu aute enim aliqua culpa do qui.</h1><h2>In nisi commodo anim tempor dolore tempor cupidatat id non magna velit.</h2><p>Dolor amet nisi excepteur aliqua dolore deserunt enim mollit do mollit cupidatat et veniam. Incididunt minim incididunt laboris esse duis est pariatur ea ipsum duis cupidatat ad qui. Id ex veniam occaecat nostrud nulla eiusmod elit magna tempor eu minim elit. Dolor sit nostrud consequat minim quis sunt dolore nisi. Ad occaecat ut Lorem aliquip aliquip do commodo occaecat enim.</p><ul><li>Cillum laboris id officia sint culpa voluptate ad qui deserunt occaecat sunt adipisicing veniam magna.</li><li>Incididunt veniam id culpa proident occaecat aliqua enim sit.</li><li>Officia et sit sit velit enim magna magna.</li><li>Laboris amet in ut quis qui occaecat amet elit nulla deserunt laborum.</li><li>Lorem veniam magna cupidatat consectetur et ullamco ipsum nostrud in.</li></ul><p>Deserunt quis nostrud consequat commodo et eiusmod anim reprehenderit fugiat qui ex ut. Ipsum nisi anim officia culpa nisi cupidatat exercitation quis magna pariatur. Sit enim excepteur excepteur quis esse et deserunt mollit. Cupidatat cillum incididunt elit est sunt consectetur proident officia exercitation labore sit ea minim aliqua. Adipisicing dolor anim eiusmod eu ad anim eu deserunt enim irure exercitation aute. Ullamco sint consectetur velit sunt ipsum velit non aliquip aliqua mollit mollit mollit ullamco eu irure. Id minim ipsum amet cillum id esse Lorem minim labore duis ut Lorem adipisicing adipisicing. Sint sint nisi ad proident ut nulla nostrud pariatur.</p><blockquote>Aute nisi ea est sint cillum ipsum reprehenderit et deserunt id magna quis reprehenderit culpa. Esse ad commodo qui enim amet et do reprehenderit nulla anim labore ea ipsum esse. Do fugiat cillum dolor velit ad minim Lorem. Laboris officia nisi enim irure sunt proident qui culpa id. Qui nostrud consectetur qui veniam officia aliquip sint mollit nisi exercitation adipisicing enim id mollit laboris.</blockquote><p>Nulla pariatur occaecat aute reprehenderit culpa officia id anim ullamco non mollit cupidatat quis magna. Duis qui pariatur minim consequat sint proident anim dolore dolore laborum consequat deserunt consectetur fugiat. Aliquip id magna enim consequat et in cupidatat excepteur duis irure pariatur. In amet deserunt laborum aute veniam commodo pariatur. Ipsum consequat pariatur aliquip velit magna ad deserunt commodo fugiat cillum eiusmod voluptate duis occaecat. Mollit veniam id esse tempor fugiat excepteur id labore eu et ad eu exercitation labore voluptate.</p>"
     }
 ]
 ```
@@ -216,14 +240,14 @@ GET "https://api.jsonipsum.com/text/html/?tags=h1,h2,p[2],ul,p[2],blockquote,p[2
 Generate formatted HTML markup. You can create your desired markup as a single object, but passing in desired tags. Use the <a href="#html">html</a> endpoint, and pass the <a href="#tags">tags</a> parameter with the desired supported values and options.
 
 ### HTTP Request
-`GET https://api.jsonipsum.com/text/html/?tags=h1,h2,p[2],ul,p[2],blockquote,p[2]`
+`GET https://api.jsonipsum.com/text/html/?tags=h1,h2,p,ul,p,blockquote,p`
 
 
 
 ## Text Block
 
 ```shell
-GET "https://api.jsonipsum.com/text/block/?fields=title,excerpt"
+GET "https://api.jsonipsum.com/text/custom/?fields=title,excerpt"
 ```
 
 > JSON Response
@@ -241,7 +265,7 @@ GET "https://api.jsonipsum.com/text/block/?fields=title,excerpt"
 Request a single block of text with a Title and Excerpt. Use the <a href="#block">block</a> endpoint, and pass the <a href="#fields">fields</a> parameter with the desired supported values and options.
 
 ### HTTP Request
-`GET https://api.jsonipsum.com/text/block/?fields=title,excerpt`
+`GET https://api.jsonipsum.com/text/custom/?fields=title,excerpt`
 
 
 
@@ -249,7 +273,7 @@ Request a single block of text with a Title and Excerpt. Use the <a href="#block
 ## Text Block with Image
 
 ```shell
-GET "https://api.jsonipsum.com/text/block/?fields=image,title,excerpt"
+GET "https://api.jsonipsum.com/text/custom/?fields=image,title,excerpt"
 ```
 
 > JSON Response
@@ -272,13 +296,13 @@ GET "https://api.jsonipsum.com/text/block/?fields=image,title,excerpt"
 Request a single block of text with an Image, Title and Excerpt. Use the <a href="#block">block</a> endpoint, and pass the <a href="#fields">fields</a> parameter with the desired supported values and options.
 
 ### HTTP Request
-`GET https://api.jsonipsum.com/text/block/?fields=image,title,excerpt`
+`GET https://api.jsonipsum.com/text/custom/?fields=image,title,excerpt`
 
 
 ## Text Block with Video
 
 ```shell
-GET "https://api.jsonipsum.com/text/block/?fields=title,video,excerpt"
+GET "https://api.jsonipsum.com/text/custom/?fields=title,video,excerpt"
 ```
 
 > JSON Response
@@ -301,7 +325,7 @@ GET "https://api.jsonipsum.com/text/block/?fields=title,video,excerpt"
 Request a single block of text with a Title, Video and Excerpt. Use the <a href="#block">block</a> endpoint, and pass the <a href="#fields">fields</a> parameter with the desired supported values and options.
 
 ### HTTP Request
-`GET https://api.jsonipsum.com/text/block/?fields=title,video,excerpt`
+`GET https://api.jsonipsum.com/text/custom/?fields=title,video,excerpt`
 
 
 
@@ -311,7 +335,7 @@ Request a single block of text with a Title, Video and Excerpt. Use the <a href=
 ## Text Block List
 
 ```shell
-GET "https://api.jsonipsum.com/text/block/?fields=title,excerpt&count=3"
+GET "https://api.jsonipsum.com/text/custom/?fields=title,excerpt&count=3"
 ```
 
 > JSON Response
@@ -339,7 +363,7 @@ GET "https://api.jsonipsum.com/text/block/?fields=title,excerpt&count=3"
 You can request multiple text blocks in the same object. Use the <a href="#block">block</a> endpoint, and pass the <a href="#count">count</a> parameter with the desired number of items.
 
 ### HTTP Request
-`GET https://api.jsonipsum.com/text/block/?fields=title,excerpt&count=3`
+`GET https://api.jsonipsum.com/text/custom/?fields=title,excerpt&count=3`
 
 
 
@@ -348,7 +372,7 @@ You can request multiple text blocks in the same object. Use the <a href="#block
 ## Features List
 
 ```shell
-GET "https://api.jsonipsum.com/text/block/?fields=icon,title,description&count=3"
+GET "https://api.jsonipsum.com/text/custom/?fields=icon,title,description&count=3"
 ```
 
 > JSON Response
@@ -379,7 +403,7 @@ GET "https://api.jsonipsum.com/text/block/?fields=icon,title,description&count=3
 Create placeholder content for an app or website Features list with an Icon, Title, and Description. Use the <a href="#block">block</a> endpoint, and pass the <a href="#count">count</a> parameter with the desired number of items.
 
 ### HTTP Request
-`GET https://api.jsonipsum.com/text/block/?fields=icon,title,description&count=3`
+`GET https://api.jsonipsum.com/text/custom/?fields=icon,title,description&count=3`
 
 
 
@@ -388,7 +412,7 @@ Create placeholder content for an app or website Features list with an Icon, Tit
 ## Blog/Article List
 
 ```shell
-GET "https://api.jsonipsum.com/text/block/?fields=date[past],title,author,thumbnail,excerpt&count=3"
+GET "https://api.jsonipsum.com/text/custom/?fields=date[past],title,author,thumbnail,excerpt&count=3"
 ```
 
 > JSON Response
@@ -446,13 +470,13 @@ GET "https://api.jsonipsum.com/text/block/?fields=date[past],title,author,thumbn
 Simple example to retrieve a list of blog articles with a Date, Title, Author, Thumbnail, Excerpt, and Taxonomy. Use the <a href="#block">block</a> endpoint, and pass both the <a href="#count">count</a> parameter and the <a href="#fields">fields</a> parameter with the desired supported values and options.
 
 ### HTTP Request
-`GET https://api.jsonipsum.com/text/block/?fields=date[past],title,author,thumbnail,excerpt&count=3`
+`GET https://api.jsonipsum.com/text/custom/?fields=date[past],title,author,thumbnail,excerpt&count=3`
 
 
 ## Profile/Team List
 
 ```shell
-GET "https://api.jsonipsum.com/text/block/?fields=headshot,name,job,email&count=3"
+GET "https://api.jsonipsum.com/text/custom/?fields=headshot,name,job,email&count=3"
 ```
 
 > JSON Response
@@ -498,7 +522,7 @@ GET "https://api.jsonipsum.com/text/block/?fields=headshot,name,job,email&count=
 Example to retrieve a list of team/staff members with a Headshot, Name, Job Title, and Email. Use the <a href="#block">block</a> endpoint, and pass both the <a href="#count">count</a> parameter and the <a href="#fields">fields</a> parameter with the desired supported values and options.
 
 ### HTTP Request
-`GET https://api.jsonipsum.com/text/block/?fields=headshot,name,job,email&count=3`
+`GET https://api.jsonipsum.com/text/custom/?fields=headshot,name,job,email&count=3`
 
 
 
@@ -509,7 +533,7 @@ Example to retrieve a list of team/staff members with a Headshot, Name, Job Titl
 ## User List
 
 ```shell
-GET "https://api.jsonipsum.com/text/block/?fields=username,password,name,email&count=6"
+GET "https://api.jsonipsum.com/text/custom/?fields=username,password,name,email&count=6"
 ```
 
 > JSON Response
@@ -564,7 +588,7 @@ GET "https://api.jsonipsum.com/text/block/?fields=username,password,name,email&c
 Example to retrieve a list of sample User data with a Username, Password, Name and Email. Use the <a href="#block">block</a> endpoint, and pass both the <a href="#count">count</a> parameter and the <a href="#fields">fields</a> parameter with the desired supported values and options.
 
 ### HTTP Request
-`GET https://api.jsonipsum.com/text/block/?fields=username,password,name,email&count=6`
+`GET https://api.jsonipsum.com/text/custom/?fields=username,password,name,email&count=6`
 
 
 
@@ -572,7 +596,7 @@ Example to retrieve a list of sample User data with a Username, Password, Name a
 ## Customer List
 
 ```shell
-GET "https://api.jsonipsum.com/text/block/?fields=name,email,bankcard,address&count=6"
+GET "https://api.jsonipsum.com/text/custom/?fields=name,email,bankcard,address&count=6"
 ```
 
 > JSON Response
@@ -711,14 +735,14 @@ GET "https://api.jsonipsum.com/text/block/?fields=name,email,bankcard,address&co
 Example to retrieve a list of sample Customer data with a Name, Email, Bankcard, and Billing Address. Use the <a href="#block">block</a> endpoint, and pass both the <a href="#count">count</a> parameter and the <a href="#fields">fields</a> parameter with the desired supported values and options.
 
 ### HTTP Request
-`GET https://api.jsonipsum.com/text/block/?fields=name,email,bankcard,address&count=6`
+`GET https://api.jsonipsum.com/text/custom/?fields=name,email,bankcard,address&count=6`
 
 
 
 ## Product List
 
 ```shell
-GET "https://api.jsonipsum.com/text/block/?fields=product,summary,image,bullets,rating&count=3"
+GET "https://api.jsonipsum.com/text/custom/?fields=product,summary,image,bullets,rating&count=3"
 ```
 
 > JSON Response
@@ -803,7 +827,7 @@ GET "https://api.jsonipsum.com/text/block/?fields=product,summary,image,bullets,
 Example to retrieve a list of sample Product data with a Product, Summary, Image, Features, and Rating. Use the <a href="#block">block</a> endpoint, and pass both the <a href="#count">count</a> parameter and the <a href="#fields">fields</a> parameter with the desired supported values and options.
 
 ### HTTP Request
-`GET https://api.jsonipsum.com/text/block/?fields=product,summary,image,bullets,rating&count=3`
+`GET https://api.jsonipsum.com/text/custom/?fields=product,summary,image,bullets,rating&count=3`
 
 
 
@@ -811,7 +835,7 @@ Example to retrieve a list of sample Product data with a Product, Summary, Image
 ## Financial Transactions
 
 ```shell
-GET "https://api.jsonipsum.com/text/block/?fields=transaction,name,email,company&count=4"
+GET "https://api.jsonipsum.com/text/custom/?fields=transaction,name,email,company&count=4"
 ```
 
 > JSON Response
@@ -876,7 +900,7 @@ GET "https://api.jsonipsum.com/text/block/?fields=transaction,name,email,company
 Example to retrieve a list of sample Financial Transaction data with a Transaction, Name, Email, and Company. Use the <a href="#block">block</a> endpoint, and pass both the <a href="#count">count</a> parameter and the <a href="#fields">fields</a> parameter with the desired supported values and options.
 
 ### HTTP Request
-`GET https://api.jsonipsum.com/text/block/?fields=transaction,name,email,company&count=4`
+`GET https://api.jsonipsum.com/text/custom/?fields=transaction,name,email,company&count=4`
 
 
 
@@ -884,7 +908,7 @@ Example to retrieve a list of sample Financial Transaction data with a Transacti
 ## Location Markers
 
 ```shell
-GET "https://api.jsonipsum.com/text/block/?fields=coordinates,address[city],address[country]&count=6"
+GET "https://api.jsonipsum.com/text/custom/?fields=coordinates,address[city],address[country]&count=6"
 ```
 
 > JSON Response
@@ -951,4 +975,4 @@ GET "https://api.jsonipsum.com/text/block/?fields=coordinates,address[city],addr
 Example to retrieve a list of sample Map data with a Coordinates, City, and Country. Use the <a href="#block">block</a> endpoint, and pass both the <a href="#count">count</a> parameter and the <a href="#fields">fields</a> parameter with the desired supported values and options.
 
 ### HTTP Request
-`GET https://api.jsonipsum.com/text/block/?fields=coordinates,address[city],address[country]&count=6`
+`GET https://api.jsonipsum.com/text/custom/?fields=coordinates,address[city],address[country]&count=6`

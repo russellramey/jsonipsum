@@ -21,7 +21,7 @@ Set the length of the text returned for the specific endpoint.
 
 ### Supported Endpoints
 
-<a href="#sentence">sentence</a> | <a href="#paragraph">paragraph</a> | <a href="#html">html</a>
+<a href="#sentence">sentence</a> | <a href="#paragraph">paragraph</a>
 
 ### HTTP Request
 
@@ -49,33 +49,15 @@ GET "https://api.jsonipsum.com/text/paragraph/?count=3"
 [
     {
         "id": 0,
-        "text": "Minim incididunt enim amet ad aute reprehenderit aliquip exercitation est ex nulla consequat dolore adipisicing exercitation ex exercitation tempor esse. Consequat elit magna aliqua est adipisicing incididunt ut fugiat qui et eiusmod. Magna mollit reprehenderit eu et adipisicing aliquip sint nostrud enim fugiat irure dolor irure reprehenderit exercitation reprehenderit eu cillum sunt. Deserunt minim velit proident aute excepteur sit minim ea aliquip eu tempor. Cupidatat quis mollit anim sit exercitation consectetur quis tempor mollit aliquip adipisicing. Dolor occaecat incididunt ex cillum minim excepteur Lorem tempor dolore labore duis incididunt ut laboris ipsum nulla mollit dolor.Ullamco exercitation sint velit velit reprehenderit duis Lorem fugiat amet magna veniam enim aute proident. Officia incididunt sint labore qui consequat ullamco consectetur amet ad dolore Lorem aliqua qui ut eu in ea exercitation. Enim est sit veniam mollit tempor cupidatat pariatur esse esse ipsum incididunt aute sunt dolor proident mollit et aliquip amet. Voluptate ad officia veniam sit consequat ut velit ullamco esse sit irure enim nulla reprehenderit magna culpa. Irure Lorem amet incididunt cupidatat ullamco nisi incididunt adipisicing dolor duis nisi nostrud eiusmod quis. Id irure id quis minim enim officia dolore ex culpa laborum eu non. Laboris deserunt deserunt voluptate quis eiusmod exercitation cupidatat excepteur et Lorem Lorem occaecat officia veniam mollit. Nostrud ea voluptate Lorem sint qui occaecat reprehenderit voluptate eiusmod eiusmod pariatur.Velit voluptate consequat sint adipisicing occaecat non qui occaecat labore sit labore. Laboris amet duis aliqua enim aute et commodo minim ut cillum magna minim irure. Voluptate culpa id ad adipisicing exercitation nisi velit reprehenderit laboris aute tempor ullamco tempor. Incididunt amet do ex magna laborum proident occaecat pariatur irure enim nulla amet fugiat aliquip consequat occaecat do. Nostrud eiusmod non nisi consectetur dolore in do in aliqua incididunt duis reprehenderit eu. Id est velit veniam irure consequat pariatur fugiat reprehenderit consectetur exercitation enim elit commodo eu elit adipisicing sit irure minim."
-    }
-]
-```
-
-```shell
-GET "https://api.jsonipsum.com/text/block/?count=3"
-```
-
-> JSON response
-
-```json
-[
-    {
-        "id": 0,
         "text": "Enim amet adipisicing irure et aliquip labore occaecat laborum commodo consectetur adipisicing sint. Amet laboris aliqua commodo labore irure dolore mollit fugiat et. Eiusmod ut ullamco proident laboris eu veniam Lorem culpa ad reprehenderit laborum. Cillum id aute ipsum reprehenderit proident consequat culpa nisi tempor consectetur adipisicing elit minim. Sint ad amet velit tempor ullamco consectetur non veniam quis reprehenderit elit veniam voluptate ad sunt. Aliquip incididunt enim amet deserunt dolore irure velit in in do nulla sint culpa officia.",
-        "title": "Dolor non est dolore voluptate irure et eu deserunt magna aliqua."
     },
     {
         "id": 1,
         "text": "Laborum ex nostrud veniam exercitation laboris ipsum non dolore. Cupidatat tempor eiusmod sunt ut eiusmod et laboris commodo veniam pariatur qui irure ut nostrud duis. Magna irure laborum dolore non proident exercitation et ipsum commodo labore qui occaecat quis labore laborum. Pariatur enim est culpa qui velit sit id Lorem reprehenderit ullamco veniam ullamco laboris nisi. Sunt minim nulla incididunt commodo culpa aute id veniam occaecat tempor nisi nostrud mollit minim. Excepteur nulla anim amet esse reprehenderit est aute. Non aliqua adipisicing nulla nisi esse exercitation consequat do nostrud proident qui quis nisi consectetur cillum.",
-        "title": "Excepteur eiusmod sunt dolor laboris quis adipisicing eu."
     },
     {
         "id": 2,
         "text": "Labore culpa mollit minim cillum incididunt esse anim eiusmod cupidatat dolor dolore. Lorem elit sunt laborum deserunt id ullamco eiusmod culpa deserunt dolore officia ut est id qui. Et irure mollit sunt sint id consequat id. Nulla consequat proident aliqua consequat do amet fugiat id veniam exercitation aute pariatur. Ipsum sit enim eiusmod ex Lorem labore ea Lorem eu sit Lorem sint. Sint Lorem est culpa pariatur ipsum magna eiusmod aute.",
-        "title": "Pariatur deserunt officia do sint do enim ea ut et incididunt laborum culpa quis."
     }
 ]
 ```
@@ -84,7 +66,7 @@ Determine the number of items to return for a given endpoint.
 
 ### Supported Endpoints
 
-<a href="#sentence">sentence</a> | <a href="#paragraph">paragraph</a> | <a href="#block">block</a> | <a href="#html">html</a>
+<a href="#sentence">sentence</a> | <a href="#paragraph">paragraph</a> | <a href="#custom">custom</a> | <a href="#html">html</a>
 
 ### HTTP Request
 
@@ -95,7 +77,7 @@ Value | Description
 1-100 | Returns the requested number of items.
 
 <aside class="notice">
-For <em>Sentence</em> and <em>Paragraph</em> endpoints the <em>Count</em> parameter will add to the same object index, effectively just returning longer and longer text strings. For the <em>Block</em> and <em>HTML</em> endpoints, it will return additional indexes to the final object.
+The <em>Count</em> parameter will add additional indexes to the returned json object.
 </aside>
 
 
@@ -104,7 +86,7 @@ For <em>Sentence</em> and <em>Paragraph</em> endpoints the <em>Count</em> parame
 ## Fields
 
 ```shell
-GET "https://api.jsonipsum.com/text/block/?fields=thumbnail,title,excerpt"
+GET "https://api.jsonipsum.com/text/custom/?fields=thumbnail,title,excerpt"
 ```
 
 > JSON response
@@ -125,7 +107,7 @@ GET "https://api.jsonipsum.com/text/block/?fields=thumbnail,title,excerpt"
 ```
 
 ```shell
-GET "https://api.jsonipsum.com/text/block/?fields=thumbnail[small],title[short],excerpt[long]"
+GET "https://api.jsonipsum.com/text/custom/?fields=thumbnail[small],title[short],excerpt[long]"
 ```
 
 > JSON response
@@ -140,7 +122,7 @@ GET "https://api.jsonipsum.com/text/block/?fields=thumbnail[small],title[short],
             "square": "https://jsonipsum.com/static/images/placeholder_480x480.jpg"
         },
         "title": "Labore ad enim aliqua irure velit aliqua.",
-        "excerpt": "Fugiat elit et sunt cillum culpa nisi nostrud laboris eiusmod ex proident ullamco enim do nulla. Amet laborum aliqua est cillum ad incididunt do nulla consectetur Lorem veniam consectetur incididunt voluptate pariatur. Sint nulla esse ipsum anim quis adipisicing occaecat deserunt labore aliquip deserunt fugiat est do eiusmod labore reprehenderit reprehenderit aute occaecat aliquip anim ex. Et ut occaecat voluptate sint Lorem reprehenderit incididunt ad id ut duis et irure consequat in anim mollit voluptate sint voluptate. Do consectetur mollit quis enim nostrud commodo culpa commodo pariatur nostrud in nisi officia nostrud non minim aliqua cillum ea. Occaecat in occaecat fugiat irure est cupidatat sit do ut aliqua dolor reprehenderit sunt aliquip ullamco excepteur ad occaecat eiusmod tempor Lorem fugiat. Et tempor dolor ut non quis sint esse dolore ad officia officia elit ad dolore laborum velit labore consequat laborum eu non."
+        "excerpt": "Fugiat elit et sunt cillum culpa nisi nostrud laboris eiusmod ex proident ullamco enim do nulla. Amet laborum aliqua est cillum ad incididunt do nulla consectetur Lorem veniam consectetur incididunt voluptate pariatur. Sint nulla esse ipsum anim quis adipisicing occaecat deserunt labore aliquip deserunt fugiat est do eiusmod labore reprehenderit reprehenderit aute occaecat aliquip anim ex."
     }
 ]
 ```
@@ -150,11 +132,11 @@ Available values for the <em>Field</em> parameter. Create custom data structures
 
 ### Supported Endpoints
 
-<a href="#block">block</a>
+<a href="#custom">custom</a>
 
 ### HTTP Request
 
-`GET https://api.jsonipsum.com/text/block/?fields=value[option]`
+`GET https://api.jsonipsum.com/text/custom/?fields=value[option]`
 
 
 Value | Options | Type | Description
@@ -264,7 +246,7 @@ You can combine multiple <em>Tag</em> values by separating them with a comma.
 
 ```shell
 
-GET "https://api.jsonipsum.com/text/block/?fields=name,phone,address&region=de"
+GET "https://api.jsonipsum.com/text/custom/?fields=name,phone,address&region=de"
 
 ```
 
@@ -292,11 +274,11 @@ Available values for the <em>Region</em> parameter. Passing a region will return
 
 ### Supported Endpoints
 
-<a href="#block">block</a>
+<a href="#custom">custom</a>
 
 ### HTTP Request
 
-`GET https://api.jsonipsum.com/text/block/?region=value`
+`GET https://api.jsonipsum.com/text/custom/?region=value`
 
 
 Value | Description

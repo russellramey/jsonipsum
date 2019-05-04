@@ -65,10 +65,10 @@ Parameter | Value | Description
 Include parameters as query strings on the initial GET request url
 </aside>
 
-## Block
+## Custom   
 
 ```shell
-GET "https://api.jsonipsum.com/text/block/"
+GET "https://api.jsonipsum.com/text/custom/"
 ```
 
 > JSON response
@@ -87,7 +87,7 @@ This endpoint returns a block of text and/or data. Can create a JSON object of r
 
 ### HTTP Request
 
-`GET https://api.jsonipsum.com/text/block/`
+`GET https://api.jsonipsum.com/text/custom/`
 
 Parameter | Value | Description
 --------- | ------- | -----------
