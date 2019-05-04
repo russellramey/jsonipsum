@@ -45,8 +45,8 @@ module.exports = {
                 }
                 break;
 
-            // Block
-            case 'block':
+            // Custom (?fields parameter to build custom object)
+            case 'custom':
                 // Get count, loop until max reached
                 for (id = 0; id < count; id++){
 
@@ -78,7 +78,7 @@ module.exports = {
                 }
                 break;
 
-            // HTML
+            // HTML (?tags parameter to create custom markup)
             case 'html':
                 // Get count, loop until max reached
                 for (id = 0; id < count; id++){

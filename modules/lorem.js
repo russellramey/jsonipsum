@@ -10,38 +10,47 @@ module.exports = {
         var text = '';
         var options = '';
 
-        // Check and process length arg
+        // Valiate LENGTH param
+        // Short
         if (length === 'short'){
             options = {
-                s: [4,8],
-                p: [3,6]
+                s: [4,8], //4-8 words
+                p: [3,6] //3-6 sentences
             };
+        // Long
         } else if (length === 'long'){
             options = {
-                s: [16,24],
-                p: [7,12]
+                s: [16,24], //16-24 words
+                p: [7,12] //7-12 sentences
             };
+        // Random
+        } else if (length === 'rand'){
+            options = {
+                s: [4,24], //4-24 words
+                p: [3,12] //3-12 setences
+            };
+        // Default
         } else {
             options = {
-                s: [8,16],
-                p: [5,8]
+                s: [8,16], //8-16 words
+                p: [5,8] //5-8 sentences
             };
         }
 
-        // Check if html arg exists
+        // Validate HTML param
         if (html === 'true'){
             html = 'html';
         } else {
             html = 'plain';
         }
 
-        // Check if count arg exitst
+        // Validate COUNT param
         if(!count || count > 100){
             count = 1;
         }
 
-        // Build base arguments
-        var args = {
+        // Construct text data
+        text = loremIpsum({
             count: 1,
             units: style,
             sentenceLowerBound: options.s[0],
@@ -49,16 +58,7 @@ module.exports = {
             paragraphLowerBound: options.p[0],
             paragraphUpperBound: options.p[1],
             format: html,
-        };
-
-        // Construct data
-        for (i = 1; i <= count; i++){
-            if (i != count){
-                text += loremIpsum(args) + ' ';
-            } else {
-                text += loremIpsum(args);
-            }
-        }
+        });
 
         // Return text
         return text;

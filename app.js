@@ -9,7 +9,7 @@ var app = express();
 app.get("/api/v1/text/:format/", (request, response, next) => {
 
     // Get format
-    var formats = ["sentence", "paragraph", "block", "html", "post", "word", "phrase"];
+    var formats = ["word", "sentence", "paragraph", "custom", "html"];
     var format = request.params.format;
 
     // If format is valid
@@ -32,7 +32,7 @@ app.get("/api/v1/text/:format/", (request, response, next) => {
                 "word" : "https://jsonipsum.com/api/v1/text/word/",
                 "sentence" : "https://jsonipsum.com/api/v1/text/sentence/",
                 "paragraph" : "https://jsonipsum.com/api/v1/text/paragraph/",
-                "block" : "https://jsonipsum.com/api/v1/text/block/",
+                "custom" : "https://jsonipsum.com/api/v1/text/custom/",
                 "html" : "https://jsonipsum.com/api/v1/text/html/"
             }
         };
