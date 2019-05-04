@@ -5,7 +5,7 @@ var loremIpsum = require('lorem-ipsum');
 module.exports = {
 
     // Generate Lorem Ipsum
-    generate_lorem_ipusm : function generate_lorem_ipusm(style, length, count, html) {
+    generate_lorem_ipusm : function generate_lorem_ipusm(style, length, count) {
         // Vars
         var text = '';
         var options = '';
@@ -37,13 +37,6 @@ module.exports = {
             };
         }
 
-        // Validate HTML param
-        if (html === 'true'){
-            html = 'html';
-        } else {
-            html = 'plain';
-        }
-
         // Validate COUNT param
         if(!count || count > 100){
             count = 1;
@@ -57,7 +50,6 @@ module.exports = {
             sentenceUpperBound: options.s[1],
             paragraphLowerBound: options.p[0],
             paragraphUpperBound: options.p[1],
-            format: html,
         });
 
         // Return text

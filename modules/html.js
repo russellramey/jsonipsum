@@ -37,49 +37,34 @@ module.exports = {
             // Process ELEMENT parameters
             switch(tag){
                 case 'h1':
-                    // Append string to html
-                    html += '<h1>' + lorem.generate_lorem_ipusm('sentence', options, 1) + '</h1>';
-                    break;
-
                 case 'h2':
-                    // Append string to html
-                    html += '<h2>' + lorem.generate_lorem_ipusm('sentence', options, 1) + '</h2>';
-                    break;
-
                 case 'h3':
-                    // Append string to html
-                    html += '<h3>' + lorem.generate_lorem_ipusm('sentence', options, 1) + '</h3>';
-                    break;
-
                 case 'h4':
                     // Append string to html
-                    html += '<h4>' + lorem.generate_lorem_ipusm('sentence', options, 1) + '</h4>';
+                    html += '<' + tag + '>' + lorem.generate_lorem_ipusm('sentence', options, 1) + '</' + tag + '>';
                     break;
 
                 case 'p':
                     // Append string to html
-                    html += lorem.generate_lorem_ipusm('paragraph', length, options, 'true');
+                    html += '<p>' + lorem.generate_lorem_ipusm('paragraph', options, 1) + '</p>';
                     break;
 
                 case 'blockquote':
                     // Append string to html
-                    html += '<blockquote>' + lorem.generate_lorem_ipusm('sentence', options, 1) + '</blockquote>';
+                    html += '<blockquote>' + lorem.generate_lorem_ipusm('paragraph', options, 1) + '</blockquote>';
                     break;
 
                 case 'ul':
-                    // Append string to html
-                    html += '<ul>' + this.generate_list_items(options) + '</ul>';
-                    break;
-
                 case 'ol':
                     // Append string to html
-                    html += '<ol>' + this.generate_list_items(options) + '</ol>';
+                    html += '<' + tag + '>' + this.generate_list_items(options) + '</' + tag + '>';
                     break;
             }
 
         } // end For
 
-        data['text'] = html;
+        // Set data.text object to the html value
+        data.text = html;
 
         // Return final data
         return data;
