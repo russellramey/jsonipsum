@@ -231,7 +231,7 @@ module.exports = {
                     case 'list':
                     case 'features':
                         // Set empty array
-                        data[field] = []
+                        data[field] = [];
                         // Create 5 items in array
                         for(var i = 0; i < 4; i++){
                             data[field].push(lorem.generate_lorem_ipusm('sentence', options, 1));
