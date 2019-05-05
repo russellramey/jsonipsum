@@ -68,7 +68,7 @@ module.exports = {
                         // Return default Text Group
                         dataitem = {
                             'id': id,
-                            'text' : lorem.generate_lorem_ipusm("paragraph", length, 1),
+                            'text' : lorem.generate_lorem_ipusm("paragraph", 'long', 1),
                             'title' : lorem.generate_lorem_ipusm("sentence", 'medium', 1),
                         };
                     }
@@ -101,7 +101,7 @@ module.exports = {
                         // Return default HTML Text
                         dataitem = {
                             'id': id,
-                            'text' : lorem.generate_lorem_ipusm("paragraph", 'medium', 3, "true"),
+                            'text' : '<p>' + lorem.generate_lorem_ipusm('paragraph', 'long', 1) + '</p>'
                         };
                     }
 
