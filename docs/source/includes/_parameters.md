@@ -21,7 +21,7 @@ Set the length of the text returned for the specific endpoint.
 
 ### Supported Endpoints
 
-<a href="#sentence">sentence</a> | <a href="#paragraph">paragraph</a>
+[sentence](#sentence) | [paragraph](#paragraph)
 
 ### HTTP Request
 
@@ -29,10 +29,10 @@ Set the length of the text returned for the specific endpoint.
 
 Value | Description
 --------- | -----------
-short | Returns shorter length text <br><em>4-8 word sentences, 3-6 sentences in a paragraph</em>.
-medium | Returns medium length text. <br><em>8-16 word sentences, 5-8 sentences in a paragraph</em>
-long | Returns longer length text. <br><em>16-24 word sentences, 7-12 sentences in a paragraph</em>
-
+short | Returns shorter length text <br>_4-8 word sentences, 3-6 sentences in a paragraph_
+medium | Returns medium length text. <br>_8-16 word sentences, 5-8 sentences in a paragraph_
+long | Returns longer length text. <br>_16-24 word sentences, 7-12 sentences in a paragraph_
+rand | Returns random length text. <br>_4-24 word sentences, 3-12 sentences in a paragraph_
 
 
 
@@ -66,7 +66,7 @@ Determine the number of items to return for a given endpoint.
 
 ### Supported Endpoints
 
-<a href="#sentence">sentence</a> | <a href="#paragraph">paragraph</a> | <a href="#custom">custom</a> | <a href="#html">html</a>
+[sentence](#sentence) | [paragraph](#paragraph) | [custom](#custom) | [html](#html)
 
 ### HTTP Request
 
@@ -106,29 +106,7 @@ GET "https://api.jsonipsum.com/text/custom/?fields=thumbnail,title,excerpt"
 ]
 ```
 
-```shell
-GET "https://api.jsonipsum.com/text/custom/?fields=thumbnail[small],title[short],excerpt[long]"
-```
-
-> JSON response
-
-```json
-[
-    {
-        "id": 0,
-        "thumbnail": {
-            "landscape": "https://jsonipsum.com/static/images/placeholder_480x320.jpg",
-            "portrait": "https://jsonipsum.com/static/images/placeholder_320x480.jpg",
-            "square": "https://jsonipsum.com/static/images/placeholder_480x480.jpg"
-        },
-        "title": "Labore ad enim aliqua irure velit aliqua.",
-        "excerpt": "Fugiat elit et sunt cillum culpa nisi nostrud laboris eiusmod ex proident ullamco enim do nulla. Amet laborum aliqua est cillum ad incididunt do nulla consectetur Lorem veniam consectetur incididunt voluptate pariatur. Sint nulla esse ipsum anim quis adipisicing occaecat deserunt labore aliquip deserunt fugiat est do eiusmod labore reprehenderit reprehenderit aute occaecat aliquip anim ex."
-    }
-]
-```
-
-
-Available values for the <em>Field</em> parameter. Create custom data structures by passing different <em>Field</em> values and value options.
+Available values for the _Field_ parameter. Create custom data structures by passing different _Field_ values and value _options_.
 
 ### Supported Endpoints
 
@@ -191,7 +169,7 @@ website | none | string | Returns static www.jsonipsum.com domain as a string.
 You can combine multiple <em>Field</em> values by separating them with a comma.
 </aside>
 <aside class="notice">
-Pass options by appending the available option, within square brackets, to the <em>Field</em> value.
+Include <em>Field Options</em> by appending the available option, within square brackets, to the <em>Field</em> value.
 </aside>
 
 
@@ -214,11 +192,11 @@ GET "https://api.jsonipsum.com/text/html/?tags=h1,h2[short],p[5]"
 ]
 ```
 
-Available values for the <em>Tags</em> parameter. Create random markup combinations by passing these values to the <em>Tags</em> parameter.
+Available values for the _Tags_ parameter. Create HTML markup combinations by passing these values to the _Tags_ parameter.
 
 ### Supported Endpoints
 
-<a href="#html">html</a>
+[html](#html)
 
 ### HTTP Request
 
@@ -238,6 +216,9 @@ ul | short<br>medium<br>long | Random count (3-8) of `li` items in a `ul` tag.<b
 
 <aside class="notice">
 You can combine multiple <em>Tag</em> values by separating them with a comma.
+</aside>
+<aside class="notice">
+Include <em>Tag Options</em> by appending the available option, within square brackets, to the <em>Tag</em> value.
 </aside>
 
 
@@ -270,11 +251,11 @@ GET "https://api.jsonipsum.com/text/custom/?fields=name,phone,address&region=de"
 ]
 ```
 
-Available values for the <em>Region</em> parameter. Passing a region will return localized data in the native language.
+Available values for the _Region_ parameter. Passing a region will return localized data in the native language.
 
 ### Supported Endpoints
 
-<a href="#custom">custom</a>
+[custom](#custom)
 
 ### HTTP Request
 

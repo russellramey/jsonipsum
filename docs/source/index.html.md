@@ -16,7 +16,7 @@ search: true
 
 # Overview
 
-Welcome to <b>JSON:ISPUM</b>, a freely available RESTful API that returns randomly generated text (lorem ipsum) in JSON format. Also request fake application or website data like names, emails, usernames and passwords to be used for design, development, wireframing or placeholder purposes.
+Welcome to <b>JSON:ISPUM</b>, a freely available RESTful API that returns randomly generated text (lorem ipsum) in JSON format. Also request fake application or website data like names, emails, usernames and passwords to be used for design, development, wireframing, testing or placeholder purposes.
 
 ### Features
 
@@ -26,17 +26,17 @@ Welcome to <b>JSON:ISPUM</b>, a freely available RESTful API that returns random
 - Quick response times.
 - Easy to use, no authentication needed.
 - Create custom JSON object structures with random text/data.
-- Generates lorem ipsum and placeholder data with minimal effort.
+- Generate lorem ipsum and placeholder data with minimal effort.
 
 ### Use Cases
 
 - Quickly populate wireframes or working mockups with text or html.
 - Experiment with JSON data structures and REST API responses.
-- Simplify markup by using the response as repeatable elements.
-- Simulate "real word" content from users or a CMS.
+- Create repeatable markup elements by looping JSON response.
+- Simulate "real word" content from users, a CMS, or production backend.
 - Seed a database with placeholder data for development and testing.
 - Create simple proof of concept interactions or requests.
-- Easily populate grid, or list views/layouts.
+- Easily populate gridded, or list views and layouts.
 - Take a look at some more <a href="#examples">examples</a>.
 
 # Authentication

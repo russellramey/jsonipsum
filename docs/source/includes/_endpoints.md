@@ -1,5 +1,37 @@
 # Endpoints
 
+## Word
+
+```shell
+GET "https://api.jsonipsum.com/text/word/"
+```
+
+> JSON response
+
+```json
+[
+    {
+        "id": 0,
+        "text": "consectetur"
+    }
+]
+```
+
+Generate a random single word.
+
+### HTTP Request
+
+`GET https://api.jsonipsum.com/text/word/`
+
+Parameter | Value | Description
+--------- | ------- | -----------
+[count](#count) | 1-100 | Set the number of words to be returned. <br>_Default: 1_
+
+<aside class="notice">
+Include parameters as query strings on the initial GET request url
+</aside>
+
+
 ## Sentence
 
 ```shell
@@ -25,8 +57,8 @@ Generate a random sentence or sentences.
 
 Parameter | Value | Description
 --------- | ------- | -----------
-<a href="#length">length</a> | small<br>medium<br>large | Determine the length of the sentence returned.<br><em>Default: medium</em>
-<a href="#count">count</a> | 1-100 | Set the number of sentences to be returned. <br><em>Default: 1</em>
+[length](#length) | small<br>medium<br>large | Determine the length of the sentence returned.<br>_Default: medium_
+[count](#count) | 1-100 | Set the number of sentences to be returned. <br>_Default: 1_
 
 <aside class="notice">
 Include parameters as query strings on the initial GET request url
@@ -50,7 +82,7 @@ GET "https://api.jsonipsum.com/text/paragraph/"
 ]
 ```
 
-Generate a random paragraph. With this endpoint multiple sentences will be returned instead of just a single sentence like with the <a href="#sentence">Sentence</a> endpoint.
+Generate a random paragraph. With this endpoint multiple sentences will be returned instead of just a single sentence like with the [Sentence](#sentence) endpoint.
 
 ### HTTP Request
 
@@ -58,8 +90,8 @@ Generate a random paragraph. With this endpoint multiple sentences will be retur
 
 Parameter | Value | Description
 --------- | ------- | -----------
-<a href="#length">length</a> | small<br>medium<br>large | Determine the length of the sentence as well as the number of sentences in the paragraph. <br><em>Default: medium</em>
-<a href="#count">count</a> | 1-100 | Set the number of paragraphs to be returned. <br><em>Default: 1</em>
+[length](#length) | small<br>medium<br>large | Determine the length of the sentence as well as the number of sentences in the paragraph. <br>_Default: medium_
+[count](#count) | 1-100 | Set the number of paragraphs to be returned. <br>_Default: 1_
 
 <aside class="notice">
 Include parameters as query strings on the initial GET request url
@@ -91,9 +123,9 @@ This endpoint returns a block of text and/or data. Can create a JSON object of r
 
 Parameter | Value | Description
 --------- | ------- | -----------
-<a href="#count">count</a> | 1-100 | Set the number of items to be returned.<br> <em>Default: 1</em>
-<a href="#regions">region</a> | <a href="#fields">see all</a> | Set the region to localize the returned results.<br><em>Default: en</em>
-<a href="#fields">fields</a> | <a href="#fields">see all</a> | If true, returned text will be wrapped in p tags.<br><em>Default: text, title</em>
+[count](#count) | 1-100 | Set the number of items to be returned.<br>_Default: 1_
+[region](#regions) | [see all](#regions) | Set the region to localize the returned results.<br>_Default: en_
+[fields](#fields) | [see all](#fields) | If true, returned text will be wrapped in p tags.<br>_Default: text, title_
 
 <aside class="notice">
 Include parameters as query strings on the GET request url
@@ -129,13 +161,9 @@ Generate HTML markup with lorem ipsum text. By default, returns a block item wit
 
 Parameter | Value | Description
 --------- | ------- | -----------
-<a href="#count">count</a> | 1-100 | Set the number of items to be returned.<br> <em>Default: 1</em>
-<a href="#tags">tags</a> | <a href="#tags">see all</a> | Requests different type of HTML tags from the endpoint.<br><em>Default: p</em>
-<a href="#length">length</a> | small<br>medium<br>large | Determine the length of the text returned. <br><em>Default: medium</em>
+[count](#count) | 1-100 | Set the number of items to be returned.<br>_Default: 1_
+[tags](#tags) | [see all](#tags) | Requests different type of HTML tags from the endpoint.<br>_Default: p_
 
 <aside class="notice">
 Pass parameters as simple query strings on the GET request url
-</aside>
-<aside class="notice">
-With this endpoint, the <em>Length</em> parameter only applies to the <em>Tag</em> value "p".
 </aside>
