@@ -45,6 +45,25 @@ module.exports = {
                 }
                 break;
 
+            // Prebuilt Templates
+            case 'post':
+            case 'blog':
+            case 'user':
+            case 'team':
+            case 'comment':
+            case 'testimonial':
+            case 'todo':
+            case 'checklist':
+            case 'photo':
+
+                dataitem = {
+                    endpoint: format
+                };
+
+                // Push item to data array
+                data.push(dataitem);
+                break;
+
             // Custom (?fields parameter to build custom object)
             case 'custom':
                 // Get count, loop until max reached
@@ -101,7 +120,7 @@ module.exports = {
                         // Return default HTML Text
                         dataitem = {
                             'id': id,
-                            'text' : '<p>' + lorem.generate_lorem_ipusm('paragraph', 'long', 1) + '</p>'
+                            'text' : '<p>' + lorem.generate_lorem_ipusm('paragraph', 'rand', 1) + '</p>'
                         };
                     }
 
@@ -112,8 +131,11 @@ module.exports = {
                 break;
 
             // Default case
-            case 'default':
-                data = { "error" : "problem returning data for /" + format };
+            default:
+                data = data = {
+                    "status" : 404,
+                    "error" : "/" + format + " is not a valid endpoint"
+                };
                 break;
 
     }
