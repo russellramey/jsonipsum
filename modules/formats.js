@@ -1,6 +1,7 @@
 // Import modules
 var lorem = require('./lorem');
 var getFields = require('./fields');
+var getTemplate = require('./templates');
 var getHtml = require('./html');
 
 // Custom modules
@@ -47,21 +48,26 @@ module.exports = {
 
             // Prebuilt Templates
             case 'post':
-            case 'blog':
             case 'user':
-            case 'team':
-            case 'comment':
-            case 'testimonial':
-            case 'todo':
-            case 'checklist':
-            case 'photo':
+            case 'blog':
 
-                dataitem = {
-                    endpoint: format
-                };
+                // Get count, loop until max reached
+                for (id = 0; id < count; id++){
 
-                // Push item to data array
-                data.push(dataitem);
+                    // Build data item
+                    dataitem = {
+                        "id": id,
+                    };
+
+                    // Return template fields
+                    fields = getTemplate.get_template_fields(format);
+
+                    //Add all data to master Dict
+                    Object.assign(dataitem, getFields.render_text_field(fields, params, request));
+
+                    // Push item to data array
+                    data.push(dataitem);
+                }
                 break;
 
             // Custom (?fields parameter to build custom object)
