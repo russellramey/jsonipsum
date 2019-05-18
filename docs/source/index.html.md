@@ -1,5 +1,5 @@
 ---
-title: API Reference
+title: JSON:IPSUM
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - Responses
