@@ -120,38 +120,43 @@ Available values for the _Field_ parameter. Create custom data structures by pas
 Value | Options | Type | Description
 --------- | ------- | -------- | -----------
 address | street<br>city<br>postal<br>province<br>country<br>countrycode | object | Traditional style shipping/billing address. Change format of address by also passing the <em>Region</em> parameter.<br><em>Default: all</em>
-age | none | integer | Returns random number as an integer<br><em>Range between 18 - 50</em>
-author | none | string |  Full fictional name, first and last.
+age | --- | integer | Returns random number as an integer<br><em>Range between 18 - 65</em>
+author | --- | string |  Full fictional name, first and last.
 avatar | small<br>medium<br>large | object | Returns three different versions of a static image (landscape, portrait, square) in size option provide.<br><em>Default: medium</em>
 bankcard | number<br>expire<br>ccv | object | Returns randomly generated (fake) debit/credit card information.<br><em>Default: all</em>
 birthday | past<br>today<br>future | object | Returns date in string and timestamp format. Random date if <em>Past</em>, or <em>Future</em> options are passed.<br><em>Default: today</em>
 body | short<br>medium<br>long | string | Returns lorem ipsum paragraph.<br><em>Default: medium</em>
 bullets | short<br>medium<br>long | array | Returns lorem ipsum sentences as an array.<br><em>Default: medium</em>
-company | none | string | Returns fake company name.
-coordinates | none | object | Random latitude and longitude map coordinates as key/value pairs.
+comments | --- | integer | Returns a random number as an integer<br><em>Range between: 0 - 100</em>
+company | --- | string | Returns fake company name.
+coordinates | --- | object | Random latitude and longitude map coordinates as key/value pairs.
 date | past<br>today<br>future | object | Returns date in string and timestamp format. Random date if <em>Past</em>, or <em>Future</em> options are passed.<br><em>Default: today</em>
 description | short<br>medium<br>long | string | Returns lorem ipsum paragraph.<br><em>Default: medium</em>
-email | none | string | Random email address with alphanumeric email handle.<br><em>Format: abc123@jsonipsum.com</em>
+email | --- | string | Random email address with alphanumeric email handle.<br><em>Format: abc123@jsonipsum.com</em>
 excerpt | short<br>medium<br>long | string | Returns lorem ipsum paragraph.<br><em>Default: medium</em>
 features | short<br>medium<br>long | array | Returns lorem ipsum sentences as an array.<br><em>Default: medium</em>
-file | none | string | Returns valid url to a sample downloadable pdf file.
+file | --- | string | Returns valid url to a sample downloadable pdf file.
 headers | host<br>request<br>method<br>status<br>ip<br>useragent | object | Basic sample HTTP information typically found in request headers.<br><em>Default: all</em>
 headshot | small<br>medium<br>large | object | Returns three different versions of a static image (landscape, portrait, square) in size option provide.<br><em>Default: medium</em>
-icon | none | string | Returns valid url to sample placeholder svg/icon file.
+icon | --- | string | Returns valid url to sample placeholder svg/icon file.
 image | small<br>medium<br>large | object | Returns three different versions of a static image (landscape, portrait, square) in size option provide.<br><em>Default: medium</em>
-job | none | string | Returns random job title/position.
-latlong | none | object | Random latitude and longitude map coordinates as key/value pairs.
+integer | small<br>medium<br>large | integer | Returns a single number as an integer<br><em>Default: rand (1-999)</em>
+job | --- | string | Returns random job title/position.
+latlong | --- | object | Random latitude and longitude map coordinates as key/value pairs.
+likes | --- | integer | Returns a random number as an integer<br><em>Range between: 0 - 100</em>
 list | short<br>medium<br>long | array | Returns lorem ipsum sentences as an array.<br><em>Default: medium</em>
-mac | none | string | Returns randomly generated device MAC address.
-map | none | object | Random latitude and longitude map coordinates as key/value pairs.
-name | none | string | Full fictional name, first and last.
-password | none | string | Returns random 16 character password.
-percent | none | integer | Returns random integer between 1-100.
-phone | none | string | Returns randomly generated phone number. Change format of phone number by also passing the <em>Region</em> parameter.
-price | none | string | Returns randomly generated price amount with two decimal places.
+mac | --- | string | Returns randomly generated device MAC address.
+map | --- | object | Random latitude and longitude map coordinates as key/value pairs.
+name | --- | string | Full fictional name, first and last.
+number | small<br>medium<br>large | integer | Returns a single number as an integer<br><em>Default: rand (1-999)</em>
+password | --- | string | Returns random 16 character password.
+percent | --- | integer | Returns random integer between 1-100.
+phone | --- | string | Returns randomly generated phone number. Change format of phone number by also passing the <em>Region</em> parameter.
+price | --- | string | Returns randomly generated price amount with two decimal places.
 product | name<br>type<br>department<br>material<br>color<br>color<br>price | object | Returns sample common product information.<br><em>Default: all</em>
-progress | none | integer | Returns random integer between 1-100.
-rating | none | integer | Returns random integer between 1-5.
+progress | --- | integer | Returns random integer between 1-100.
+rating | --- | integer | Returns random integer between 1-5.
+shares | --- | integer | Returns a random number as an integer<br><em>Range between: 0 - 100</em>
 subtitle | short<br>medium<br>long | string | Returns lorem ipsum sentence.<br><em>Default: medium</em>
 summery | short<br>medium<br>long | string | Returns lorem ipsum paragraph.<br><em>Default: medium</em>
 taxonomy | category<br>tags | object | Returns lorem ipsum words.<br><em>Default: all</em>
@@ -159,11 +164,12 @@ text | short<br>medium<br>long | string | Returns lorem ipsum paragraph.<br><em>
 thumbnail | small<br>medium<br>large | object | Returns three different versions of a static image (landscape, portrait, square) in size option provide.<br><em>Default: medium</em>
 title | short<br>medium<br>long | string | Returns lorem ipsum sentence.<br><em>Default: medium</em>
 transaction | account<br>name<br>amount<br>type<br>confirmation | object | Randomly generated financial transaction information.<br><em>Default: all</em>
-url | none | string | Valid static jsonispum.com sample url.
-username | none | string | Returns random username based off a firstname and year.<br><em>Format: abcd1234</em>
-uuid | none | string | Randomly generate universally unique identifier (uuid).
-video | none | object | Sample playable and embedable video from jsonipsum.com hosted on Vimeo.
-website | none | string | Returns static www.jsonipsum.com domain as a string.
+url | --- | string | Valid static jsonispum.com sample url.
+username | --- | string | Returns random username based off a firstname and year.<br><em>Format: abcd1234</em>
+uuid | --- | string | Randomly generate universally unique identifier (uuid).
+votes | --- | integer | Returns a random number as an integer<br><em>Range between: 0 - 100</em>
+video | --- | object | Sample playable and embedable video from jsonipsum.com hosted on Vimeo.
+website | --- | string | Returns static www.jsonipsum.com domain as a string.
 
 <aside class="notice">
 You can combine multiple <em>Field</em> values by separating them with a comma.

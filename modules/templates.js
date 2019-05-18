@@ -13,7 +13,8 @@ module.exports = {
                         'title',
                         'excerpt[rand]',
                         'author',
-                        'date[past]'
+                        'date[past]',
+                        'likes'
                     ];
                     break;
 
@@ -22,6 +23,7 @@ module.exports = {
                     fields = [
                         'body[rand]',
                         'username',
+                        'comments',
                         'date[past]'
                     ];
                     break;
@@ -35,7 +37,7 @@ module.exports = {
                         'author',
                         'date[past]',
                         'taxonomy',
-                        'comments',
+                        'comments'
                     ];
                     break;
 
@@ -43,7 +45,6 @@ module.exports = {
                 case 'todo':
                     fields = [
                         'title',
-                        'body[short]',
                         'date[future]'
                     ];
                     break;
@@ -75,7 +76,9 @@ module.exports = {
                         'image',
                         'title[short]',
                         'username',
-                        'date[past]'
+                        'date[past]',
+                        'comments',
+                        'likes'
                     ];
                     break;
 

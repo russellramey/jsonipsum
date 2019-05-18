@@ -119,6 +119,12 @@ No authentication needed, simple Http GET Request is all that is required
 - number
 - icon
 
+- comments (randint)
+- replies (randint)
+- likes (randint)
+- shares (randint)
+- votes (randint)
+
 
 # Params
 - ?length

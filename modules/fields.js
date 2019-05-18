@@ -271,7 +271,11 @@ module.exports = {
                     // Integers
                     case 'percent':
                     case 'progress':
-                        data[field] = lorem.generate_random_int(1, 101);
+                    case 'comments':
+                    case 'likes':
+                    case 'shares':
+                    case 'votes':
+                        data[field] = lorem.generate_random_int(0, 101);
                         break;
 
                     case 'rating':
@@ -279,7 +283,7 @@ module.exports = {
                         break;
 
                     case 'age':
-                        data[field] = lorem.generate_random_int(18, 50);
+                        data[field] = lorem.generate_random_int(18, 65);
                         break;
 
                     case 'number':
