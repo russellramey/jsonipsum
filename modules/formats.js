@@ -47,9 +47,13 @@ module.exports = {
                 break;
 
             // Prebuilt Templates
-            case 'post':
             case 'user':
+            case 'team':
+            case 'post':
             case 'blog':
+            case 'comment':
+            case 'todo':
+            case 'photo':
 
                 // Get count, loop until max reached
                 for (id = 0; id < count; id++){

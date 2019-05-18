@@ -17,7 +17,16 @@ module.exports = {
                     ];
                     break;
 
-                // User
+                // Comment
+                case 'comment':
+                    fields = [
+                        'body[rand]',
+                        'username',
+                        'date[past]'
+                    ];
+                    break;
+
+                // Blog
                 case 'blog':
                     fields = [
                         'title',
@@ -30,13 +39,43 @@ module.exports = {
                     ];
                     break;
 
+                // Todo
+                case 'todo':
+                    fields = [
+                        'title',
+                        'body[short]',
+                        'date[future]'
+                    ];
+                    break;
+
                 // User
                 case 'user':
                     fields = [
                         'name',
                         'email',
                         'username',
-                        'password'
+                        'password',
+                        'address'
+                    ];
+                    break;
+
+                // Team
+                case 'team':
+                    fields = [
+                        'name',
+                        'email',
+                        'job',
+                        'headshot'
+                    ];
+                    break;
+
+                // Photo
+                case 'photo':
+                    fields = [
+                        'image',
+                        'title[short]',
+                        'username',
+                        'date[past]'
                     ];
                     break;
 
