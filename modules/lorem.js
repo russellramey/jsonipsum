@@ -14,26 +14,26 @@ module.exports = {
         // Short
         if (length === 'short'){
             options = {
-                s: [4,8], //4-8 words
+                s: [3,6], //3-6 words
                 p: [3,6] //3-6 sentences
+            };
+        // Medium
+        } else if (length === 'medium'){
+            options = {
+                s: [6,12], //6-12 words
+                p: [5,8] //5-8 sentences
             };
         // Long
         } else if (length === 'long'){
             options = {
-                s: [16,24], //16-24 words
+                s: [12,18], //12-18 words
                 p: [7,12] //7-12 sentences
             };
-        // Random
-        } else if (length === 'rand'){
-            options = {
-                s: [4,24], //4-24 words
-                p: [3,12] //3-12 setences
-            };
-        // Default
+        // Default (Random)
         } else {
             options = {
-                s: [8,16], //8-16 words
-                p: [5,8] //5-8 sentences
+                s: [3,18], //4-24 words
+                p: [3,12] //3-12 setences
             };
         }
 

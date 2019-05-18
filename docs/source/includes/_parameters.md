@@ -29,10 +29,10 @@ Set the length of the text returned for the specific endpoint.
 
 Value | Description
 --------- | -----------
-short | Returns shorter length text <br>_4-8 word sentences, 3-6 sentences in a paragraph_
-medium | Returns medium length text. <br>_8-16 word sentences, 5-8 sentences in a paragraph_
-long | Returns longer length text. <br>_16-24 word sentences, 7-12 sentences in a paragraph_
-rand | Returns random length text. <br>_4-24 word sentences, 3-12 sentences in a paragraph_
+short | Returns shorter length text <br>_3-6 word sentences, 3-6 sentences in a paragraph_
+medium | Returns medium length text. <br>_6-12 word sentences, 5-8 sentences in a paragraph_
+long | Returns longer length text. <br>_12-18 word sentences, 7-12 sentences in a paragraph_
+rand | Returns random length text. <br>_Default. 3-18 word sentences, 3-12 sentences in a paragraph_
 
 
 
@@ -125,16 +125,16 @@ author | --- | string |  Full fictional name, first and last.
 avatar | small<br>medium<br>large | object | Returns three different versions of a static image (landscape, portrait, square) in size option provide.<br><em>Default: medium</em>
 bankcard | number<br>expire<br>ccv | object | Returns randomly generated (fake) debit/credit card information.<br><em>Default: all</em>
 birthday | past<br>today<br>future | object | Returns date in string and timestamp format. Random date if <em>Past</em>, or <em>Future</em> options are passed.<br><em>Default: today</em>
-body | short<br>medium<br>long | string | Returns lorem ipsum paragraph.<br><em>Default: medium</em>
-bullets | short<br>medium<br>long | array | Returns lorem ipsum sentences as an array.<br><em>Default: medium</em>
+body | short<br>medium<br>long | string | Returns lorem ipsum paragraph.<br><em>Default: random</em>
+bullets | short<br>medium<br>long | array | Returns lorem ipsum sentences as an array.<br><em>Default: random</em>
 comments | --- | integer | Returns a random number as an integer<br><em>Range between: 0 - 100</em>
 company | --- | string | Returns fake company name.
 coordinates | --- | object | Random latitude and longitude map coordinates as key/value pairs.
 date | past<br>today<br>future | object | Returns date in string and timestamp format. Random date if <em>Past</em>, or <em>Future</em> options are passed.<br><em>Default: today</em>
-description | short<br>medium<br>long | string | Returns lorem ipsum paragraph.<br><em>Default: medium</em>
+description | short<br>medium<br>long | string | Returns lorem ipsum paragraph.<br><em>Default: random</em>
 email | --- | string | Random email address with alphanumeric email handle.<br><em>Format: abc123@jsonipsum.com</em>
-excerpt | short<br>medium<br>long | string | Returns lorem ipsum paragraph.<br><em>Default: medium</em>
-features | short<br>medium<br>long | array | Returns lorem ipsum sentences as an array.<br><em>Default: medium</em>
+excerpt | short<br>medium<br>long | string | Returns lorem ipsum paragraph.<br><em>Default: random</em>
+features | short<br>medium<br>long | array | Returns lorem ipsum sentences as an array.<br><em>Default: random</em>
 file | --- | string | Returns valid url to a sample downloadable pdf file.
 headers | host<br>request<br>method<br>status<br>ip<br>useragent | object | Basic sample HTTP information typically found in request headers.<br><em>Default: all</em>
 headshot | small<br>medium<br>large | object | Returns three different versions of a static image (landscape, portrait, square) in size option provide.<br><em>Default: medium</em>
@@ -144,11 +144,11 @@ integer | small<br>medium<br>large | integer | Returns a single number as an int
 job | --- | string | Returns random job title/position.
 latlong | --- | object | Random latitude and longitude map coordinates as key/value pairs.
 likes | --- | integer | Returns a random number as an integer<br><em>Range between: 0 - 100</em>
-list | short<br>medium<br>long | array | Returns lorem ipsum sentences as an array.<br><em>Default: medium</em>
+list | short<br>medium<br>long | array | Returns lorem ipsum sentences as an array.<br><em>Default: random</em>
 mac | --- | string | Returns randomly generated device MAC address.
 map | --- | object | Random latitude and longitude map coordinates as key/value pairs.
 name | --- | string | Full fictional name, first and last.
-number | small<br>medium<br>large | integer | Returns a single number as an integer<br><em>Default: rand (1-999)</em>
+number | small<br>medium<br>large | integer | Returns a single number as an integer<br><em>Default: random (1-999)</em>
 password | --- | string | Returns random 16 character password.
 percent | --- | integer | Returns random integer between 1-100.
 phone | --- | string | Returns randomly generated phone number. Change format of phone number by also passing the <em>Region</em> parameter.
@@ -157,12 +157,12 @@ product | name<br>type<br>department<br>material<br>color<br>color<br>price | ob
 progress | --- | integer | Returns random integer between 1-100.
 rating | --- | integer | Returns random integer between 1-5.
 shares | --- | integer | Returns a random number as an integer<br><em>Range between: 0 - 100</em>
-subtitle | short<br>medium<br>long | string | Returns lorem ipsum sentence.<br><em>Default: medium</em>
-summery | short<br>medium<br>long | string | Returns lorem ipsum paragraph.<br><em>Default: medium</em>
+subtitle | short<br>medium<br>long | string | Returns lorem ipsum sentence.<br><em>Default: random</em>
+summery | short<br>medium<br>long | string | Returns lorem ipsum paragraph.<br><em>Default: random</em>
 taxonomy | category<br>tags | object | Returns lorem ipsum words.<br><em>Default: all</em>
-text | short<br>medium<br>long | string | Returns lorem ipsum paragraph.<br><em>Default: medium</em>
+text | short<br>medium<br>long | string | Returns lorem ipsum paragraph.<br><em>Default: random</em>
 thumbnail | small<br>medium<br>large | object | Returns three different versions of a static image (landscape, portrait, square) in size option provide.<br><em>Default: medium</em>
-title | short<br>medium<br>long | string | Returns lorem ipsum sentence.<br><em>Default: medium</em>
+title | short<br>medium<br>long | string | Returns lorem ipsum sentence.<br><em>Default: random</em>
 transaction | account<br>name<br>amount<br>type<br>confirmation | object | Randomly generated financial transaction information.<br><em>Default: all</em>
 url | --- | string | Valid static jsonispum.com sample url.
 username | --- | string | Returns random username based off a firstname and year.<br><em>Format: abcd1234</em>

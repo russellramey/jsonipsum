@@ -11,7 +11,7 @@ module.exports = {
                 case 'post':
                     fields = [
                         'title',
-                        'excerpt[rand]',
+                        'body',
                         'author',
                         'date[past]',
                         'likes'
@@ -21,7 +21,7 @@ module.exports = {
                 // Comment
                 case 'comment':
                     fields = [
-                        'body[rand]',
+                        'body',
                         'username',
                         'comments',
                         'date[past]'
@@ -32,7 +32,7 @@ module.exports = {
                 case 'blog':
                     fields = [
                         'title',
-                        'excerpt[rand]',
+                        'excerpt',
                         'thumbnail',
                         'author',
                         'date[past]',
