@@ -97,6 +97,300 @@ Parameter | Value | Description
 Include parameters as query strings on the initial GET request url
 </aside>
 
+
+## Post
+
+```shell
+GET "https://api.jsonipsum.com/text/post/"
+```
+
+> JSON response
+
+```json
+[
+    {
+        "id": 0,
+        "title": "Dolor fugiat anim ad velit nulla ullamco veniam minim incididunt aliquip qui in.",
+        "body": "Nulla ullamco eiusmod aliqua veniam sint eiusmod exercitation commodo sunt adipisicing do. Non sunt proident consectetur elit ullamco minim ipsum proident ad consequat sunt labore. Duis ad dolor qui aute ea culpa occaecat nostrud excepteur eu voluptate id veniam dolor excepteur magna nostrud. Veniam irure dolore officia. Et et ipsum minim mollit adipisicing nulla sit.",
+        "author": "Barrett Fahey",
+        "date": {
+            "string": "2008-11-2",
+            "timestamp": 1225602000000
+        },
+        "likes": 39
+    }
+]
+```
+
+Returns a generic post template with title, body, author, date, and likes.
+
+### HTTP Request
+
+`GET https://api.jsonipsum.com/text/post/`
+
+Parameter | Value | Description
+--------- | ------- | -----------
+[count](#count) | 1-100 | Set the number of items to be returned.<br>_Default: 1_
+
+<aside class="notice">
+Include parameters as query strings on the GET request url
+</aside>
+
+
+## Blog
+
+```shell
+GET "https://api.jsonipsum.com/text/blog/"
+```
+
+> JSON response
+
+```json
+[
+    {
+        "id": 0,
+        "title": "Adipisicing cillum eiusmod quis.",
+        "excerpt": "Occaecat cupidatat tempor irure occaecat veniam nulla voluptate sit est anim mollit. Tempor nulla sunt officia aute irure ex elit ut sint consectetur ut qui voluptate minim officia. Proident ad dolor elit magna magna culpa enim. Eiusmod ullamco sunt dolore irure sint. Esse proident officia tempor incididunt aute pariatur esse adipisicing et adipisicing id cupidatat occaecat. Est culpa ex ipsum tempor dolor occaecat incididunt aliquip reprehenderit occaecat incididunt velit consectetur. Consectetur id veniam. Dolore et labore anim enim amet sunt voluptate ad. Ad enim veniam. Deserunt et voluptate exercitation nostrud. Sunt id aute excepteur nostrud sint officia deserunt aliquip voluptate cupidatat magna anim anim magna.",
+        "thumbnail": {
+            "landscape": "https://jsonipsum.com/static/images/placeholder_960x640.jpg",
+            "portrait": "https://jsonipsum.com/static/images/placeholder_640x960.jpg",
+            "square": "https://jsonipsum.com/static/images/placeholder_960x960.jpg"
+        },
+        "author": "Chad Little",
+        "date": {
+            "string": "1990-12-28",
+            "timestamp": 662342400000
+        },
+        "taxonomy": {
+            "category": "cupidatat",
+            "tags": "Pariatur,voluptate,eu,nulla,officia"
+        },
+        "comments": 94
+    }
+]
+```
+
+Returns a sample blog/article with title, excerpt, thumbnail, author, date, taxonomy, and comments.
+
+### HTTP Request
+
+`GET https://api.jsonipsum.com/text/blog/`
+
+Parameter | Value | Description
+--------- | ------- | -----------
+[count](#count) | 1-100 | Set the number of items to be returned.<br>_Default: 1_
+
+<aside class="notice">
+Include parameters as query strings on the GET request url
+</aside>
+
+
+## Comment
+
+```shell
+GET "https://api.jsonipsum.com/text/comment/"
+```
+
+> JSON response
+
+```json
+[
+    {
+        "id": 0,
+        "body": "Dolore incididunt cillum amet exercitation voluptate. Veniam consequat deserunt pariatur reprehenderit magna ullamco laboris ea. Fugiat aute incididunt sint exercitation et fugiat excepteur qui et. Nisi ipsum cillum ad consequat dolor occaecat. Veniam velit elit commodo est consectetur nostrud. Excepteur est incididunt id quis et anim nulla ullamco ex reprehenderit lorem.",
+        "username": "vida2007",
+        "comments": 10,
+        "date": {
+            "string": "2011-2-20",
+            "timestamp": 1298181600000
+        }
+    }
+]
+```
+
+Returns a generic comment template with title, body, username, date, and reply count.
+
+### HTTP Request
+
+`GET https://api.jsonipsum.com/text/comment/`
+
+Parameter | Value | Description
+--------- | ------- | -----------
+[count](#count) | 1-100 | Set the number of items to be returned.<br>_Default: 1_
+
+<aside class="notice">
+Include parameters as query strings on the GET request url
+</aside>
+
+
+## Todo
+
+```shell
+GET "https://api.jsonipsum.com/text/todo/"
+```
+
+> JSON response
+
+```json
+[
+    {
+        "id": 0,
+        "title": "Non voluptate reprehenderit sint veniam sit pariatur laborum.",
+        "date": {
+            "string": "2021-9-30",
+            "timestamp": 1632978000000
+        }
+    }
+]
+```
+
+Returns a sample todo template with title, and date.
+
+### HTTP Request
+
+`GET https://api.jsonipsum.com/text/todo/`
+
+Parameter | Value | Description
+--------- | ------- | -----------
+[count](#count) | 1-100 | Set the number of items to be returned.<br>_Default: 1_
+
+<aside class="notice">
+Include parameters as query strings on the GET request url
+</aside>
+
+
+
+## Photo
+
+```shell
+GET "https://api.jsonipsum.com/text/photo/"
+```
+
+> JSON response
+
+```json
+[
+    {
+        "id": 0,
+        "image": {
+            "landscape": "https://jsonipsum.com/static/images/placeholder_960x640.jpg",
+            "portrait": "https://jsonipsum.com/static/images/placeholder_640x960.jpg",
+            "square": "https://jsonipsum.com/static/images/placeholder_960x960.jpg"
+        },
+        "title": "Enim est nostrud ex.",
+        "username": "hector2004",
+        "date": {
+            "string": "2013-8-2",
+            "timestamp": 1375419600000
+        },
+        "comments": 64,
+        "likes": 63
+    }
+]
+```
+
+Returns a generic photo post with title, image, username, date, comments, and likes.
+
+### HTTP Request
+
+`GET https://api.jsonipsum.com/text/photo/`
+
+Parameter | Value | Description
+--------- | ------- | -----------
+[count](#count) | 1-100 | Set the number of items to be returned.<br>_Default: 1_
+
+<aside class="notice">
+Include parameters as query strings on the GET request url
+</aside>
+
+
+
+## User
+
+```shell
+GET "https://api.jsonipsum.com/text/user/"
+```
+
+> JSON response
+
+```json
+[
+    {
+        "id": 0,
+        "name": "Marion Armstrong",
+        "email": "marion2006@jsonipsum.com",
+        "username": "marion2006",
+        "password": "7GLRJi2253ogKU",
+        "address": {
+            "street": "6874 Louie Field",
+            "city": "Walshburgh",
+            "postal": "76676",
+            "province": "Alabama",
+            "country": "Faroe Islands",
+            "countrycode": "JP"
+        }
+    }
+]
+```
+
+Returns a generic user profile with name, email, username, password, and address.
+
+### HTTP Request
+
+`GET https://api.jsonipsum.com/text/user/`
+
+Parameter | Value | Description
+--------- | ------- | -----------
+[count](#count) | 1-100 | Set the number of items to be returned.<br>_Default: 1_
+
+<aside class="notice">
+Include parameters as query strings on the GET request url
+</aside>
+
+
+
+
+## Team
+
+```shell
+GET "https://api.jsonipsum.com/text/team/"
+```
+
+> JSON response
+
+```json
+[
+    {
+        "id": 0,
+        "name": "Jermey Tillman",
+        "email": "jermey1985@jsonipsum.com",
+        "job": "Senior Web Orchestrator",
+        "headshot": {
+            "landscape": "https://jsonipsum.com/static/images/placeholder_960x640.jpg",
+            "portrait": "https://jsonipsum.com/static/images/placeholder_640x960.jpg",
+            "square": "https://jsonipsum.com/static/images/placeholder_960x960.jpg"
+        }
+    }
+]
+```
+
+Returns a team/staff template with name, email, jot title, and headshot.
+
+### HTTP Request
+
+`GET https://api.jsonipsum.com/text/team/`
+
+Parameter | Value | Description
+--------- | ------- | -----------
+[count](#count) | 1-100 | Set the number of items to be returned.<br>_Default: 1_
+
+<aside class="notice">
+Include parameters as query strings on the GET request url
+</aside>
+
+
+
+
 ## Custom   
 
 ```shell

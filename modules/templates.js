@@ -21,7 +21,7 @@ module.exports = {
                 // Comment
                 case 'comment':
                     fields = [
-                        'body',
+                        'body[medium]',
                         'username',
                         'comments',
                         'date[past]'
