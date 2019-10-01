@@ -261,7 +261,7 @@ Available values for the _Region_ parameter. Passing a region will return locali
 
 ### Supported Endpoints
 
-[custom](#custom)
+[post](#post) | [blog](#blog) | [comment](#comment) | [photo](#photo) | [user](#user) | [team](#team) | [custom](#custom)
 
 ### HTTP Request
 
