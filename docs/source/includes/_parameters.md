@@ -66,7 +66,7 @@ Determine the number of items to return for a given endpoint.
 
 ### Supported Endpoints
 
-[sentence](#sentence) | [paragraph](#paragraph) | [custom](#custom) | [html](#html)
+[word](#word) | [sentence](#sentence) | [paragraph](#paragraph) | [post](#post) | [blog](#blog) | [comment](#comment) | [todo](#todo) | [photo](#photo) | [user](#user) | [team](#team) | [custom](#custom) | [html](#html)
 
 ### HTTP Request
 
