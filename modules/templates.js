@@ -2,7 +2,7 @@
 module.exports = {
 
     // Render Template Fields
-    get_template_fields : function get_template_fields(format) {
+    get_template_fields: function get_template_fields(format) {
 
             // Switch case by FORMAT passed
             switch(format){

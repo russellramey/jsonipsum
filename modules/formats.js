@@ -2,13 +2,12 @@
 var lorem = require('./lorem');
 var getFields = require('./fields');
 var getTemplate = require('./templates');
-var getHtml = require('./html');
 
 // Custom modules
 module.exports = {
 
     // Get Format Funciton
-    get_format : function get_format(format, params, request) {
+    get_format: function get_format(format, params, request) {
 
         var data = [];
 
@@ -34,7 +33,7 @@ module.exports = {
             case 'sentence':
             case 'paragraph':
                 // Get count, loop until max reached
-                for (id = 0; id < count; id++){
+                for (id = 1; id <= count; id++){
                     // Build dataitem
                     dataitem = {
                         "id" : id,
@@ -56,7 +55,7 @@ module.exports = {
             case 'photo':
 
                 // Get count, loop until max reached
-                for (id = 0; id < count; id++){
+                for (id = 1; id <= count; id++){
 
                     // Build data item
                     dataitem = {
@@ -77,7 +76,7 @@ module.exports = {
             // Custom (?fields parameter to build custom object)
             case 'custom':
                 // Get count, loop until max reached
-                for (id = 0; id < count; id++){
+                for (id = 1; id <= count; id++){
 
                     // Build data item
                     dataitem = {
@@ -104,39 +103,6 @@ module.exports = {
 
                     // Push item to data array
                     data.push(dataitem);
-                }
-                break;
-
-            // HTML (?tags parameter to create custom markup)
-            case 'html':
-                // Get count, loop until max reached
-                for (id = 0; id < count; id++){
-
-                    // Build data item
-                    dataitem = {
-                        "id": id,
-                    };
-
-                    // Check for 'TAGS' params
-                    if (params.tags){
-
-                        // Split 'TAGS' param into individual strings
-                        var tags = params.tags.split(',');
-
-                        //Add all data to master Dict
-                        Object.assign(dataitem, getHtml.render_html_element(tags, params, request));
-
-                    } else {
-                        // Return default HTML Text
-                        dataitem = {
-                            'id': id,
-                            'text' : '<p>' + lorem.generate_lorem_ipusm('paragraph', 'rand', 1) + '</p>'
-                        };
-                    }
-
-                    // Push item to data array
-                    data.push(dataitem);
-
                 }
                 break;
 

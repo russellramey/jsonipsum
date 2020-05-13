@@ -6,7 +6,7 @@ var faker = require('faker');
 module.exports = {
 
     // Render Text Fields funciton
-    render_text_field : function render_text_field(fields, params, request) {
+    render_text_field: function render_text_field(fields, params, request) {
 
         // Data object
         var data = {};

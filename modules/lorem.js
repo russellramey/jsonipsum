@@ -5,7 +5,7 @@ var loremIpsum = require('lorem-ipsum');
 module.exports = {
 
     // Generate Lorem Ipsum
-    generate_lorem_ipusm : function generate_lorem_ipusm(style, length, count) {
+    generate_lorem_ipusm: function generate_lorem_ipusm(style, length, count) {
         // Vars
         var text = '';
         var options = '';
@@ -58,7 +58,7 @@ module.exports = {
     },
 
     // Generate date
-    generate_date : function generate_date(options, faker) {
+    generate_date: function generate_date(options, faker) {
         // Get todays datetime
         var today = new Date();
         var date = '';
@@ -91,7 +91,7 @@ module.exports = {
     },
 
     // Generate placeholder image urls
-    generate_image_urls : function generate_image_urls(size){
+    generate_image_urls: function generate_image_urls(size){
         var img_urls = '';
 
         // Small images
@@ -120,7 +120,7 @@ module.exports = {
     },
 
     // Generate random intiger
-    generate_random_int : function generate_random_int(min, max){
+    generate_random_int: function generate_random_int(min, max){
         min = Math.ceil(min);
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
