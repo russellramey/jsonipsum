@@ -35,11 +35,7 @@ module.exports = {
                 // Get count, loop until max reached
                 for (id = 1; id <= count; id++){
                     // Build dataitem
-                    dataitem = {
-                        "id" : id,
-                        "text" : lorem.generate_lorem_ipusm(format, length, 1),
-                    };
-
+                    dataitem = lorem.generate_lorem_ipusm(format, length, 1);
                     // Push item to data array
                     data.push(dataitem);
                 }
@@ -97,7 +93,7 @@ module.exports = {
                         dataitem = {
                             'id': id,
                             'title' : lorem.generate_lorem_ipusm("sentence", 'medium', 1),
-                            'text' : lorem.generate_lorem_ipusm("paragraph", 'rand', 1)
+                            'body' : lorem.generate_lorem_ipusm("paragraph", 'rand', 1)
                         };
                     }
 

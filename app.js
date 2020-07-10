@@ -5,15 +5,45 @@ var getFormat = require('./modules/formats');
 
 // Start app
 var app = express();
+
 //Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// Format array
+var formats = ["word", "sentence", "paragraph", "custom", "post", "todo", "user", "blog", "team", "comment", "photo"];
+
+// Error object for 404
+var error404 = {
+    "error": true,
+    "message": "The requested resource is not a valid endpoint.",
+    "status" : 404,
+    "endpoints" : {
+        "word": "https://jsonipsum.com/api/v1/text/word/",
+        "sentence": "https://jsonipsum.com/api/v1/text/sentence/",
+        "paragraph": "https://jsonipsum.com/api/v1/text/paragraph/",
+        "custom": "https://jsonipsum.com/api/v1/text/custom/",
+        "post": "https://jsonipsum.com/api/v1/text/post/",
+        "todo": "https://jsonipsum.com/api/v1/text/todo/",
+        "user": "https://jsonipsum.com/api/v1/text/user/",
+        "blog": "https://jsonipsum.com/api/v1/text/blog/",
+        "team": "https://jsonipsum.com/api/v1/text/team/",
+        "comment": "https://jsonipsum.com/api/v1/text/comment/",
+        "photo": "https://jsonipsum.com/api/v1/text/photo/"
+    }
+};
+
+
+
+
+
+
+
 
 // Main get request
 app.get("/api/v1/text/:format/", (request, response, next) => {
 
     // Get format
-    var formats = ["word", "sentence", "paragraph", "custom", "post", "todo", "user", "blog", "team", "comment", "photo"];
     var format = request.params.format;
 
     // If format is valid
@@ -25,25 +55,20 @@ app.get("/api/v1/text/:format/", (request, response, next) => {
         // Call lorem funciton to get text, append to data
         data = getFormat.get_format(format, params, request);
 
+        // HTTP Status
+        status = 200;
     // Return error
     } else {
 
         // Return error if not valid FORMAT
-        data = {
-            "error" : "/" + format + " is not a valid endpoint",
-            "status" : 404,
-            "endpoints" : {
-                "word" : "https://jsonipsum.com/api/v1/text/word/",
-                "sentence" : "https://jsonipsum.com/api/v1/text/sentence/",
-                "paragraph" : "https://jsonipsum.com/api/v1/text/paragraph/",
-                "custom" : "https://jsonipsum.com/api/v1/text/custom/",
-                "html" : "https://jsonipsum.com/api/v1/text/html/"
-            }
-        };
+        data = error404;
+        // HTTP Status
+        status = 404;
+
     }
 
     // Return parsed data as json
-    response.json(data);
+    response.status(status).json(data);
 
     // Debug, log Request URL to console
     console.log(request.url);
@@ -52,25 +77,53 @@ app.get("/api/v1/text/:format/", (request, response, next) => {
 
 
 
+
+
+
+
+
+
 // Main post request, return data body back as reponse
-app.post("/api/v1/text/:format/", (request, response) => {
+app.post("/api/v1/text/:format/", (request, response , next) => {
 
     // Get format
     var format = request.params.format;
 
-    // Default id for returned body
-    request.body.id = 101;
-    // Create data response object
-    data = {
-        "success" : true,
-        "body": request.body
-    };
+    // If format is valid
+    if (formats.indexOf(format) >= 0) {
+
+        // Start id at 101 for response
+        var id = 101;
+
+        // If body is an array, loop thru each item
+        if(Array.isArray(request.body)){
+            request.body.forEach(function(item){
+                item.id = id++;
+            });
+        } else {
+            request.body.id = id;
+        }
+
+        // Create data response object
+        data = {
+            "success" : true,
+            "body": request.body
+        };
+
+        // Return data
+        status = 200;
+
+    // Return error
+    } else {
+
+        // Return error if not valid FORMAT
+        data = error404;
+        status = 404;
+    }
 
     // Return data as json
-    response.json(data);
+    response.status(status).json(data);
 
-    // Debug, log Request URL to console
-    console.log(request.url);
 });
 
 

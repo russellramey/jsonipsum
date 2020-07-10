@@ -46,6 +46,7 @@ module.exports = {
         text = loremIpsum({
             count: 1,
             units: style,
+            format: 'plain',
             sentenceLowerBound: options.s[0],
             sentenceUpperBound: options.s[1],
             paragraphLowerBound: options.p[0],
