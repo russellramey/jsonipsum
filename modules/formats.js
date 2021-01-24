@@ -95,20 +95,39 @@ module.exports = {
                 for (id = 1; id <= count; id++){
 
                     // Build data item
-                    dataitem = {
-                        "id": id,
-                    };
+                    if(request.method === "POST"){
+                        dataitem = {
+                            "id": id + 100,
+                        };
+                    } else {
+                        dataitem = {
+                            "id": id,
+                        };
+                    }
 
                     // If params object exists
                     if(params){
+                        // If json parameter is set
+                        if(params.json){
+                            // Replace params object with json
+                            params = JSON.parse(params.json);
+                        }
+                        // For each parameter in params object
                         Object.entries(params).forEach((arr) => {
+                            // Request
                             var request = request;
-                            this.process_params(arr, request);
+                            // If value is object
+                            if(typeof arr[1] === 'object'){
+                                dataitem[arr[0]] = this.iterate_object(arr[1], request);
+                            } else {
+                                dataitem[arr[0]] = this.process_params(arr, request);
+                            }
                         });
                     }
 
                     // Push item to data array
                     data.push(dataitem);
+
                 }
                 break;
 
@@ -137,7 +156,34 @@ module.exports = {
         // If arr[0] as key starts with "_"
         if(!arr[0].startsWith('_')){
             // Pass requested value back to dataitem
-            dataitem[arr[0]] = arr[1];
+            arr[1] = arr[1];
         }
+        // Return new value
+        return arr[1];
+    },
+
+    // Iterate object recursivly
+    iterate_object: function(obj, request) {
+        // New object placeholder
+        let object = {};
+
+        // For each object key
+        Object.keys(obj).forEach(key => {
+            // Basic array
+            arr = [key, obj[key]];
+
+            // Set new object key to proccess params
+            object[key] = this.process_params(arr, request);
+
+            // If object key value is anohter object, repeat
+            if (typeof obj[key] === 'object') {
+
+                // Set new object key to iterate
+                object[key] = this.iterate_object(obj[key]);
+            }
+        });
+
+        // Return new object
+        return object;
     }
 };

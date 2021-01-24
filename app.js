@@ -94,32 +94,20 @@ app.post("/api/post/:format/", (request, response , next) => {
     // If format is valid
     if (formats.indexOf(format) >= 0) {
 
-        // Start id at 101 for response
-        var id = 101;
+        // Get passed parameters
+        let params = Object.assign(request.query, request.body);
 
-        // If body is an array, loop thru each item
-        if(Array.isArray(request.body)){
-            request.body.forEach(function(item){
-                item.id = id++;
-            });
-        } else {
-            request.body.id = id;
-        }
+        // Call lorem funciton to get text, append to data
+        data = getFormat.get_format(format, params, request);
 
-        // Create data response object
-        data = {
-            "success" : true,
-            "body": request.body
-        };
-
-        // Return data
+        // HTTP Status
         status = 200;
 
     // Return error
     } else {
-
         // Return error if not valid FORMAT
         data = error404;
+        // HTTP Status
         status = 404;
     }
 
