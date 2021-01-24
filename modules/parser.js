@@ -5,12 +5,12 @@ module.exports = {
     // Parse constructor function
     parse: function(value){
         // Check for (options) passed
-        let options = value.match(/\(([^(].+)\)/);
+        let options = value.match(/\(([^(].*)\)/);
 
         // If [options] are found, process
         if (options) {
             // Remove [options] from field string
-            value = value.replace(/\(([^(].+)\)/, "");
+            value = value.replace(/\(([^(].*)\)/, "");
             // Get the [options]
             if(value === '__object'){
                 args = options[1].split(/\,(?![^(]*\)|\_)/g);
@@ -24,10 +24,6 @@ module.exports = {
         } else {
             args = '';
         }
-
-        // Debug
-        //console.log(args);
-        //console.log(value + ": " + args);
 
         // Return evaluated function, if it exists
         return { func: value, args: args };

@@ -24,7 +24,7 @@ module.exports = {
 
     // Word
     __word: function __word(args){
-        return lorem.generate_lorem_ipusm("word", args[0], 1);
+        return lorem.generate_lorem_ipusm("word", '', args[0]);
     },
 
     // Phrase

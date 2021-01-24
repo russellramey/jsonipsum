@@ -44,7 +44,7 @@ module.exports = {
 
         // Construct text data
         text = loremIpsum({
-            count: 1,
+            count: parseInt(count),
             units: style,
             format: 'plain',
             sentenceLowerBound: options.s[0],
