@@ -122,8 +122,13 @@ module.exports = {
 
     // Generate random intiger
     generate_random_int: function generate_random_int(min, max){
-        min = Math.ceil(min);
-        max = Math.floor(max);
+        if(min && max){
+            min = Math.ceil(min);
+            max = Math.floor(max);
+        } else {
+            min = 0;
+            max = 100;
+        }
         return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
     }
 

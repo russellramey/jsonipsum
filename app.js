@@ -1,3 +1,5 @@
+/*jshint esversion: 6*/
+
 // Import Modules
 var express = require("express");
 var bodyParser = require("body-parser");
@@ -11,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Format array
-var formats = ["word", "sentence", "paragraph", "custom", "post", "todo", "user", "blog", "team", "comment", "photo"];
+var formats = ["word", "sentence", "paragraph", "data", "post", "todo", "user", "blog", "team", "comment", "photo"];
 
 // Error object for 404
 var error404 = {
@@ -41,7 +43,7 @@ var error404 = {
 
 
 // Main get request
-app.get("/api/v1/text/:format/", (request, response, next) => {
+app.get("/api/get/:format/", (request, response, next) => {
 
     // Get format
     var format = request.params.format;
@@ -84,7 +86,7 @@ app.get("/api/v1/text/:format/", (request, response, next) => {
 
 
 // Main post request, return data body back as reponse
-app.post("/api/v1/text/:format/", (request, response , next) => {
+app.post("/api/post/:format/", (request, response , next) => {
 
     // Get format
     var format = request.params.format;

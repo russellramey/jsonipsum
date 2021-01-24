@@ -1,7 +1,10 @@
+/*jshint esversion: 6*/
+
 // Import modules
-var lorem = require('./lorem');
-var getFields = require('./fields');
-var getTemplate = require('./templates');
+const lorem = require('./lorem');
+const getFields = require('./fields');
+const getTemplate = require('./templates');
+const constructors = require('./constructors');
 
 // Custom modules
 module.exports = {
@@ -13,14 +16,14 @@ module.exports = {
 
         // Parse Global Params
         // ?length
-        if (params.length){
-            length = params.length;
+        if (params._length){
+            length = params._length;
         } else {
             length = '';
         }
         // ?count
-        if (params.count && params.count <= 100){
-            count = params.count;
+        if (params._count && params._count <= 100){
+            count = params._count;
         } else {
             count = 1;
         }
@@ -42,7 +45,6 @@ module.exports = {
                 break;
 
             // Prebuilt Templates
-            case 'user':
             case 'team':
             case 'post':
             case 'blog':
@@ -59,18 +61,37 @@ module.exports = {
                     };
 
                     // Return template fields
-                    fields = getTemplate.get_template_fields(format);
+                    let fields = getTemplate.get_template_fields(format);
 
-                    //Add all data to master Dict
-                    Object.assign(dataitem, getFields.render_text_field(fields, params, request));
+                    // If fields exists
+                    if(fields){
+                        Object.entries(fields).forEach((arr) => {
+                            var request = request;
+                            this.process_params(arr, request);
+                        });
+                    }
 
                     // Push item to data array
                     data.push(dataitem);
                 }
                 break;
 
-            // Custom (?fields parameter to build custom object)
-            case 'custom':
+            // Prebuild User Template
+            case 'user':
+                // Get count, loop until max reached
+                for (id = 1; id <= count; id++){
+
+                    // Build data item
+                    let user = constructors.exec("__user");
+                    let dataitem = Object.assign({id:id}, user);
+
+                    // Push item to data array
+                    data.push(dataitem);
+                }
+                break;
+
+            // Custom data
+            case 'data':
                 // Get count, loop until max reached
                 for (id = 1; id <= count; id++){
 
@@ -79,22 +100,12 @@ module.exports = {
                         "id": id,
                     };
 
-                    // Check for 'FIELD' params
-                    if (params.fields){
-
-                        // Split 'FIELDS' param into individual strings
-                        fields = params.fields.split(',');
-
-                        //Add all data to master Dict
-                        Object.assign(dataitem, getFields.render_text_field(fields, params, request));
-
-                    } else {
-                        // Return default Text Group
-                        dataitem = {
-                            'id': id,
-                            'title' : lorem.generate_lorem_ipusm("sentence", 'medium', 1),
-                            'body' : lorem.generate_lorem_ipusm("paragraph", 'rand', 1)
-                        };
+                    // If params object exists
+                    if(params){
+                        Object.entries(params).forEach((arr) => {
+                            var request = request;
+                            this.process_params(arr, request);
+                        });
                     }
 
                     // Push item to data array
@@ -115,5 +126,19 @@ module.exports = {
     // Return all data
     return data;
 
+    },
+
+    // Process parameters as array (key/value pairs)
+    process_params: function(arr, request){
+        // If arr[1] as value is string and starts with "__"
+        if(typeof arr[1] === 'string' && arr[1].startsWith('__')){
+            // attempt to execute as constructor
+            arr[1] = constructors.exec(arr[1], request);
+        }
+        // If arr[0] as key starts with "_"
+        if(!arr[0].startsWith('_')){
+            // Pass requested value back to dataitem
+            dataitem[arr[0]] = arr[1];
+        }
     }
 };

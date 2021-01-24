@@ -9,77 +9,67 @@ module.exports = {
 
                 // Post
                 case 'post':
-                    fields = [
-                        'title',
-                        'body',
-                        'author',
-                        'date[past]',
-                        'likes'
-                    ];
+                    fields = {
+                        title: '__sentence',
+                        body: '__paragraph',
+                        author: '__user(email)',
+                        date: '__date(past)',
+                        likes: '__number(1,100)'
+                    };
                     break;
 
                 // Comment
                 case 'comment':
-                    fields = [
-                        'body[medium]',
-                        'username',
-                        'comments',
-                        'date[past]'
-                    ];
+                    fields = {
+                        body: '__paragraph',
+                        username: '__user(username)',
+                        replies: '__number(1,50)',
+                        date: '__date(past)'
+                    };
                     break;
 
                 // Blog
                 case 'blog':
-                    fields = [
-                        'title',
-                        'excerpt',
-                        'thumbnail',
-                        'author',
-                        'date[past]',
-                        'taxonomy',
-                        'comments'
-                    ];
+                    fields = {
+                        title: '__sentence',
+                        excerpt: '__paragraph',
+                        thumbnail: '__image',
+                        author: '__user',
+                        date: '__date(past)',
+                        comments: '__number(1,50)'
+                    };
                     break;
 
                 // Todo
                 case 'todo':
-                    fields = [
-                        'title',
-                        'date[future]'
-                    ];
-                    break;
-
-                // User
-                case 'user':
-                    fields = [
-                        'name',
-                        'email',
-                        'username',
-                        'password',
-                        'address'
-                    ];
+                    fields = {
+                        title: '__sentence',
+                        date: '__date(past)',
+                        complete: '__boolean'
+                    };
                     break;
 
                 // Team
                 case 'team':
-                    fields = [
-                        'name',
-                        'email',
-                        'job',
-                        'headshot'
-                    ];
+                    fields = {
+                        contact: '__user',
+                        job: '__sentence(short)',
+                        company: '__word',
+                        headshot: '__image'
+                    };
                     break;
 
                 // Photo
                 case 'photo':
-                    fields = [
-                        'image',
-                        'title[short]',
-                        'username',
-                        'date[past]',
-                        'comments',
-                        'likes'
-                    ];
+                    fields = {
+                        image: '__image',
+                        title: '__sentence(short)',
+                        caption: '__sentence(medium)',
+                        username: '__user(username)',
+                        date: '__date(past)',
+                        comments: '__number',
+                        likes: '__number'
+                    };
                     break;
 
             } // End Switch
