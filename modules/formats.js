@@ -2,7 +2,6 @@
 
 // Import modules
 const lorem = require('./lorem');
-const getFields = require('./fields');
 const getTemplate = require('./templates');
 const constructors = require('./constructors');
 
