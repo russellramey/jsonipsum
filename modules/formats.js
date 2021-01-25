@@ -64,9 +64,10 @@ module.exports = {
 
                     // If fields exists
                     if(fields){
+                        // For each parameter in params object
                         Object.entries(fields).forEach((arr) => {
                             var request = request;
-                            this.process_params(arr, request);
+                            dataitem[arr[0]] = this.process_params(arr, request);
                         });
                     }
 
