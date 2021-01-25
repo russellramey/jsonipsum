@@ -72,6 +72,13 @@ module.exports = {
                     };
                     break;
 
+                // User
+                case 'user':
+                    fields = {
+                        user: '__user'
+                    };
+                    break;
+
             } // End Switch
 
         // Return correct FIELDS

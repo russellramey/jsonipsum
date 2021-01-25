@@ -10,8 +10,8 @@ module.exports = {
 
     // Get Format Funciton
     get_format: function get_format(format, params, request) {
-
-        var data = [];
+        // Empty data array
+        let data = [];
 
         // Parse Global Params
         // ?length
@@ -50,6 +50,7 @@ module.exports = {
             case 'comment':
             case 'todo':
             case 'photo':
+            case 'user':
 
                 // Get count, loop until max reached
                 for (id = 1; id <= count; id++){
@@ -67,23 +68,13 @@ module.exports = {
                         // For each parameter in params object
                         Object.entries(fields).forEach((arr) => {
                             var request = request;
-                            dataitem[arr[0]] = this.process_params(arr, request);
+                            if(arr[0] === 'user'){
+                                dataitem = Object.assign(dataitem, this.process_params(arr, request));
+                            } else {
+                                dataitem[arr[0]] = this.process_params(arr, request);
+                            }
                         });
                     }
-
-                    // Push item to data array
-                    data.push(dataitem);
-                }
-                break;
-
-            // Prebuild User Template
-            case 'user':
-                // Get count, loop until max reached
-                for (id = 1; id <= count; id++){
-
-                    // Build data item
-                    let user = constructors.exec("__user");
-                    let dataitem = Object.assign({id:id}, user);
 
                     // Push item to data array
                     data.push(dataitem);
@@ -110,8 +101,13 @@ module.exports = {
                     if(params){
                         // If json parameter is set
                         if(params.json){
-                            // Replace params object with json
-                            params = JSON.parse(params.json);
+                            try{
+                                // Replace params object with json
+                                params = JSON.parse(params.json);
+                            } catch (e){
+                                // If invalid json
+                                params = {'error':'JSON parameter must contain valid JSON data'};
+                            }
                         }
                         // For each parameter in params object
                         Object.entries(params).forEach((arr) => {

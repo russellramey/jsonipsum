@@ -74,7 +74,7 @@ module.exports = {
             id: 'xxxxxxxxxx',
             url: 'https://vimeo.com/video/xxxxxxxxxx',
             embed: 'https://play.vimeo.com/embed/xxxxxxxxxx',
-            duration: lorem.generate_random_int(30000,300000)
+            duration: this.exec('__number(30000,300000)')
         };
     },
 
@@ -85,7 +85,7 @@ module.exports = {
             name: 'file_placeholder.pdf',
             link: 'https://jsonipsum.com/static/files/file_placeholder.pdf',
             mime_type: 'application/pdf',
-            size: lorem.generate_random_int(1000,5000)
+            size: this.exec('__number(1000,5000)')
         };
         // Return response
         return parser.response(file, args);
@@ -135,6 +135,75 @@ module.exports = {
         return obj;
     },
 
+    // Address
+    __address: function(args){
+        // Address object
+        let address = {
+            'street': faker.address.streetAddress(),
+            'city': faker.address.city(),
+            'postal': faker.address.zipCode(),
+            'province': faker.address.state(),
+            'country': faker.address.country(),
+            'countrycode': faker.address.countryCode()
+        };
+
+        // Return response
+        return parser.response(address, args);
+    },
+
+    // Coordinates
+    __coordinates: function(args){
+        // Return data
+        return {
+            'latitude': faker.address.latitude(),
+            'longitude': faker.address.longitude()
+        };
+    },
+
+    // Bankcard
+    __bankcard: function(args){
+        // Bankcard object
+        let bankcard = {
+            number: faker.finance.account(16),
+            expire: this.exec('__date(future)'),
+            ccv: this.exec('__number(200,999)')
+        };
+
+        // Return response
+        return parser.response(bankcard, args);
+    },
+
+    // Transaction
+    __transaction: function(args){
+        // Transaction obj
+        let transaction = {
+            account: faker.finance.account(16),
+            name: faker.finance.accountName(),
+            amount: faker.finance.amount(1, 999, 2, ""),
+            type: faker.finance.transactionType(),
+            confirmation: faker.internet.password(8)
+        };
+
+        // Return response
+        return parser.response(transaction, args);
+    },
+
+    // Headers
+    __headers: function(args, request){
+        // headers object
+        let headers = {
+            host: 'https://www.jsonipsum.com',
+            request: request.url,
+            method: 'GET',
+            status: 200,
+            ip: faker.internet.ip(),
+            useragent: faker.internet.userAgent()
+        };
+
+        // Return response
+        return parser.response(headers, args);
+    },
+
     // Name
     __name: function(args){
         // Name object
@@ -145,7 +214,7 @@ module.exports = {
         // Add full name
         name.fullname = name.firstname + ' ' + name.lastname;
         // Add username
-        name.username = name.firstname.toLowerCase() + lorem.generate_random_int(1980, 2010);
+        name.username = name.firstname.toLowerCase() + this.exec('__number(1980,2010)');
         // Return response
         return parser.response(name, args);
     },
@@ -169,74 +238,5 @@ module.exports = {
 
         // Return response
         return parser.response(user, args);
-    },
-
-    // Address
-    __address: function(args){
-        // Address object
-        let address = {
-            'street': faker.address.streetAddress(),
-            'city': faker.address.city(),
-            'postal': faker.address.zipCode(),
-            'province': faker.address.state(),
-            'country': faker.address.country(),
-            'countrycode': faker.address.countryCode()
-        };
-
-        // Return response
-        return parser.response(address, args);
-    },
-
-    // Bankcard
-    __bankcard: function(args){
-        // Bankcard object
-        let bankcard = {
-            number: faker.finance.account(16),
-            expire: lorem.generate_date('future', faker),
-            ccv: lorem.generate_random_int(200, 999)
-        };
-
-        // Return response
-        return parser.response(bankcard, args);
-    },
-
-    // Transaction
-    __transaction: function(args){
-        // Transaction obj
-        let transaction = {
-            account: faker.finance.account(16),
-            name: faker.finance.accountName(),
-            amount: faker.finance.amount(1, 999, 2, ""),
-            type: faker.finance.transactionType(),
-            confirmation: faker.internet.password(8)
-        };
-
-        // Return response
-        return parser.response(transaction, args);
-    },
-
-    // Coordinates
-    __coordinates: function(args){
-        // Return data
-        return {
-            'latitude': faker.address.latitude(),
-            'longitude': faker.address.longitude()
-        };
-    },
-
-    // Headers
-    __headers: function(args, request){
-        // headers object
-        let headers = {
-            host: 'https://www.jsonipsum.com',
-            request: request.url,
-            method: 'GET',
-            status: 200,
-            ip: faker.internet.ip(),
-            useragent: faker.internet.userAgent()
-        };
-
-        // Return response
-        return parser.response(headers, args);
     }
 };
