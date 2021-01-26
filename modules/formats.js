@@ -100,13 +100,27 @@ module.exports = {
                     // If params object exists
                     if(params){
                         // If json parameter is set
-                        if(params.json){
+                        if(params._json){
                             try{
                                 // Replace params object with json
-                                params = JSON.parse(params.json);
+                                params = Object.assign(JSON.parse(params._json), params);
                             } catch (e){
                                 // If invalid json
-                                params = {'error':'JSON parameter must contain valid JSON data'};
+                                params = {
+                                    error: 'JSON parameter must contain valid JSON data',
+                                };
+                            }
+                        }
+                        // If json parameter is set
+                        if(params._template){
+                            try{
+                                // Replace params object with json
+                                params = Object.assign(getTemplate.get_template_fields(params._template), params);
+                            } catch (e){
+                                // If invalid json
+                                params = {
+                                    error: 'Not a valid template value',
+                                };
                             }
                         }
                         // For each parameter in params object

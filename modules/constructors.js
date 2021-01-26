@@ -4,6 +4,7 @@
 const faker = require('faker');
 const lorem = require('./lorem');
 const parser = require('./parser');
+const templates = require('./templates');
 
 // Custom modules
 module.exports = {
@@ -191,5 +192,17 @@ module.exports = {
 
         // Return response
         return parser.response(user, args);
+    },
+
+    // Template
+    __template: function(args){
+        let dataitem = {};
+        let fields = templates.get_template_fields(args[0]);
+        if(fields){
+            Object.entries(fields).forEach((arr) => {
+                dataitem[arr[0]] = this.exec(arr[1]);
+            });
+        }
+        return dataitem;
     }
 };
