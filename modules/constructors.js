@@ -196,13 +196,18 @@ module.exports = {
 
     // Template
     __template: function(args){
-        let dataitem = {};
+        // Set empty dataitem
+        let template = {};
+        // Get fields from template object
         let fields = templates.get_template_fields(args[0]);
+        // If fields exist
         if(fields){
+            // Parse fields
             Object.entries(fields).forEach((arr) => {
-                dataitem[arr[0]] = this.exec(arr[1]);
+                template[arr[0]] = this.exec(arr[1]);
             });
         }
-        return dataitem;
+        // Return response
+        return template;
     }
 };

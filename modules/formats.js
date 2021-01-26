@@ -102,7 +102,7 @@ module.exports = {
                         // If json parameter is set
                         if(params._json){
                             try{
-                                // Replace params object with json
+                                // Append json parameters to params object
                                 params = Object.assign(JSON.parse(params._json), params);
                             } catch (e){
                                 // If invalid json
@@ -111,13 +111,13 @@ module.exports = {
                                 };
                             }
                         }
-                        // If json parameter is set
+                        // If template parameter is set
                         if(params._template){
                             try{
-                                // Replace params object with json
+                                // Append template parameters to params object
                                 params = Object.assign(getTemplate.get_template_fields(params._template), params);
                             } catch (e){
-                                // If invalid json
+                                // If invalid template
                                 params = {
                                     error: 'Not a valid template value',
                                 };

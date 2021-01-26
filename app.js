@@ -35,13 +35,6 @@ var error404 = {
     }
 };
 
-
-
-
-
-
-
-
 // Main get request
 app.get("/api/get/:format/", (request, response, next) => {
 
@@ -75,15 +68,6 @@ app.get("/api/get/:format/", (request, response, next) => {
     // Debug, log Request URL to console
     console.log(request.url);
 });
-
-
-
-
-
-
-
-
-
 
 // Main post request, return data body back as reponse
 app.post("/api/post/:format/", (request, response , next) => {
@@ -119,9 +103,6 @@ app.post("/api/post/:format/", (request, response , next) => {
     response.status(status).json(data);
 
 });
-
-
-
 
 // Start server
 app.listen(3000, () => {

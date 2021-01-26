@@ -4,6 +4,9 @@ module.exports = {
     // Render Template Fields
     get_template_fields: function get_template_fields(format) {
 
+            // Empty fields value
+            var fields = null;
+
             // Switch case by FORMAT passed
             switch(format){
 
