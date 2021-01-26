@@ -68,7 +68,7 @@ module.exports = {
                         // For each parameter in params object
                         Object.entries(fields).forEach((arr) => {
                             var request = request;
-                            if(arr[0] === 'user'){
+                            if(arr[0] === '_user'){
                                 dataitem = Object.assign(dataitem, this.process_params(arr, request));
                             } else {
                                 dataitem[arr[0]] = this.process_params(arr, request);

@@ -12,7 +12,7 @@ module.exports = {
                     fields = {
                         title: '__sentence',
                         body: '__paragraph',
-                        author: '__user(email)',
+                        username: '__user(username)',
                         date: '__date(past)',
                         likes: '__number(1,100)'
                     };
@@ -24,6 +24,7 @@ module.exports = {
                         body: '__paragraph',
                         username: '__user(username)',
                         replies: '__number(1,50)',
+                        likes: '__number(1,100)',
                         date: '__date(past)'
                     };
                     break;
@@ -31,7 +32,7 @@ module.exports = {
                 // Blog
                 case 'blog':
                     fields = {
-                        title: '__sentence',
+                        title: '__phrase',
                         excerpt: '__paragraph',
                         thumbnail: '__image',
                         author: '__user',
@@ -53,8 +54,8 @@ module.exports = {
                 case 'team':
                     fields = {
                         contact: '__user',
-                        job: '__sentence(short)',
-                        company: '__word',
+                        job: '__phrase(short)',
+                        company: '__word(2)',
                         headshot: '__image'
                     };
                     break;
@@ -63,7 +64,7 @@ module.exports = {
                 case 'photo':
                     fields = {
                         image: '__image',
-                        title: '__sentence(short)',
+                        title: '__phrase(short)',
                         caption: '__sentence(medium)',
                         username: '__user(username)',
                         date: '__date(past)',
@@ -75,7 +76,7 @@ module.exports = {
                 // User
                 case 'user':
                     fields = {
-                        user: '__user'
+                        _user: '__user'
                     };
                     break;
 
