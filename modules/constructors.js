@@ -135,6 +135,28 @@ module.exports = {
         return obj;
     },
 
+    // Coordinates
+    __coordinates: function(args){
+        // Return data
+        return {
+            'latitude': faker.address.latitude(),
+            'longitude': faker.address.longitude()
+        };
+    },
+
+    // Bankcard
+    __bankcard: function(args){
+        // Bankcard object
+        let bankcard = {
+            number: this.exec('__number(2000000000000000,9999999999999999)'),
+            expire: this.exec('__date(future)'),
+            ccv: this.exec('__number(200,999)')
+        };
+
+        // Return response
+        return parser.response(bankcard, args);
+    },
+
     // Address
     __address: function(args){
         // Address object
@@ -149,59 +171,6 @@ module.exports = {
 
         // Return response
         return parser.response(address, args);
-    },
-
-    // Coordinates
-    __coordinates: function(args){
-        // Return data
-        return {
-            'latitude': faker.address.latitude(),
-            'longitude': faker.address.longitude()
-        };
-    },
-
-    // Bankcard
-    __bankcard: function(args){
-        // Bankcard object
-        let bankcard = {
-            number: faker.finance.account(16),
-            expire: this.exec('__date(future)'),
-            ccv: this.exec('__number(200,999)')
-        };
-
-        // Return response
-        return parser.response(bankcard, args);
-    },
-
-    // Transaction
-    __transaction: function(args){
-        // Transaction obj
-        let transaction = {
-            account: faker.finance.account(16),
-            name: faker.finance.accountName(),
-            amount: faker.finance.amount(1, 999, 2, ""),
-            type: faker.finance.transactionType(),
-            confirmation: faker.internet.password(8)
-        };
-
-        // Return response
-        return parser.response(transaction, args);
-    },
-
-    // Headers
-    __headers: function(args, request){
-        // headers object
-        let headers = {
-            host: 'https://www.jsonipsum.com',
-            request: request.url,
-            method: 'GET',
-            status: 200,
-            ip: faker.internet.ip(),
-            useragent: faker.internet.userAgent()
-        };
-
-        // Return response
-        return parser.response(headers, args);
     },
 
     // Name
