@@ -98,7 +98,11 @@ app.post("/api/post/:format/", (request, response , next) => {
         let params = Object.assign(request.query, request.body);
 
         // Call lorem funciton to get text, append to data
-        data = getFormat.get_format(format, params, request);
+        data = {
+            success: true,
+            status: 200,
+            body: getFormat.get_format(format, params, request)
+        };
 
         // HTTP Status
         status = 200;
