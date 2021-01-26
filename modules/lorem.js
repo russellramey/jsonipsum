@@ -67,11 +67,11 @@ module.exports = {
         // Check if options are passed
         // Random - date between 1980 - Present
         if (options === 'past'){
-            date = faker.date.between('1980-01-01', today);
+            date = faker.date.between((today.getFullYear() - 3), today);
         }
         // Future - return date in the future, based off current date
         else if (options === 'future'){
-            date = faker.date.future(4);
+            date = faker.date.future(3);
         }
         // Default - Return todays date
         else {
