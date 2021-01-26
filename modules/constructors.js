@@ -29,7 +29,7 @@ module.exports = {
 
     // Phrase
     __phrase: function __phrase(args){
-        let phrase = lorem.generate_lorem_ipusm("sentence", args[0], 1);
+        let phrase = lorem.generate_lorem_ipusm("sentence", 'short', 1);
         return phrase.replace(/\./g,'');
     },
 
