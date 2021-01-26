@@ -44,8 +44,13 @@ module.exports = {
     },
 
     // String
-    __string: function(args){
-        return '';
+    __alphanum: function(args){
+        let string = '';
+        let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        for(let i=0; i < args[0]; i++){
+            string += possible.charAt(Math.floor(Math.random() * possible.length));
+        }
+        return string;
     },
 
     // Number
@@ -61,34 +66,6 @@ module.exports = {
     // Date
     __date: function(args){
         return lorem.generate_date(args[0], faker);
-    },
-
-    // Image
-    __image: function(args){
-        return lorem.generate_image_urls(args[0]);
-    },
-
-    // Video
-    __video: function(args){
-        return {
-            id: 'xxxxxxxxxx',
-            url: 'https://vimeo.com/video/xxxxxxxxxx',
-            embed: 'https://play.vimeo.com/embed/xxxxxxxxxx',
-            duration: this.exec('__number(30000,300000)')
-        };
-    },
-
-    // File
-    __file: function(args){
-        // File object
-        let file = {
-            name: 'file_placeholder.pdf',
-            link: 'https://jsonipsum.com/static/files/file_placeholder.pdf',
-            mime_type: 'application/pdf',
-            size: this.exec('__number(1000,5000)')
-        };
-        // Return response
-        return parser.response(file, args);
     },
 
     // Array
@@ -135,6 +112,34 @@ module.exports = {
         return obj;
     },
 
+    // Image
+    __image: function(args){
+        return lorem.generate_image_urls(args[0]);
+    },
+
+    // Video
+    __video: function(args){
+        return {
+            id: 'xxxxxxxxxx',
+            url: 'https://vimeo.com/video/xxxxxxxxxx',
+            embed: 'https://play.vimeo.com/embed/xxxxxxxxxx',
+            duration: this.exec('__number(30000,300000)')
+        };
+    },
+
+    // File
+    __file: function(args){
+        // File object
+        let file = {
+            name: 'file_placeholder.pdf',
+            link: 'https://jsonipsum.com/static/files/file_placeholder.pdf',
+            mime_type: 'application/pdf',
+            size: this.exec('__number(1000,5000)')
+        };
+        // Return response
+        return parser.response(file, args);
+    },
+
     // Coordinates
     __coordinates: function(args){
         // Return data
@@ -142,19 +147,6 @@ module.exports = {
             'latitude': faker.address.latitude(),
             'longitude': faker.address.longitude()
         };
-    },
-
-    // Bankcard
-    __bankcard: function(args){
-        // Bankcard object
-        let bankcard = {
-            number: this.exec('__number(2000000000000000,9999999999999999)'),
-            expire: this.exec('__date(future)'),
-            ccv: this.exec('__number(200,999)')
-        };
-
-        // Return response
-        return parser.response(bankcard, args);
     },
 
     // Address
@@ -173,8 +165,8 @@ module.exports = {
         return parser.response(address, args);
     },
 
-    // Name
-    __name: function(args){
+    // User
+    __user: function(args){
         // Name object
         let name = {
             firstname: faker.name.firstName(),
@@ -184,14 +176,6 @@ module.exports = {
         name.fullname = name.firstname + ' ' + name.lastname;
         // Add username
         name.username = name.firstname.toLowerCase() + this.exec('__number(1980,2010)');
-        // Return response
-        return parser.response(name, args);
-    },
-
-    // User
-    __user: function(args){
-        // Create a new name
-        let name = this.exec("__name");
 
         // Create a new user
         let user = {
