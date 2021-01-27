@@ -13,25 +13,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Format array
-var formats = ["word", "sentence", "paragraph", "data", "post", "todo", "user", "blog", "team", "comment", "photo"];
+var formats = ["word", "sentence", "paragraph", "data"];
 
 // Error object for 404
 var error404 = {
     "error": true,
-    "message": "The requested resource is not a valid endpoint.",
+    "message": "The requested resource is not a valid endpoint or does not support current HTTP method.",
     "status" : 404,
     "endpoints" : {
-        "word": "https://jsonipsum.com/api/v1/text/word/",
-        "sentence": "https://jsonipsum.com/api/v1/text/sentence/",
-        "paragraph": "https://jsonipsum.com/api/v1/text/paragraph/",
-        "custom": "https://jsonipsum.com/api/v1/text/custom/",
-        "post": "https://jsonipsum.com/api/v1/text/post/",
-        "todo": "https://jsonipsum.com/api/v1/text/todo/",
-        "user": "https://jsonipsum.com/api/v1/text/user/",
-        "blog": "https://jsonipsum.com/api/v1/text/blog/",
-        "team": "https://jsonipsum.com/api/v1/text/team/",
-        "comment": "https://jsonipsum.com/api/v1/text/comment/",
-        "photo": "https://jsonipsum.com/api/v1/text/photo/"
+        "word": "https://jsonipsum.com/api/word/",
+        "sentence": "https://jsonipsum.com/api/sentence/",
+        "paragraph": "https://jsonipsum.com/api/paragraph/",
+        "data": "https://jsonipsum.com/api/data/",
     }
 };
 
@@ -76,7 +69,7 @@ app.post("/api/post/:format/", (request, response , next) => {
     var format = request.params.format;
 
     // If format is valid
-    if (formats.indexOf(format) >= 0) {
+    if (format === 'data') {
 
         // Get passed parameters
         let params = Object.assign(request.query, request.body);

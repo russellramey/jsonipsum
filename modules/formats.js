@@ -43,44 +43,6 @@ module.exports = {
                 }
                 break;
 
-            // Prebuilt Templates
-            case 'team':
-            case 'post':
-            case 'blog':
-            case 'comment':
-            case 'todo':
-            case 'photo':
-            case 'user':
-
-                // Get count, loop until max reached
-                for (id = 1; id <= count; id++){
-
-                    // Build data item
-                    dataitem = {
-                        "id": id,
-                    };
-
-                    // Return template fields
-                    let fields = getTemplate.get_template_fields(format);
-
-                    // If fields exists
-                    if(fields){
-                        // For each parameter in params object
-                        Object.entries(fields).forEach((arr) => {
-                            var request = request;
-                            if(arr[0] === '_user'){
-                                dataitem = Object.assign(dataitem, this.process_params(arr, request));
-                            } else {
-                                dataitem[arr[0]] = this.process_params(arr, request);
-                            }
-                        });
-                    }
-
-                    // Push item to data array
-                    data.push(dataitem);
-                }
-                break;
-
             // Custom data
             case 'data':
                 // Get count, loop until max reached
@@ -125,8 +87,6 @@ module.exports = {
                         }
                         // For each parameter in params object
                         Object.entries(params).forEach((arr) => {
-                            // Request
-                            var request = request;
                             // If value is object
                             if(typeof arr[1] === 'object'){
                                 dataitem[arr[0]] = this.iterate_object(arr[1], request);

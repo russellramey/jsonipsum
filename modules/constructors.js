@@ -204,7 +204,11 @@ module.exports = {
         if(fields){
             // Parse fields
             Object.entries(fields).forEach((arr) => {
-                template[arr[0]] = this.exec(arr[1]);
+                if(arr[0] === '_user'){
+                    template = this.exec(arr[1]);
+                } else {
+                    template[arr[0]] = this.exec(arr[1]);
+                }
             });
         }
         // Return response
