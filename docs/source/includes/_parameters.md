@@ -3,17 +3,13 @@
 ## Length
 
 ```shell
-GET "https://api.jsonipsum.com/text/sentence/?length=short"
+GET "https://api.jsonipsum.com/get/sentence/?_length=short"
 ```
-
 > JSON Response
 
 ```json
 [
-    {
-        "id": 0,
-        "text": "Velit duis ad dolor ullamco velit."
-    }
+    "Velit duis ad dolor ullamco velit."
 ]
 ```
 
@@ -25,7 +21,7 @@ Set the length of the text returned for the specific endpoint.
 
 ### HTTP Request
 
-`GET https://api.jsonipsum.com/text/sentence/?length=value`
+`GET https://api.jsonipsum.com/text/sentence/?_length=value`
 
 Value | Description
 --------- | -----------
@@ -40,25 +36,15 @@ rand | Returns random length text. <br>_Default. 3-18 word sentences, 3-12 sente
 ## Count
 
 ```shell
-GET "https://api.jsonipsum.com/text/paragraph/?count=3"
+GET "https://api.jsonipsum.com/get/paragraph/?_count=3"
 ```
-
 > JSON Response
 
 ```json
 [
-    {
-        "id": 0,
-        "text": "Enim amet adipisicing irure et aliquip labore occaecat laborum commodo consectetur adipisicing sint. Amet laboris aliqua commodo labore irure dolore mollit fugiat et. Eiusmod ut ullamco proident laboris eu veniam Lorem culpa ad reprehenderit laborum. Cillum id aute ipsum reprehenderit proident consequat culpa nisi tempor consectetur adipisicing elit minim. Sint ad amet velit tempor ullamco consectetur non veniam quis reprehenderit elit veniam voluptate ad sunt. Aliquip incididunt enim amet deserunt dolore irure velit in in do nulla sint culpa officia.",
-    },
-    {
-        "id": 1,
-        "text": "Laborum ex nostrud veniam exercitation laboris ipsum non dolore. Cupidatat tempor eiusmod sunt ut eiusmod et laboris commodo veniam pariatur qui irure ut nostrud duis. Magna irure laborum dolore non proident exercitation et ipsum commodo labore qui occaecat quis labore laborum. Pariatur enim est culpa qui velit sit id Lorem reprehenderit ullamco veniam ullamco laboris nisi. Sunt minim nulla incididunt commodo culpa aute id veniam occaecat tempor nisi nostrud mollit minim. Excepteur nulla anim amet esse reprehenderit est aute. Non aliqua adipisicing nulla nisi esse exercitation consequat do nostrud proident qui quis nisi consectetur cillum.",
-    },
-    {
-        "id": 2,
-        "text": "Labore culpa mollit minim cillum incididunt esse anim eiusmod cupidatat dolor dolore. Lorem elit sunt laborum deserunt id ullamco eiusmod culpa deserunt dolore officia ut est id qui. Et irure mollit sunt sint id consequat id. Nulla consequat proident aliqua consequat do amet fugiat id veniam exercitation aute pariatur. Ipsum sit enim eiusmod ex Lorem labore ea Lorem eu sit Lorem sint. Sint Lorem est culpa pariatur ipsum magna eiusmod aute.",
-    }
+    "Sint sit ipsum do officia magna in. In aliqua do quis ut eu excepteur consequat proident ipsum cillum dolore. Voluptate sint aliqua officia anim voluptate elit laborum qui mollit non in cupidatat sit nulla.",
+    "Duis velit aliqua anim nostrud laboris cupidatat eu enim. Incididunt et duis pariatur aute velit elit Lorem commodo dolore sint dolore et consectetur. Occaecat labore sit tempor do aliqua proident. Aliqua ipsum amet magna aliqua labore eu officia mollit anim laborum mollit aute id culpa laborum aliqua ad. Laborum magna laboris laborum voluptate ipsum enim duis pariatur. Cupidatat aliquip adipisicing culpa sunt mollit irure consectetur cillum aliquip sit do eiusmod consectetur non elit velit in. Nostrud aliquip aute velit sint laboris sit. Magna veniam cillum in nostrud in enim mollit eu dolore excepteur pariatur do laboris. Occaecat nulla pariatur eu eu est est non pariatur adipisicing proident irure. Exercitation anim nulla. Quis proident cupidatat et nostrud sint eu consequat ipsum id excepteur aliqua magna anim ad tempor officia. Culpa do ut consectetur velit aliquip in ut ad et eu commodo in do cupidatat.",
+    "Mollit officia nostrud mollit occaecat consectetur pariatur. Pariatur proident non irure ex minim. Sint voluptate eu elit tempor Lorem et excepteur aliqua reprehenderit nisi duis Lorem. Nostrud sunt voluptate ea eiusmod. Laborum ad ut ea ea eu tempor culpa duis eu adipisicing ex elit aliquip Lorem enim sint adipisicing. Dolor sint deserunt elit aute excepteur officia ipsum. Consequat eiusmod est reprehenderit eiusmod ex dolore. Ipsum duis irure ipsum enim qui veniam dolor officia culpa cillum eiusmod. In reprehenderit eu consequat consequat culpa sit est esse. Qui ullamco Lorem irure ex consequat proident laborum. Adipisicing ex irure proident deserunt veniam."
 ]
 ```
 
@@ -66,11 +52,11 @@ Determine the number of items to return for a given endpoint.
 
 ### Supported Endpoints
 
-[word](#word) | [sentence](#sentence) | [paragraph](#paragraph) | [post](#post) | [blog](#blog) | [comment](#comment) | [todo](#todo) | [photo](#photo) | [user](#user) | [team](#team) | [custom](#custom) | [html](#html)
+[word](#word) | [sentence](#sentence) | [paragraph](#paragraph) | [data](#data)
 
 ### HTTP Request
 
-`GET https://api.jsonipsum.com/text/paragraph/?count=3`
+`GET https://api.jsonipsum.com/text/paragraph/?_count=3`
 
 Value | Description
 --------- | -----------
@@ -79,211 +65,3 @@ Value | Description
 <aside class="notice">
 The <em>Count</em> parameter will add additional indexes to the returned json object.
 </aside>
-
-
-
-
-## Fields
-
-```shell
-GET "https://api.jsonipsum.com/text/custom/?fields=thumbnail,title,excerpt"
-```
-
-> JSON response
-
-```json
-[
-    {
-        "id": 0,
-        "thumbnail": {
-            "landscape": "https://jsonipsum.com/static/images/image_960x640.jpg",
-            "portrait": "https://jsonipsum.com/static/images/image_640x960.jpg",
-            "square": "https://jsonipsum.com/static/images/image_960x960.jpg"
-        },
-        "title": "Exercitation mollit dolor sint anim reprehenderit sint veniam laborum eu aliquip nostrud tempor est.",
-        "excerpt": "Ex amet cupidatat irure elit anim cillum commodo esse nulla mollit velit ea proident ut duis eiusmod veniam commodo. Ipsum aliquip esse eu laboris non minim eiusmod ut officia deserunt et. Cillum cillum eiusmod pariatur ad sunt mollit nulla qui in magna excepteur duis commodo ad adipisicing est esse id magna. Fugiat deserunt anim velit laborum mollit labore sunt deserunt occaecat sit aute tempor. Commodo irure cillum eiusmod eiusmod dolore cupidatat ullamco nostrud cillum elit magna minim."
-    }
-]
-```
-
-Available values for the _Field_ parameter. Create custom data structures by passing different _Field_ values and value _options_.
-
-### Supported Endpoints
-
-<a href="#custom">custom</a>
-
-### HTTP Request
-
-`GET https://api.jsonipsum.com/text/custom/?fields=value[option]`
-
-
-Value | Options | Type | Description
---------- | ------- | -------- | -----------
-address | street<br>city<br>postal<br>province<br>country<br>countrycode | object | Traditional style shipping/billing address. Change format of address by also passing the <em>Region</em> parameter.<br><em>Default: all</em>
-age | --- | integer | Returns random number as an integer<br><em>Range between 18 - 65</em>
-author | --- | string |  Full fictional name, first and last.
-avatar | small<br>medium<br>large | object | Returns three different versions of a static image (landscape, portrait, square) in size option provide.<br><em>Default: medium</em>
-bankcard | number<br>expire<br>ccv | object | Returns randomly generated (fake) debit/credit card information.<br><em>Default: all</em>
-birthday | past<br>today<br>future | object | Returns date in string and timestamp format. Random date if <em>Past</em>, or <em>Future</em> options are passed.<br><em>Default: today</em>
-body | short<br>medium<br>long | string | Returns lorem ipsum paragraph.<br><em>Default: random</em>
-bullets | short<br>medium<br>long | array | Returns lorem ipsum sentences as an array.<br><em>Default: random</em>
-comments | --- | integer | Returns a random number as an integer<br><em>Range between: 0 - 100</em>
-company | --- | string | Returns fake company name.
-coordinates | --- | object | Random latitude and longitude map coordinates as key/value pairs.
-date | past<br>today<br>future | object | Returns date in string and timestamp format. Random date if <em>Past</em>, or <em>Future</em> options are passed.<br><em>Default: today</em>
-description | short<br>medium<br>long | string | Returns lorem ipsum paragraph.<br><em>Default: random</em>
-email | --- | string | Random email address with alphanumeric email handle.<br><em>Format: abc123@jsonipsum.com</em>
-excerpt | short<br>medium<br>long | string | Returns lorem ipsum paragraph.<br><em>Default: random</em>
-features | short<br>medium<br>long | array | Returns lorem ipsum sentences as an array.<br><em>Default: random</em>
-file | --- | string | Returns valid url to a sample downloadable pdf file.
-headers | host<br>request<br>method<br>status<br>ip<br>useragent | object | Basic sample HTTP information typically found in request headers.<br><em>Default: all</em>
-headshot | small<br>medium<br>large | object | Returns three different versions of a static image (landscape, portrait, square) in size option provide.<br><em>Default: medium</em>
-icon | --- | string | Returns valid url to sample placeholder svg/icon file.
-image | small<br>medium<br>large | object | Returns three different versions of a static image (landscape, portrait, square) in size option provide.<br><em>Default: medium</em>
-integer | small<br>medium<br>large | integer | Returns a single number as an integer<br><em>Default: rand (1-999)</em>
-job | --- | string | Returns random job title/position.
-latlong | --- | object | Random latitude and longitude map coordinates as key/value pairs.
-likes | --- | integer | Returns a random number as an integer<br><em>Range between: 0 - 100</em>
-list | short<br>medium<br>long | array | Returns lorem ipsum sentences as an array.<br><em>Default: random</em>
-mac | --- | string | Returns randomly generated device MAC address.
-map | --- | object | Random latitude and longitude map coordinates as key/value pairs.
-name | --- | string | Full fictional name, first and last.
-number | small<br>medium<br>large | integer | Returns a single number as an integer<br><em>Default: random (1-999)</em>
-password | --- | string | Returns random 16 character password.
-percent | --- | integer | Returns random integer between 1-100.
-phone | --- | string | Returns randomly generated phone number. Change format of phone number by also passing the <em>Region</em> parameter.
-price | --- | string | Returns randomly generated price amount with two decimal places.
-product | name<br>type<br>department<br>material<br>color<br>color<br>price | object | Returns sample common product information.<br><em>Default: all</em>
-progress | --- | integer | Returns random integer between 1-100.
-rating | --- | integer | Returns random integer between 1-5.
-shares | --- | integer | Returns a random number as an integer<br><em>Range between: 0 - 100</em>
-subtitle | short<br>medium<br>long | string | Returns lorem ipsum sentence.<br><em>Default: random</em>
-summery | short<br>medium<br>long | string | Returns lorem ipsum paragraph.<br><em>Default: random</em>
-taxonomy | category<br>tags | object | Returns lorem ipsum words.<br><em>Default: all</em>
-text | short<br>medium<br>long | string | Returns lorem ipsum paragraph.<br><em>Default: random</em>
-thumbnail | small<br>medium<br>large | object | Returns three different versions of a static image (landscape, portrait, square) in size option provide.<br><em>Default: medium</em>
-title | short<br>medium<br>long | string | Returns lorem ipsum sentence.<br><em>Default: random</em>
-transaction | account<br>name<br>amount<br>type<br>confirmation | object | Randomly generated financial transaction information.<br><em>Default: all</em>
-url | --- | string | Valid static jsonispum.com sample url.
-username | --- | string | Returns random username based off a firstname and year.<br><em>Format: abcd1234</em>
-uuid | --- | string | Randomly generate universally unique identifier (uuid).
-votes | --- | integer | Returns a random number as an integer<br><em>Range between: 0 - 100</em>
-video | --- | object | Sample playable and embedable video from jsonipsum.com hosted on Vimeo.
-website | --- | string | Returns static www.jsonipsum.com domain as a string.
-
-<aside class="notice">
-You can combine multiple <em>Field</em> values by separating them with a comma.
-</aside>
-<aside class="notice">
-Include <em>Field Options</em> by appending the available option, within square brackets, to the <em>Field</em> value.
-</aside>
-
-
-## Tags
-
-```shell
-
-GET "https://api.jsonipsum.com/text/html/?tags=h1,h2[short],p[5]"
-
-```
-
-> JSON response
-
-```json
-[
-    {
-        "id": 0,
-        "text": "<h1>Et esse cupidatat nisi elit cillum consequat ad eiusmod ullamco consectetur esse.</h1><h2>Aliqua esse ea consectetur.</h2><p>Esse reprehenderit duis amet irure ea laborum occaecat enim sint Lorem ad nulla aliquip elit aliquip veniam. Reprehenderit cillum ipsum tempor id tempor consequat voluptate anim eiusmod do ea aliquip tempor incididunt. Sunt minim velit exercitation in ea nostrud reprehenderit cupidatat in magna reprehenderit velit est sit laborum dolore tempor. Ad ea in consequat ipsum quis duis labore est irure laborum velit ea anim sint incididunt Lorem et velit. Nisi laboris sunt cupidatat ea esse nostrud nisi veniam exercitation anim laboris amet. Consectetur elit reprehenderit nisi voluptate officia Lorem qui culpa consectetur do fugiat sint elit qui veniam in.</p><p>Sint aute irure ipsum aliqua amet ea ut nisi ut qui aliquip ea nulla veniam enim ex cupidatat. Voluptate sunt nulla eu officia consequat sit irure ea labore nulla reprehenderit ex duis. Ullamco Lorem velit nostrud aute et mollit tempor commodo magna reprehenderit deserunt sit laborum. Dolore deserunt aliquip aute dolore nostrud adipisicing eiusmod ut amet cillum nostrud dolore ad minim nostrud exercitation Lorem ex. Velit culpa fugiat ipsum officia consequat aliquip non sit nisi cillum dolor et dolor culpa eiusmod. Do cillum laborum culpa minim exercitation deserunt aute eu consectetur cupidatat eiusmod consequat occaecat id. Nostrud labore est laboris voluptate ipsum aliquip ad esse ullamco mollit pariatur qui eu pariatur nisi do.</p><p>Enim incididunt cillum laboris et dolor veniam incididunt tempor cupidatat qui nulla sit eiusmod cupidatat veniam. Do excepteur officia fugiat duis esse excepteur officia consectetur nulla sunt aliqua consequat deserunt. Minim sit aute non in occaecat proident culpa non et labore dolor. Fugiat aute exercitation irure qui esse nulla officia deserunt in adipisicing deserunt. Elit dolor aliqua sit exercitation fugiat nostrud enim et pariatur ea mollit. Laboris excepteur quis eu officia ipsum non reprehenderit sit commodo est et aliquip sint commodo sint mollit dolore aliquip aliquip. Duis cillum pariatur eiusmod voluptate ullamco in dolor non consequat commodo duis laboris. Veniam nostrud eiusmod velit fugiat et sunt adipisicing reprehenderit duis aliquip proident Lorem deserunt dolore consectetur culpa laboris exercitation.</p><p>Labore enim elit ullamco incididunt laborum id Lorem consequat esse culpa incididunt velit deserunt minim id. Dolor aute laborum sit deserunt magna anim cillum culpa amet in ullamco non. Cupidatat do nisi aute magna labore ut magna nisi do dolore elit amet et labore aliqua. Do labore nisi fugiat consequat laborum magna ex est labore laboris mollit Lorem in cupidatat nisi nisi consequat. Consectetur Lorem id magna quis occaecat duis pariatur tempor incididunt incididunt exercitation laborum dolor sunt aute fugiat ea.</p><p>Esse Lorem eu aliqua mollit non dolor anim occaecat nisi sunt ad do nulla est enim nulla exercitation tempor. Eu veniam sint enim ad voluptate labore do ullamco ipsum laboris dolor exercitation. Ut ut cillum proident laboris officia Lorem eu sint adipisicing cillum esse veniam anim adipisicing mollit. Commodo incididunt anim in anim eiusmod elit in mollit sint sit id. Sunt deserunt irure ex eiusmod ad tempor sint aute laboris amet dolor. Commodo ad amet eiusmod tempor magna irure non adipisicing magna duis ad labore Lorem id est tempor commodo consectetur.</p>"
-    }
-]
-```
-
-Available values for the _Tags_ parameter. Create HTML markup combinations by passing these values to the _Tags_ parameter.
-
-### Supported Endpoints
-
-[html](#html)
-
-### HTTP Request
-
-`GET https://api.jsonipsum.com/text/html/?tags=value[option]`
-
-Value | Options | Description
---------- | ----------- | -----------
-blockquote | short<br>medium<br>long | Sentence in `blockquote` tag.<br><em>Default: medium</em>
-h1 | short<br>medium<br>long | Sentence in `h1` tag.<br><em>Default: medium</em>
-h2 | short<br>medium<br>long | Sentence in `h2` tag.<br><em>Default: medium</em>
-h3 | short<br>medium<br>long | Sentence in `h3` tag.<br><em>Default: medium</em>
-h4 | short<br>medium<br>long | Sentence in `h4` tag.<br><em>Default: medium</em>
-ol | short<br>medium<br>long | Random count (3-8) of `li` items in a `ol` tag.<br><em>Default: medium</em>
-p | 1-100 | Text in `p` tag.<br><em>Default: 1</em>
-span | short<br>medium<br>long | Sentence in `span` tag.<br><em>Default: medium</em>
-ul | short<br>medium<br>long | Random count (3-8) of `li` items in a `ul` tag.<br><em>Default: medium</em>
-
-<aside class="notice">
-You can combine multiple <em>Tag</em> values by separating them with a comma.
-</aside>
-<aside class="notice">
-Include <em>Tag Options</em> by appending the available option, within square brackets, to the <em>Tag</em> value.
-</aside>
-
-
-
-## Regions
-
-```shell
-
-GET "https://api.jsonipsum.com/text/custom/?fields=name,phone,address&region=de"
-
-```
-
-> JSON response
-
-```json
-[
-    {
-        "id": 0,
-        "name": "Imke Holzner",
-        "phone": "(0553) 326731785",
-        "address": {
-            "street": "027 Hingsen Causeway",
-            "city": "Neu Cindyburg",
-            "postal": "94774",
-            "province": "Baden-Württemberg",
-            "country": "Grönland",
-            "countrycode": "KN"
-        }
-    }
-]
-```
-
-Available values for the _Region_ parameter. Passing a region will return localized data in the native language.
-
-### Supported Endpoints
-
-[post](#post) | [blog](#blog) | [comment](#comment) | [photo](#photo) | [user](#user) | [team](#team) | [custom](#custom)
-
-### HTTP Request
-
-`GET https://api.jsonipsum.com/text/custom/?region=value`
-
-
-Value | Description
---------- | -----------
-de | Sets region to German.
-en | Sets region to English - US.<br><em>Default</em>
-en_AU | Sets region to English - Australia.
-en_CA | Sets region to English - Canada.
-en_GB | Sets region to English - Great Briton.
-es | Sets region to Spanish.
-es_MX | Sets region to Spanish - Mexico.
-fr | Sets region to French.
-fr_CA | Sets region to French - Canada.
-it | Sets region to Italian.
-ja | Sets region to Japanese.
-ko | Sets region to Korean.
-pl | Sets region to Polish.
-pt_BR | Sets region to Portuguese - Brazil.
-pt_PT | Sets region to Portuguese - Portugal.
-ru | Sets region to Russian.
-tr | Sets region to Turkish.
