@@ -1,6 +1,6 @@
 # Endpoints
 
-## Word
+## /get/word
 
 ```shell
 GET "https://api.jsonipsum.com/get/word/"
@@ -22,7 +22,7 @@ Parameter | Value | Description
 
 
 
-## Sentence
+## /get/sentence
 
 ```shell
 GET "https://api.jsonipsum.com/get/sentence/"
@@ -45,7 +45,7 @@ Parameter | Value | Description
 
 
 
-## Paragraph
+## /get/paragraph
 
 ```shell
 GET "https://api.jsonipsum.com/get/paragraph/"
@@ -68,7 +68,7 @@ Parameter | Value | Description
 
 
 
-## Data   
+## /get/data   
 
 ```shell
 GET "https://api.jsonipsum.com/get/data?_template=post"
@@ -99,4 +99,45 @@ Parameter | Value | Description
 --------- | ------- | -----------
 [_count](#count) | 1-100 | Set the number of items to be returned.<br>_Default: 1_
 [_json](#json) | Stringified Object | Use this parameter to pass a json object in a GET request. JSON must be stringified.
+[_template](#template) | user<br>post<br>blog<br>comment<br>todo<br>photo | Return template based JSON object with all its properties.
+
+
+
+## /post/data   
+
+```shell
+POST "https://api.jsonipsum.com/post/data"
+
+body = {
+    "title": "__sentence",
+    "body": "__paragraph",
+    "date": "__date(past)"
+}
+```
+
+> JSON response
+
+```json
+{
+    "success": true,
+    "status": 200,
+    "body": [
+        {
+            "id": 101,
+            "title": "Lorem sunt aliqua cupidatat aliqua anim anim deserunt minim sunt nostrud eiusmod Lorem ut esse cupidatat.",
+            "body": "Sit est id aute incididunt reprehenderit labore aliqua incididunt ullamco amet irure consequat qui quis proident dolore. Do quis voluptate elit nisi amet dolor irure dolor quis Lorem ex occaecat. Dolore enim commodo dolore. Ea aliquip aliqua labore nulla nisi mollit ipsum amet elit commodo id ex nisi nisi reprehenderit. Occaecat incididunt deserunt proident in mollit tempor esse consequat cillum exercitation officia laborum non laboris. Anim eu nulla nulla. Commodo elit esse labore sunt ea duis sint consectetur tempor aliqua velit commodo est laborum deserunt. Elit laborum non voluptate cupidatat commodo pariatur minim excepteur laboris qui ut. Ad ex velit commodo eiusmod anim culpa quis. Elit tempor ullamco consectetur minim dolore cillum aute cupidatat mollit labore qui anim id.",
+            "date": {
+                "string": "2020-2-21",
+                "timestamp": 1582264800000
+            }
+        }
+    ]
+}
+```
+
+Making a POST request to this endpoint will allow you to send any valid JSON object as the requst body. Allowing you to easily create custom complex objects as a response. API [constructors](#constructors) as values can be used to easily generate random text/data.
+
+Parameter | Value | Description
+--------- | ------- | -----------
+[_count](#count) | 1-100 | Set the number of items to be returned.<br>_Default: 1_
 [_template](#template) | user<br>post<br>blog<br>comment<br>todo<br>photo | Return template based JSON object with all its properties.
