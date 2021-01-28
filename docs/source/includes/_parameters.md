@@ -1,4 +1,5 @@
 # Parameters
+While <b>JSON:ISPUM</b> will accept any parameter passed along in the request, there are a few API specific parameters that can be used, and that will perform certain actions. API specific parameters always start with an underscore character ( _ ).
 
 ## Length
 
@@ -64,4 +65,92 @@ Value | Description
 
 <aside class="notice">
 The <em>Count</em> parameter will add additional indexes to the returned json object.
+</aside>
+
+
+
+## Template
+
+```shell
+GET "https://api.jsonipsum.com/get/data/?_template=post"
+```
+> JSON Response
+
+```json
+[
+    {
+        "id": 1,
+        "title": "Sint sunt id aliquip ut do anim occaecat Lorem.",
+        "body": "Pariatur non deserunt sunt commodo non Lorem sint quis sunt aliquip ad. Dolore do occaecat adipisicing consequat elit id. Aliqua qui sit aliquip duis est ad sunt duis amet id aute dolore esse velit nostrud ut quis.",
+        "username": "mona1987",
+        "date": {
+            "string": "2020-11-3",
+            "timestamp": 1604383200000
+        },
+        "likes": 92
+    }
+]
+```
+
+Quickly return a pre-formatted JSON object. Supported template values are listed below.
+
+### Supported Endpoints
+
+[data](#data)
+
+### HTTP Request
+
+`GET https://api.jsonipsum.com/get/data?_template=value`
+
+Value | Description
+--------- | -----------
+user | Returns a User object with name, email, username, and address.
+post | Returns a Post object with title, body, username, date, and likes count.
+blog | Return a Blog object with title, excerpt, thumbnail, author, date, and comments count.
+comment | Return a Comment object with body, username, reply count, likes count, and date.
+todo | Return a Todo object with title, date, and complete boolean.
+photo | Return a Photo object with image, title, caption, username, date, comment count, and likes count.
+
+<aside class="notice">
+The <em>Count</em> parameter will add additional indexes to the returned json object.
+</aside>
+
+
+
+## Json
+
+```shell
+GET 'https://api.jsonipsum.com/get/data?_json={"title":"__sentence","body":"__paragraph","date":"__date(future)"}'
+```
+> JSON Response
+
+```json
+[
+    {
+        "id": 1,
+        "title": "Culpa adipisicing ea proident labore mollit.",
+        "body": "Lorem adipisicing consectetur fugiat Lorem nisi. Esse aliqua duis proident eiusmod voluptate commodo irure esse enim occaecat. Dolore elit dolor consectetur mollit et dolore aliqua culpa quis dolor ea proident sint. Magna veniam aliqua consectetur consequat dolor pariatur eu magna proident ipsum reprehenderit dolor duis Lorem culpa ad. Magna exercitation in commodo sunt in ex voluptate laborum quis dolor sint est exercitation tempor et. Eiusmod proident ea sint fugiat exercitation amet adipisicing nulla fugiat nulla ea enim dolor elit veniam sit qui. Exercitation nisi eiusmod ad nostrud et veniam incididunt dolore dolor et culpa elit aliqua ipsum.",
+        "date": {
+            "string": "2020-10-11",
+            "timestamp": 1602374400000
+        }    }
+]
+```
+
+Pass a JSON object directly to API.
+
+### Supported Endpoints
+
+[data](#data)
+
+### HTTP Request
+
+`GET https://api.jsonipsum.com/get/data?_json=value`
+
+Value | Description
+--------- | -----------
+Stringified Object | This parameter accepts any valid JSON object as a string.
+
+<aside class="notice">
+JSON object must be stringified to be used in this context.
 </aside>
