@@ -22,7 +22,7 @@ Set the length of the text returned for the specific endpoint.
 
 ### HTTP Request
 
-`GET https://api.jsonipsum.com/text/sentence/?_length=value`
+`GET https://api.jsonipsum.com/get/sentence/?_length=value`
 
 Value | Description
 --------- | -----------
@@ -57,7 +57,7 @@ Determine the number of items to return for a given endpoint.
 
 ### HTTP Request
 
-`GET https://api.jsonipsum.com/text/paragraph/?_count=3`
+`GET https://api.jsonipsum.com/get/paragraph/?_count=3`
 
 Value | Description
 --------- | -----------
