@@ -13,6 +13,8 @@ module.exports = {
         // Empty data array
         let data = [];
 
+        let protected_params = ['_count', '_json', '_template', '_length'];
+
         // Parse Global Params
         // ?length
         if (params._length){
@@ -85,13 +87,16 @@ module.exports = {
                                 };
                             }
                         }
+
                         // For each parameter in params object
                         Object.entries(params).forEach((arr) => {
-                            // If value is object
-                            if(typeof arr[1] === 'object'){
-                                dataitem[arr[0]] = this.iterate_object(arr[1], request);
-                            } else {
-                                dataitem[arr[0]] = this.process_params(arr, request);
+                            if(!protected_params.includes(arr[0])){
+                                // If value is object
+                                if(typeof arr[1] === 'object'){
+                                    dataitem[arr[0]] = this.iterate_object(arr[1], request);
+                                } else {
+                                    dataitem[arr[0]] = this.process_params(arr, request);
+                                }
                             }
                         });
                     }
