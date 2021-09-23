@@ -100,7 +100,7 @@ module.exports = {
             img_urls = {
                 "landscape" : "https://via.placeholder.com/480x320",
                 "portrait" : "https://via.placeholder.com/320x480",
-                "square" : "https://via.placeholder.com/480x480g"
+                "square" : "https://via.placeholder.com/480x480"
             };
         } else if (size === 'large'){
             img_urls = {

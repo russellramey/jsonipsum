@@ -239,9 +239,9 @@ __image(small)
 ```
 ```json
 {
-    "landscape": "https://jsonipsum.com/static/images/placeholder_480x320.jpg",
-    "portrait": "https://jsonipsum.com/static/images/placeholder_320x480.jpg",
-    "square": "https://jsonipsum.com/static/images/placeholder_480x480.jpg"
+    "landscape": "https://via.placeholder.com/480x320",
+    "portrait": "https://via.placeholder.com/320x480",
+    "square": "https://via.placeholder.com/480x480"
 }
 ```
 
@@ -264,10 +264,10 @@ __file
 ```
 ```json
 {
-    "name": "file_placeholder.pdf",
-    "link": "https://jsonipsum.com/static/files/file_placeholder.pdf",
+    "name": "placeholder_file.pdf",
+    "link": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Placeholder.pdf",
     "mime_type": "application/pdf",
-    "size": 4113
+    "size": 2749
 }
 ```
 
@@ -284,10 +284,10 @@ __video
 ```
 ```json
 {
-    "id": "xxxxxxxxxx",
-    "url": "https://vimeo.com/video/xxxxxxxxxx",
-    "embed": "https://play.vimeo.com/embed/xxxxxxxxxx",
-    "duration": 68055
+    "id": "87110435",
+    "url": "https://vimeo.com/87110435",
+    "embed": "https://player.vimeo.com/video/87110435",
+    "duration": 106194
 }
 ```
 
