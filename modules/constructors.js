@@ -121,9 +121,9 @@ module.exports = {
     // Video
     __video: function(args){
         return {
-            id: 'xxxxxxxxxx',
-            url: 'https://vimeo.com/video/xxxxxxxxxx',
-            embed: 'https://play.vimeo.com/embed/xxxxxxxxxx',
+            id: '87110435',
+            url: 'https://vimeo.com/87110435',
+            embed: 'https://player.vimeo.com/video/87110435',
             duration: this.exec('__number(30000,300000)')
         };
     },
@@ -132,10 +132,10 @@ module.exports = {
     __file: function(args){
         // File object
         let file = {
-            name: 'file_placeholder.pdf',
-            link: 'https://jsonipsum.com/static/files/file_placeholder.pdf',
+            name: 'placeholder_file.pdf',
+            link: 'https://upload.wikimedia.org/wikipedia/commons/a/a4/Placeholder.pdf',
             mime_type: 'application/pdf',
-            size: this.exec('__number(1000,5000)')
+            size: this.exec('__number(1000,7500)')
         };
         // Return response
         return parser.response(file, args);

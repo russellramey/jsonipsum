@@ -98,21 +98,21 @@ module.exports = {
         // Small images
         if (size === 'small'){
             img_urls = {
-                "landscape" : "https://jsonipsum.com/static/images/placeholder_480x320.jpg",
-                "portrait" : "https://jsonipsum.com/static/images/placeholder_320x480.jpg",
-                "square" : "https://jsonipsum.com/static/images/placeholder_480x480.jpg"
+                "landscape" : "https://via.placeholder.com/480x320",
+                "portrait" : "https://via.placeholder.com/320x480",
+                "square" : "https://via.placeholder.com/480x480g"
             };
         } else if (size === 'large'){
             img_urls = {
-                "landscape" : "https://jsonipsum.com/static/images/placeholder_1280x720.jpg",
-                "portrait" : "https://jsonipsum.com/static/images/placeholder_720x1280.jpg",
-                "square" : "https://jsonipsum.com/static/images/placeholder_1280x1280.jpg"
+                "landscape" : "https://via.placeholder.com/1280x720",
+                "portrait" : "https://via.placeholder.com/720x1280",
+                "square" : "https://via.placeholder.com/1280x1280"
             };
         } else {
             img_urls = {
-                "landscape" : "https://jsonipsum.com/static/images/placeholder_960x640.jpg",
-                "portrait" : "https://jsonipsum.com/static/images/placeholder_640x960.jpg",
-                "square" : "https://jsonipsum.com/static/images/placeholder_960x960.jpg"
+                "landscape" : "https://via.placeholder.com/960x640",
+                "portrait" : "https://via.placeholder.com/640x960",
+                "square" : "https://via.placeholder.com/960x960"
             };
         }
 
