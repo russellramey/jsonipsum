@@ -1,6 +1,6 @@
 # Constructors
 
-Constructors are custom string values that will be parsed into generated data. Each constructor can support specific arguments that can be passed along using parentheses: `__constructor(args)`
+Constructors are custom string values that will be parsed into generated data. Each constructor can support specific arguments that can be passed along using parentheses: `__constructor(args)`. Constructors always start with double underscores.
 
 ## __word
 
@@ -17,7 +17,7 @@ Return lorem ipsum word.
 
 Argument | Value | Description
 --------- | --------- | -----------
-count | integer | Number of characters to return in a single string <br>_Default: 1_
+count | integer | Number of words to return in a single string <br>_Default: 1_
 
 
 
@@ -45,7 +45,7 @@ __sentence
 "Pariatur consequat ut tempor dolor veniam tempor irure sunt."
 ```
 
-Return a single properly formatted sentence with period.
+Return a single properly formatted sentence with punctuation.
 
 `__sentence(length)`
 
@@ -67,7 +67,7 @@ __paragraph
 "Pariatur adipisicing eiusmod esse aliquip reprehenderit labore culpa officia elit voluptate sint irure amet. Et nisi qui do incididunt dolore enim sit. Dolore sit nostrud id enim aliquip sunt dolor irure est culpa aliqua tempor consequat velit labore quis do. Ex deserunt cupidatat est enim adipisicing elit sint ad tempor consectetur adipisicing consequat fugiat excepteur. Consectetur sit in laborum occaecat cupidatat do duis nostrud occaecat proident adipisicing fugiat enim ipsum eiusmod enim elit. Mollit adipisicing in. Proident adipisicing duis mollit commodo deserunt dolore voluptate aute eiusmod sunt aute labore. Fugiat aliqua non pariatur Lorem ut fugiat tempor dolor voluptate officia Lorem velit do duis cillum cupidatat."
 ```
 
-Return a single paragraph containing multiple sentences.
+Return a single string containing multiple sentences.
 
 `__paragraph(length)`
 
@@ -245,15 +245,15 @@ __image(small)
 }
 ```
 
-Return object with urls to landscape, portrait, and square versions of an image.
+Return object with urls to landscape, portrait, and square versions of a placeholder image.
 
 `__image(size)`
 
 Size | Description
 --------- | -----------
-small | Small image size (480px)
-medium | Medium size image (640px) <br>_Default_
-large | Large size image (960px)
+small | Small image size (~480px)
+medium | Medium size image (~640px) <br>_Default_
+large | Large size image (~960px)
 
 
 
@@ -264,14 +264,14 @@ __file
 ```
 ```json
 {
-    "name": "placeholder_file.pdf",
+    "name": "Placeholder.pdf",
     "link": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Placeholder.pdf",
     "mime_type": "application/pdf",
     "size": 2749
 }
 ```
 
-Return object with file name, file link, mime type, and file size data for a sample file.
+Return object with file name, file link, mime type, and random file size data for a sample file.
 
 `__file`
 
@@ -291,7 +291,7 @@ __video
 }
 ```
 
-Return video object with id, url, embed url, and duration data.
+Return video object with id, url, embed url, and random duration data.
 
 `__video`
 
@@ -346,10 +346,10 @@ Option | Description
 --------- | -----------
 street | Only return street value as string
 city | Only return city value as string
-postal | Only return postal value as string
+postal | Only return postal code value as string
 province | Only return province value as string
 country | Only return country value as string
-countrycode | Only return countrycode value as string
+countrycode | Only return abbreviated country code value as string
 
 
 
@@ -391,7 +391,39 @@ Return user object with name, email, username, and address.
 
 Option | Description
 --------- | -----------
-name | Only return name value as object
+name | Only return name object
 email | Only return city value as string
 username | Only return username as string
 address | Only return address as object
+
+
+## __template
+
+```JS
+__template(post)
+```
+```json
+{
+    "title": "Sint sunt id aliquip ut do anim occaecat Lorem.",
+    "body": "Pariatur non deserunt sunt commodo non Lorem sint quis sunt aliquip ad. Dolore do occaecat adipisicing consequat elit id. Aliqua qui sit aliquip duis est ad sunt duis amet id aute dolore esse velit nostrud ut quis.",
+    "username": "mona1987",
+    "date": {
+        "string": "2020-11-3",
+        "timestamp": 1604383200000
+    },
+    "likes": 92
+}
+```
+
+Quickly return a pre-formatted JSON objects.
+
+`__template(option)`
+
+Option | Description
+--------- | -----------
+user | Returns a User object with name, email, username, and address.
+post | Returns a Post object with title, body, username, date, and likes count.
+blog | Return a Blog object with title, excerpt, thumbnail, author, date, and comments count.
+comment | Return a Comment object with body, username, reply count, likes count, and date.
+todo | Return a Todo object with title, date, and complete boolean.
+photo | Return a Photo object with image, title, caption, username, date, comment count, and likes count.
