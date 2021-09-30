@@ -13,7 +13,7 @@ module.exports = {
         // Parse supplied value
         let result = parser.parse(value);
         // Debug
-        console.log(result);
+        // console.log(result);
         // If result function exits
         if(this[result.func]){
             // Return & exec function
@@ -94,7 +94,7 @@ module.exports = {
     __object: function(args){
         // Build data item
         let obj = {};
-
+        // Debug
         // console.log(args);
         Object.entries(args).forEach((arr) => {
             // Set key/value pair based on array value
