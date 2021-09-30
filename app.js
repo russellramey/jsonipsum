@@ -1,44 +1,57 @@
 /*jshint esversion: 6*/
+/************************************
+*
+* Dependencies
+*
+************************************/
+const express = require("express");
+const bodyParser = require("body-parser");
+const getFormat = require('./modules/formats');
 
-// Import Modules
-var express = require("express");
-var bodyParser = require("body-parser");
-var getFormat = require('./modules/formats');
+/************************************
+*
+* App Config
+*
+************************************/
+// Initial express app
+const app = express();
 
-// Start app
-var app = express();
+// Available formats array
+const formats = ["word", "sentence", "paragraph", "data"];
 
-//Here we are configuring express to use body-parser as middle-ware.
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-// Format array
-var formats = ["word", "sentence", "paragraph", "data"];
-
-// Error object for 404
-var error404 = {
+// Default error object for 404
+const error404 = {
     "error": true,
     "message": "The requested resource is not a valid endpoint or does not support current HTTP method.",
     "status" : 404,
     "endpoints" : {
-        "word": "https://jsonipsum.com/api/word/",
-        "sentence": "https://jsonipsum.com/api/sentence/",
-        "paragraph": "https://jsonipsum.com/api/paragraph/",
-        "data": "https://jsonipsum.com/api/data/",
+        "word": "https://api.jsonipsum.com/get/word/",
+        "sentence": "https://api.jsonipsum.com/get/sentence/",
+        "paragraph": "https://api.jsonipsum.com/get/paragraph/",
+        "data": "https://api.jsonipsum.com/get/data/"
     }
 };
 
+// Here we are configuring express to use body-parser as middle-ware.
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+/************************************
+*
+* App Routes
+*
+************************************/
 // Main get request
-app.get("/api/get/:format/", (request, response, next) => {
+app.get("/get/:format/", (request, response, next) => {
 
     // Get format
-    var format = request.params.format;
+    let format = request.params.format;
 
     // If format is valid
     if (formats.indexOf(format) >= 0) {
 
         // Get passed parameters
-        var params = request.query;
+        let params = request.query;
 
         // Call lorem funciton to get text, append to data
         data = getFormat.get_format(format, params, request);
@@ -63,10 +76,10 @@ app.get("/api/get/:format/", (request, response, next) => {
 });
 
 // Main post request, return data body back as reponse
-app.post("/api/post/:format/", (request, response , next) => {
+app.post("/post/:format/", (request, response , next) => {
 
     // Get format
-    var format = request.params.format;
+    let format = request.params.format;
 
     // If format is valid
     if (format === 'data') {
@@ -97,7 +110,16 @@ app.post("/api/post/:format/", (request, response , next) => {
 
 });
 
-// Start server
+// Default catch all (404)
+app.get('*', function(req, res){
+  res.status(404).json(error404);
+});
+
+/************************************
+*
+* App run
+*
+************************************/
 app.listen(3000, () => {
     console.log("Server running on port 3000");
 });
