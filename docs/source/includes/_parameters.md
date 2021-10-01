@@ -1,7 +1,7 @@
 # Parameters
 While <b>JSON:ISPUM</b> will accept any parameter passed along in the request, there are a few API specific parameters that can be used, and that will perform certain actions. API specific parameters always start with an underscore character ( _ ).
 
-## Length
+## _length
 
 ```shell
 GET "https://api.jsonipsum.com/get/sentence/?_length=short"
@@ -34,7 +34,7 @@ rand | Returns random length text. <br>_Default. 3-18 word sentences, 3-12 sente
 
 
 
-## Count
+## _count
 
 ```shell
 GET "https://api.jsonipsum.com/get/paragraph/?_count=3"
@@ -69,7 +69,7 @@ The <em>Count</em> parameter will add additional indexes to the returned json ob
 
 
 
-## Template
+## _template
 
 ```shell
 GET "https://api.jsonipsum.com/get/data/?_template=post"
@@ -117,7 +117,7 @@ The <em>Count</em> parameter will add additional indexes to the returned json ob
 
 
 
-## Json
+## _json
 
 ```shell
 GET 'https://api.jsonipsum.com/get/data?_json={"title":"__sentence","body":"__paragraph","date":"__date(future)"}'
