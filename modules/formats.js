@@ -2,7 +2,7 @@
 
 // Import modules
 const lorem = require('./lorem');
-const getTemplate = require('./templates');
+const templates = require('./templates');
 const constructors = require('./constructors');
 
 // Custom modules
@@ -79,7 +79,7 @@ module.exports = {
                         if(params._template){
                             try{
                                 // Append template parameters to params object
-                                params = Object.assign(getTemplate.get_template_fields(params._template), params);
+                                params = Object.assign(templates.get_template_fields(params._template), params);
                             } catch (e){
                                 // If invalid template
                                 params = {
