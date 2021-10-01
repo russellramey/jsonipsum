@@ -366,15 +366,7 @@ __user
         "lastname": "Macejkovic"
     },
     "email": "beaulah1996@jsonipsum.com",
-    "username": "beaulah1996",
-    "address": {
-        "street": "57298 Rutherford Stream",
-        "city": "Jastport",
-        "postal": "15125",
-        "province": "Maryland",
-        "country": "Iran",
-        "countrycode": "SH"
-    }
+    "username": "beaulah1996"
 }
 ```
 
@@ -394,8 +386,6 @@ Option | Description
 name | Only return name object
 email | Only return city value as string
 username | Only return username as string
-address | Only return address as object
-
 
 ## __template
 

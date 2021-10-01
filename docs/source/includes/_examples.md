@@ -70,20 +70,46 @@ GET "https://api.jsonipsum.com/get/data/?_template=user"
             "lastname": "Lindgren"
         },
         "email": "oren1995@jsonipsum.com",
-        "username": "oren1995",
-        "address": {
-            "street": "32184 Kiana Mountain",
-            "city": "Jacobsfurt",
-            "postal": "24751",
-            "province": "Hawaii",
-            "country": "Bosnia and Herzegovina",
-            "countrycode": "KM"
-        }
+        "username": "oren1995"
     }
 ]
 ```
 
 Using the [data](#data) endpoint along with the [_template](#template) parameter, you can request pre-formatted JSON objects. If you pass additional key parameters, you can override any of the default keys/values.
+
+
+## `GET` Template Object with additional data
+
+```shell
+GET "https://api.jsonipsum.com/get/data/?_template=user&address=__address&password=__alphanum(18)"
+```
+> JSON Response
+
+```json
+[
+    {
+        "id": 1,
+        "name": {
+            "fullname": "Oren Lindgren",
+            "firstname": "Oren",
+            "lastname": "Lindgren"
+        },
+        "email": "oren1995@jsonipsum.com",
+        "username": "oren1995",
+        "address": {
+            "street": "667 Grady Circle",
+            "city": "North Araceli",
+            "postal": "87768-8549",
+            "province": "Louisiana",
+            "country": "Saint Vincent and the Grenadines",
+            "countrycode": "CI"
+        },
+        "password": "tw4VghTwiQ2KECvonh"
+    }
+]
+```
+
+You can append additional data to prepared [_template](#template) objects, by passing in additinal parameters with the request. The additional data values can be [__constructors](#constructors) or static values.
 
 
 ## `GET` Array of Template Objects
@@ -103,15 +129,7 @@ GET "https://api.jsonipsum.com/get/data/?_template=user&_count=3"
             "lastname": "Grady"
         },
         "email": "bonita1999@jsonipsum.com",
-        "username": "bonita1999",
-        "address": {
-            "street": "4385 Orn Isle",
-            "city": "East Paul",
-            "postal": "90993-6447",
-            "province": "Minnesota",
-            "country": "Kazakhstan",
-            "countrycode": "GW"
-        }
+        "username": "bonita1999"
     },
     {
         "id": 2,
@@ -121,15 +139,7 @@ GET "https://api.jsonipsum.com/get/data/?_template=user&_count=3"
             "lastname": "Effertz"
         },
         "email": "deangelo1983@jsonipsum.com",
-        "username": "deangelo1983",
-        "address": {
-            "street": "01747 Vincenza Rapids",
-            "city": "Runtefurt",
-            "postal": "52368",
-            "province": "Mississippi",
-            "country": "Mozambique",
-            "countrycode": "VI"
-        }
+        "username": "deangelo1983"
     },
     {
         "id": 3,
@@ -139,15 +149,7 @@ GET "https://api.jsonipsum.com/get/data/?_template=user&_count=3"
             "lastname": "Hickle"
         },
         "email": "elvera1991@jsonipsum.com",
-        "username": "elvera1991",
-        "address": {
-            "street": "2322 Chadd Parkways",
-            "city": "New Karleestad",
-            "postal": "70019-4300",
-            "province": "Virginia",
-            "country": "French Southern Territories",
-            "countrycode": "MA"
-        }
+        "username": "elvera1991"
     }
 ]
 ```
