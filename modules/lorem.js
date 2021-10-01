@@ -1,7 +1,15 @@
-// Import LoremIpsum module
+/************************************
+*
+* Dependencies
+*
+************************************/
 var loremIpsum = require('lorem-ipsum');
 
-// Custom modules
+/************************************
+*
+* Module export
+*
+************************************/
 module.exports = {
 
     // Generate Lorem Ipsum

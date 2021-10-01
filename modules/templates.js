@@ -1,4 +1,8 @@
-// Custom modules
+/************************************
+*
+* Module export
+*
+************************************/
 module.exports = {
 
     // Render Template Fields

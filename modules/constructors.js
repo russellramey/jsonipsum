@@ -1,12 +1,19 @@
 /*jshint esversion: 6*/
-
-// Import modules
+/************************************
+*
+* Dependencies
+*
+************************************/
 const faker = require('faker');
 const lorem = require('./lorem');
 const parser = require('./parser');
 const templates = require('./templates');
 
-// Custom modules
+/************************************
+*
+* Module export
+*
+************************************/
 module.exports = {
     // Execute constructor function
     exec: function(value, request){

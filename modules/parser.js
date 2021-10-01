@@ -1,6 +1,9 @@
 /*jshint esversion: 6*/
-
-// Custom modules
+/************************************
+*
+* Module export
+*
+************************************/
 module.exports = {
     // Parse constructor function
     parse: function(value){

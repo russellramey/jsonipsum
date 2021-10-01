@@ -1,11 +1,18 @@
 /*jshint esversion: 6*/
-
-// Import modules
+/************************************
+*
+* Dependencies
+*
+************************************/
 const lorem = require('./lorem');
 const templates = require('./templates');
 const constructors = require('./constructors');
 
-// Custom modules
+/************************************
+*
+* Module export
+*
+************************************/
 module.exports = {
 
     // Get Format Funciton
