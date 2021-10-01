@@ -187,7 +187,7 @@ module.exports = {
             },
             email: name.username + "@jsonipsum.com",
             username: name.username,
-            address: this.exec('__address')
+            // address: this.exec('__address')
         };
 
         // Return response

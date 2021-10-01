@@ -12,17 +12,17 @@ module.exports = {
     get_format: function get_format(format, params, request) {
         // Empty data array
         let data = [];
-
+        // Allowed parameters
         let protected_params = ['_count', '_json', '_template', '_length'];
 
         // Parse Global Params
-        // ?length
+        // _length param
         if (params._length){
             length = params._length;
         } else {
             length = '';
         }
-        // ?count
+        // _count param
         if (params._count && params._count <= 100){
             count = params._count;
         } else {
@@ -65,27 +65,12 @@ module.exports = {
                     if(params){
                         // If json parameter is set
                         if(params._json){
-                            try{
-                                // Append json parameters to params object
-                                params = Object.assign(JSON.parse(params._json), params);
-                            } catch (e){
-                                // If invalid json
-                                params = {
-                                    error: 'JSON parameter must contain valid JSON data',
-                                };
-                            }
+                            params = this.has_json(params);
                         }
+
                         // If template parameter is set
                         if(params._template){
-                            try{
-                                // Append template parameters to params object
-                                params = Object.assign(templates.get_template_fields(params._template), params);
-                            } catch (e){
-                                // If invalid template
-                                params = {
-                                    error: 'Not a valid template value',
-                                };
-                            }
+                            params = this.has_template(params);
                         }
 
                         // For each parameter in params object
@@ -109,9 +94,10 @@ module.exports = {
 
             // Default case
             default:
-                data = data = {
+                data = {
+                    "error": true,
                     "status" : 404,
-                    "error" : "/" + format + " is not a valid endpoint"
+                    "message" : "/" + format + " is not a valid endpoint"
                 };
                 break;
 
@@ -161,5 +147,48 @@ module.exports = {
 
         // Return new object
         return object;
+    },
+
+    // Has _template param
+    has_template: function(params){
+        try{
+            // Append template parameters to params object
+            params = Object.assign(templates.get_template_fields(params._template), params);
+            // If user key exists
+            if(params.user){
+                // Delete user key
+                delete params.user;
+                // Append user object data to existing params data
+                params = Object.assign(constructors.exec('__user'), params);
+            }
+        } catch (e){
+            // If invalid template
+            params = {
+                error: true,
+                key: '_template',
+                message: 'Not a valid template value'
+            };
+        }
+
+        // Return data
+        return params;
+    },
+
+    // Has _json param
+    has_json: function(params){
+        try{
+            // Append json parameters to params object
+            params = Object.assign(JSON.parse(params._json), params);
+        } catch (e){
+            // If invalid json
+            params = {
+                error: true,
+                key: '_json',
+                message: 'JSON parameter must contain valid JSON data'
+            };
+        }
+
+        // Return data
+        return params;
     }
 };
