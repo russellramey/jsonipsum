@@ -1,9 +1,10 @@
+/*jshint esversion: 6*/
 /************************************
 *
 * Dependencies
 *
 ************************************/
-var loremIpsum = require('lorem-ipsum');
+const loremIpsum = require('lorem-ipsum');
 
 /************************************
 *
@@ -15,8 +16,8 @@ module.exports = {
     // Generate Lorem Ipsum
     generate_lorem_ipusm: function generate_lorem_ipusm(style, length, count) {
         // Vars
-        var text = '';
-        var options = '';
+        let text = '';
+        let options = '';
 
         // Valiate LENGTH param
         // Short
@@ -69,8 +70,8 @@ module.exports = {
     // Generate date
     generate_date: function generate_date(options, faker) {
         // Get todays datetime
-        var today = new Date();
-        var date = '';
+        let today = new Date();
+        let date = '';
 
         // Check if options are passed
         // Random - date between 1980 - Present
@@ -101,7 +102,7 @@ module.exports = {
 
     // Generate placeholder image urls
     generate_image_urls: function generate_image_urls(size){
-        var img_urls = '';
+        let img_urls = '';
 
         // Small images
         if (size === 'small'){
