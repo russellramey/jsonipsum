@@ -79,7 +79,7 @@ module.exports = {
                 // User
                 case 'user':
                     fields = {
-                        user: '__user'
+                        _user: '__user'
                     };
                     break;
 

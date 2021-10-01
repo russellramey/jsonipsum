@@ -155,9 +155,9 @@ module.exports = {
             // Append template parameters to params object
             params = Object.assign(templates.get_template_fields(params._template), params);
             // If user key exists
-            if(params.user){
+            if(params._user){
                 // Delete user key
-                delete params.user;
+                delete params._user;
                 // Append user object data to existing params data
                 params = Object.assign(constructors.exec('__user'), params);
             }
