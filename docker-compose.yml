@@ -5,7 +5,7 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
-        image: node-jsonipsum # nodejs
+        image: nodejs
         container_name: jsonipsum
         volumes:
             - .:/home/node/app # App source
