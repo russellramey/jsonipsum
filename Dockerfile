@@ -1,18 +1,14 @@
 # NodeJS version
 FROM node:latest
-# # # Make wording directory for app source
-# RUN mkdir /home/node/app && chown -R node:node /home/node/app
-# # Set appropriate user
-# USER node
 # Set app working directory
-WORKDIR /home/jsonipsum/app
+WORKDIR /usr/src/app
 # Copy node dependencies
 COPY package*.json ./
 # Run npm install for node dependencies
 RUN npm install
 # Copy app source code to working directory
-COPY --chown=node:node . .
+COPY . .
 # Expose port
-EXPOSE 3838
-# Run server
+EXPOSE 3000
+# Run app
 CMD ["node", "app.js"]

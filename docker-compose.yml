@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+  jsonipsum:
+    build: .
+    container_name: jsonipsum
+    ports:
+      - "192.168.1.201:3000:3000"
+    restart: unless-stopped
