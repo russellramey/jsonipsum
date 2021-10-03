@@ -1,7 +1,7 @@
 # NodeJS version
 FROM node:14
 # Make wording directory for app source
-RUN mkdir /home/node/app/node_modules && chown -R node:node /home/node/app
+RUN mkdir /home/node/app && chown -R node:node /home/node/app
 # Set appropriate user
 USER node
 # Set app working directory
