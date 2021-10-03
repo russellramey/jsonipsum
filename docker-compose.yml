@@ -2,13 +2,13 @@ version: '3.4'
 
 services:
     nodejs:
-        build:
-            context: .
-            dockerfile: Dockerfile
+        # build:
+        #     context: .
+        #     dockerfile: Dockerfile
         image: nodejs
         container_name: jsonipsum
         volumes:
             - .:/home/node/app # App source
             #- node_modules:/home/node/app/node_modules # App dependencies
         ports:
-            - "3838:3838"
+            - "3838:3000"
