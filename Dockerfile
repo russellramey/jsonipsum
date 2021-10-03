@@ -1,11 +1,11 @@
 # NodeJS version
 FROM node:latest
-# # Make wording directory for app source
-RUN mkdir /home/node/app && chown -R node:node /home/node/app
-# Set appropriate user
-USER node
+# # # Make wording directory for app source
+# RUN mkdir /home/node/app && chown -R node:node /home/node/app
+# # Set appropriate user
+# USER node
 # Set app working directory
-WORKDIR /home/node/app
+WORKDIR /home/jsonipsum/app
 # Copy node dependencies
 COPY package*.json ./
 # Run npm install for node dependencies
