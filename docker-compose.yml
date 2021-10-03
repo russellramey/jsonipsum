@@ -7,7 +7,7 @@ services:
             dockerfile: Dockerfile
         image: node-jsonipsum # nodejs
         container_name: jsonipsum
-        volume:
+        volumes:
             - .:/home/node/app # App source
             - node_modules:/home/node/app/node_modules: delegated # App dependencies
         ports:
