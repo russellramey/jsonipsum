@@ -1,5 +1,5 @@
 # JSON:IPSUM
-Official documentation: [https://docs.jsonipsum.com](https://www.jsonipsum.com)
+Official documentation: [https://docs.jsonipsum.com](https://docs.jsonipsum.com)
 
 ## Overview
 REST api that returns JSON objects with randomly generated text (lorem ipsum), as well as placeholder data like names, emails, usernames to be used for development, testing, or placeholder purposes.
@@ -26,17 +26,16 @@ REST api that returns JSON objects with randomly generated text (lorem ipsum), a
 - Simply generate lorem ipsum text programmatically.
 
 ## Endpoints
-https://api.jsonipsum.com/get/<format>
-- word
-- sentence
-- paragraph
-- data
+Read more about available endpoints in the docs: [https://docs.jsonipsum.com](https://docs.jsonipsum.com).
+- https://api.jsonipsum.com/get/word
+- https://api.jsonipsum.com/get/sentence
+- https://api.jsonipsum.com/get/paragraph
+- https://api.jsonipsum.com/get/data
+- https://api.jsonipsum.com/post/data
 
-https://api.jsonipsum.com/post/<format>
-- data
 
 ## Constructors
-Constructors are custom string values, prefixed with '__'. The API will detect any constructor values and parse the constructor, returning the requested randomly generated text/data. Each constructor will support specific arguments that can be passed along along using parentheses: "__constructor(args)".
+Constructors are custom string values, prefixed with '__'. The API will detect any constructor values and parse the constructor, returning the requested randomly generated text/data. Each constructor will support specific arguments that can be passed along along using parentheses: "__constructor(args)". Read more about constructors in the docs: [https://docs.jsonipsum.com](https://docs.jsonipsum.com).
 - __word
 - __phrase
 - __sentence
@@ -56,7 +55,7 @@ Constructors are custom string values, prefixed with '__'. The API will detect a
 - __template
 
 ## Params
-Parameters are specific keys that can be passed to the API, these parameters only accept specific values as well.
+Parameters are specific keys that can be passed to the API, these parameters only accept specific values as well. Read more about parameters in the docs: [https://docs.jsonipsum.com](https://docs.jsonipsum.com).
 - _json
 - _template
     - user
@@ -69,6 +68,6 @@ Parameters are specific keys that can be passed to the API, these parameters onl
 - _length
 
 
-## RESOURCES
+## Resources
 - Faker - https://github.com/marak/Faker.js/
 - Lorem - https://www.npmjs.com/package/lorem-ipsum
