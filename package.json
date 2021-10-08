@@ -4,9 +4,10 @@
 	"description": "RESTful API to generate placeholder lorem ipsum text.",
 	"main": "app.js",
 	"dependencies": {
+		"cors": "^2.8.5",
 		"express": "^4.16.3",
-		"lorem-ipsum": "^1.0.6",
-		"faker": "^4.1.0"
+		"faker": "^4.1.0",
+		"lorem-ipsum": "^1.0.6"
 	},
 	"license": "mit"
 }

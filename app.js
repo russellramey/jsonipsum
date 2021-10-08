@@ -5,6 +5,7 @@
 *
 ************************************/
 const express = require("express");
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const getFormat = require('./modules/formats');
 
@@ -35,6 +36,8 @@ const error404 = {
 // Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+// Enable CORS on all routes
+app.use(cors());
 
 /************************************
 *
