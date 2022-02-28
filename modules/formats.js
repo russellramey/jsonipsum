@@ -166,7 +166,7 @@ module.exports = {
                 // Delete user key
                 delete params._user;
                 // Append user object data to existing params data
-                params = Object.assign(constructors.exec('__user'), params);
+                params = Object.assign(params, constructors.exec('__user'));
             }
         } catch (e){
             // If invalid template
